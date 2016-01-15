@@ -53,7 +53,7 @@
 
 (defn fluff [skinny width height length]
   (str "<p>Click the <strong>Play</strong> icon to begin.</p>
-<p><iframe width=\"" width "\" height=\""height "\" src=\"" (ifriendly skinny) "\" frameborder=\"0\" allowfullscreen></iframe></p>
+<p><iframe width=\"" width "\" height=\""height "\" src=\"" (ifriendly skinny) "\" frameBorder=\"0\" allowfullscreen></iframe></p>
 <p>If video doesn't appear, follow this direct link:
 <a href=\"" skinny  "\" title=\"Video\" target=\"_blank\">"
 skinny "</a>(" length ")</p>\n<p>To display video captions, start video and click <b>CC</b> in the video frame. To expand the video, use direct link above to open video in YouTube</p>
@@ -151,7 +151,7 @@ skinny "</a>(" length ")</p>\n<p>To display video captions, start video and clic
 (defcard YouTube
          ;"see [devcards](https://github.com/bhauman/devcards) for deets"
   (fn [data-atom _] (bmi-component data-atom))
-  {:height 360 :width 640 :yurl "http://youtube.com/watch?v=2FpW1ctrDHE" :length "3m 45s"}
+  {:height 360 :width 640 :yurl "https://youtube.com/watch?v=2FpW1ctrDHE" :length "3m 45s"}
   {:inspect-data true
    :frame        true
    :history      true
