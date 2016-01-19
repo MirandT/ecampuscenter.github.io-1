@@ -56,7 +56,7 @@
 <p><iframe width=\"" width "\" height=\""height "\" src=\"" (ifriendly skinny) "\" frameBorder=\"0\" allowfullscreen></iframe></p>
 <p>If video doesn't appear, follow this direct link:
 <a href=\"" skinny  "\" title=\"Video\" target=\"_blank\">"
-skinny "</a>(" length ")</p><p>To display video captions, start video and click <b>CC</b> in the video frame. To expand the video, use direct link above to open video in YouTube</p>
+skinny "</a> (" length ")</p><p>To display video captions, start video and click <b>CC</b> in the video frame. To expand the video, use direct link above to open video in YouTube</p>
 ")
   )
 
