@@ -20,23 +20,23 @@ while(true){
 if((b === (0))){
 return a;
 } else {
-var G__21083 = b;
-var G__21084 = cljs.core.mod.call(null,a,b);
-a = G__21083;
-b = G__21084;
+var G__21229 = b;
+var G__21230 = cljs.core.mod.call(null,a,b);
+a = G__21229;
+b = G__21230;
 continue;
 }
 break;
 }
 });
 youtube_embed.core.calc_bmi = (function youtube_embed$core$calc_bmi(bmi_data){
-var map__21087 = bmi_data;
-var map__21087__$1 = ((((!((map__21087 == null)))?((((map__21087.cljs$lang$protocol_mask$partition0$ & (64))) || (map__21087.cljs$core$ISeq$))?true:false):false))?cljs.core.apply.call(null,cljs.core.hash_map,map__21087):map__21087);
-var data = map__21087__$1;
-var height = cljs.core.get.call(null,map__21087__$1,new cljs.core.Keyword(null,"height","height",1025178622));
-var width = cljs.core.get.call(null,map__21087__$1,new cljs.core.Keyword(null,"width","width",-384071477));
-var bmi = cljs.core.get.call(null,map__21087__$1,new cljs.core.Keyword(null,"bmi","bmi",1421979636));
-var yurl = cljs.core.get.call(null,map__21087__$1,new cljs.core.Keyword(null,"yurl","yurl",182188908));
+var map__21233 = bmi_data;
+var map__21233__$1 = ((((!((map__21233 == null)))?((((map__21233.cljs$lang$protocol_mask$partition0$ & (64))) || (map__21233.cljs$core$ISeq$))?true:false):false))?cljs.core.apply.call(null,cljs.core.hash_map,map__21233):map__21233);
+var data = map__21233__$1;
+var height = cljs.core.get.call(null,map__21233__$1,new cljs.core.Keyword(null,"height","height",1025178622));
+var width = cljs.core.get.call(null,map__21233__$1,new cljs.core.Keyword(null,"width","width",-384071477));
+var bmi = cljs.core.get.call(null,map__21233__$1,new cljs.core.Keyword(null,"bmi","bmi",1421979636));
+var yurl = cljs.core.get.call(null,map__21233__$1,new cljs.core.Keyword(null,"yurl","yurl",182188908));
 var h = (height / (100));
 if((bmi == null)){
 return cljs.core.assoc.call(null,data,new cljs.core.Keyword(null,"bmi","bmi",1421979636),((1) / ((width / youtube_embed.core.gcd.call(null,width,height)) / (height / youtube_embed.core.gcd.call(null,width,height)))));
@@ -82,34 +82,34 @@ return cljs.core.swap_BANG_.call(null,bmi_data,cljs.core.assoc,new cljs.core.Key
 } else {
 return null;
 }
-})}),React.createElement("p",{"style": {"fontSize": ".8em"}},"If video doesn't appear, follow this direct link: ",React.createElement("a",{"href": value, "title": "Video", "target": "_blank"},sablono.interpreter.interpret.call(null,value))),React.createElement("p",{"style": {"fontSize": ".8em"}},"To display video captions, start video and click ",React.createElement("strong",null,"CC"),"\u00A0in the video\n     frame. To expand the video, use direct link above to open video in YouTube."));
+})}),React.createElement("p",{"style": {"fontSize": ".8em"}},"If video doesn't appear, follow this direct link: ",React.createElement("a",{"href": value, "title": "Video", "target": "_blank"},sablono.interpreter.interpret.call(null,value))," (",sablono.interpreter.interpret.call(null,length),")"),React.createElement("p",{"style": {"fontSize": ".8em"}},"To display video captions, start video and click ",React.createElement("strong",null,"CC"),"\u00A0in the video\n     frame. To expand the video, use direct link above to open video in YouTube."));
 });
 youtube_embed.core.bmi_component = (function youtube_embed$core$bmi_component(bmi_data){
-var map__21109 = youtube_embed.core.calc_bmi.call(null,cljs.core.deref.call(null,bmi_data));
-var map__21109__$1 = ((((!((map__21109 == null)))?((((map__21109.cljs$lang$protocol_mask$partition0$ & (64))) || (map__21109.cljs$core$ISeq$))?true:false):false))?cljs.core.apply.call(null,cljs.core.hash_map,map__21109):map__21109);
-var width = cljs.core.get.call(null,map__21109__$1,new cljs.core.Keyword(null,"width","width",-384071477));
-var height = cljs.core.get.call(null,map__21109__$1,new cljs.core.Keyword(null,"height","height",1025178622));
-var bmi = cljs.core.get.call(null,map__21109__$1,new cljs.core.Keyword(null,"bmi","bmi",1421979636));
-var yurl = cljs.core.get.call(null,map__21109__$1,new cljs.core.Keyword(null,"yurl","yurl",182188908));
-var length = cljs.core.get.call(null,map__21109__$1,new cljs.core.Keyword(null,"length","length",588987862));
-var vec__21110 = ((((bmi > .562)) && ((bmi < .563)))?new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, ["green",[cljs.core.str("approx ratio: 16:9. exact ratio: "),cljs.core.str((width / youtube_embed.core.gcd.call(null,width,height))),cljs.core.str(" by "),cljs.core.str((height / youtube_embed.core.gcd.call(null,width,height))),cljs.core.str(".")].join('')], null):((((bmi > .74)) && ((bmi < .76)))?new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, ["inherit",[cljs.core.str("approx ratio: 4:3. exact ratio: "),cljs.core.str((width / youtube_embed.core.gcd.call(null,width,height))),cljs.core.str(" by "),cljs.core.str((height / youtube_embed.core.gcd.call(null,width,height))),cljs.core.str(".")].join('')], null):new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, ["red","non-standard ratio"], null)
+var map__21255 = youtube_embed.core.calc_bmi.call(null,cljs.core.deref.call(null,bmi_data));
+var map__21255__$1 = ((((!((map__21255 == null)))?((((map__21255.cljs$lang$protocol_mask$partition0$ & (64))) || (map__21255.cljs$core$ISeq$))?true:false):false))?cljs.core.apply.call(null,cljs.core.hash_map,map__21255):map__21255);
+var width = cljs.core.get.call(null,map__21255__$1,new cljs.core.Keyword(null,"width","width",-384071477));
+var height = cljs.core.get.call(null,map__21255__$1,new cljs.core.Keyword(null,"height","height",1025178622));
+var bmi = cljs.core.get.call(null,map__21255__$1,new cljs.core.Keyword(null,"bmi","bmi",1421979636));
+var yurl = cljs.core.get.call(null,map__21255__$1,new cljs.core.Keyword(null,"yurl","yurl",182188908));
+var length = cljs.core.get.call(null,map__21255__$1,new cljs.core.Keyword(null,"length","length",588987862));
+var vec__21256 = ((((bmi > .562)) && ((bmi < .563)))?new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, ["green",[cljs.core.str("approx ratio: 16:9. exact ratio: "),cljs.core.str((width / youtube_embed.core.gcd.call(null,width,height))),cljs.core.str(" by "),cljs.core.str((height / youtube_embed.core.gcd.call(null,width,height))),cljs.core.str(".")].join('')], null):((((bmi > .74)) && ((bmi < .76)))?new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, ["inherit",[cljs.core.str("approx ratio: 4:3. exact ratio: "),cljs.core.str((width / youtube_embed.core.gcd.call(null,width,height))),cljs.core.str(" by "),cljs.core.str((height / youtube_embed.core.gcd.call(null,width,height))),cljs.core.str(".")].join('')], null):new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, ["red","non-standard ratio"], null)
 ));
-var color = cljs.core.nth.call(null,vec__21110,(0),null);
-var diagnose = cljs.core.nth.call(null,vec__21110,(1),null);
-return React.createElement("div",null,React.createElement("h3",null,"Parameters"),React.createElement("div",null,(function (){var attrs21114 = [cljs.core.str("url: "),cljs.core.str(yurl)].join('');
-return cljs.core.apply.call(null,React.createElement,"span",((cljs.core.map_QMARK_.call(null,attrs21114))?sablono.interpreter.attributes.call(null,attrs21114):null),cljs.core.remove.call(null,cljs.core.nil_QMARK_,((cljs.core.map_QMARK_.call(null,attrs21114))?cljs.core.PersistentVector.EMPTY:new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [sablono.interpreter.interpret.call(null,attrs21114)], null))));
-})(),sablono.interpreter.interpret.call(null,youtube_embed.core.slider.call(null,bmi_data,new cljs.core.Keyword(null,"yurl","yurl",182188908),yurl,(0),(100)))),React.createElement("div",null,(function (){var attrs21115 = [cljs.core.str("time: "),cljs.core.str(length)].join('');
-return cljs.core.apply.call(null,React.createElement,"span",((cljs.core.map_QMARK_.call(null,attrs21115))?sablono.interpreter.attributes.call(null,attrs21115):null),cljs.core.remove.call(null,cljs.core.nil_QMARK_,((cljs.core.map_QMARK_.call(null,attrs21115))?cljs.core.PersistentVector.EMPTY:new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [sablono.interpreter.interpret.call(null,attrs21115)], null))));
-})(),sablono.interpreter.interpret.call(null,youtube_embed.core.slider.call(null,bmi_data,new cljs.core.Keyword(null,"length","length",588987862),length,(0),(100)))),React.createElement("div",null,(function (){var attrs21116 = [cljs.core.str("width: "),cljs.core.str((width | (0))),cljs.core.str("px")].join('');
-return cljs.core.apply.call(null,React.createElement,"span",((cljs.core.map_QMARK_.call(null,attrs21116))?sablono.interpreter.attributes.call(null,attrs21116):null),cljs.core.remove.call(null,cljs.core.nil_QMARK_,((cljs.core.map_QMARK_.call(null,attrs21116))?cljs.core.PersistentVector.EMPTY:new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [sablono.interpreter.interpret.call(null,attrs21116)], null))));
-})(),sablono.interpreter.interpret.call(null,youtube_embed.core.slider.call(null,bmi_data,new cljs.core.Keyword(null,"width","width",-384071477),width,(30),(150)))),React.createElement("div",null,(function (){var attrs21117 = [cljs.core.str("height: "),cljs.core.str((height | (0))),cljs.core.str("px")].join('');
-return cljs.core.apply.call(null,React.createElement,"span",((cljs.core.map_QMARK_.call(null,attrs21117))?sablono.interpreter.attributes.call(null,attrs21117):null),cljs.core.remove.call(null,cljs.core.nil_QMARK_,((cljs.core.map_QMARK_.call(null,attrs21117))?cljs.core.PersistentVector.EMPTY:new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [sablono.interpreter.interpret.call(null,attrs21117)], null))));
-})(),sablono.interpreter.interpret.call(null,youtube_embed.core.slider.call(null,bmi_data,new cljs.core.Keyword(null,"height","height",1025178622),height,(100),(220)))),React.createElement("div",null,(function (){var attrs21118 = [cljs.core.str("ratio: "),cljs.core.str(cljs.pprint.cl_format.call(null,null,"~,3f",bmi)),cljs.core.str(" ")].join('');
-return cljs.core.apply.call(null,React.createElement,"span",((cljs.core.map_QMARK_.call(null,attrs21118))?sablono.interpreter.attributes.call(null,attrs21118):null),cljs.core.remove.call(null,cljs.core.nil_QMARK_,((cljs.core.map_QMARK_.call(null,attrs21118))?cljs.core.PersistentVector.EMPTY:new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [sablono.interpreter.interpret.call(null,attrs21118)], null))));
-})(),React.createElement("span",{"style": {"color": color}},sablono.interpreter.interpret.call(null,diagnose)),sablono.interpreter.interpret.call(null,youtube_embed.core.slider.call(null,bmi_data,new cljs.core.Keyword(null,"bmi","bmi",1421979636),bmi,(10),(50)))),React.createElement("div",null,(function (){var attrs21119 = [cljs.core.str("html")].join('');
-return cljs.core.apply.call(null,React.createElement,"span",((cljs.core.map_QMARK_.call(null,attrs21119))?sablono.interpreter.attributes.call(null,attrs21119):null),cljs.core.remove.call(null,cljs.core.nil_QMARK_,((cljs.core.map_QMARK_.call(null,attrs21119))?cljs.core.PersistentVector.EMPTY:new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [sablono.interpreter.interpret.call(null,attrs21119)], null))));
-})(),sablono.interpreter.interpret.call(null,youtube_embed.core.htmlout.call(null,bmi_data,new cljs.core.Keyword(null,"yurl","yurl",182188908),yurl,width,height,(10),(50),length))),React.createElement("div",null,(function (){var attrs21120 = [cljs.core.str("preview")].join('');
-return cljs.core.apply.call(null,React.createElement,"span",((cljs.core.map_QMARK_.call(null,attrs21120))?sablono.interpreter.attributes.call(null,attrs21120):null),cljs.core.remove.call(null,cljs.core.nil_QMARK_,((cljs.core.map_QMARK_.call(null,attrs21120))?cljs.core.PersistentVector.EMPTY:new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [sablono.interpreter.interpret.call(null,attrs21120)], null))));
+var color = cljs.core.nth.call(null,vec__21256,(0),null);
+var diagnose = cljs.core.nth.call(null,vec__21256,(1),null);
+return React.createElement("div",null,React.createElement("h3",null,"Parameters"),React.createElement("div",null,(function (){var attrs21260 = [cljs.core.str("url: "),cljs.core.str(yurl)].join('');
+return cljs.core.apply.call(null,React.createElement,"span",((cljs.core.map_QMARK_.call(null,attrs21260))?sablono.interpreter.attributes.call(null,attrs21260):null),cljs.core.remove.call(null,cljs.core.nil_QMARK_,((cljs.core.map_QMARK_.call(null,attrs21260))?cljs.core.PersistentVector.EMPTY:new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [sablono.interpreter.interpret.call(null,attrs21260)], null))));
+})(),sablono.interpreter.interpret.call(null,youtube_embed.core.slider.call(null,bmi_data,new cljs.core.Keyword(null,"yurl","yurl",182188908),yurl,(0),(100)))),React.createElement("div",null,(function (){var attrs21261 = [cljs.core.str("time: "),cljs.core.str(length)].join('');
+return cljs.core.apply.call(null,React.createElement,"span",((cljs.core.map_QMARK_.call(null,attrs21261))?sablono.interpreter.attributes.call(null,attrs21261):null),cljs.core.remove.call(null,cljs.core.nil_QMARK_,((cljs.core.map_QMARK_.call(null,attrs21261))?cljs.core.PersistentVector.EMPTY:new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [sablono.interpreter.interpret.call(null,attrs21261)], null))));
+})(),sablono.interpreter.interpret.call(null,youtube_embed.core.slider.call(null,bmi_data,new cljs.core.Keyword(null,"length","length",588987862),length,(0),(100)))),React.createElement("div",null,(function (){var attrs21262 = [cljs.core.str("width: "),cljs.core.str((width | (0))),cljs.core.str("px")].join('');
+return cljs.core.apply.call(null,React.createElement,"span",((cljs.core.map_QMARK_.call(null,attrs21262))?sablono.interpreter.attributes.call(null,attrs21262):null),cljs.core.remove.call(null,cljs.core.nil_QMARK_,((cljs.core.map_QMARK_.call(null,attrs21262))?cljs.core.PersistentVector.EMPTY:new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [sablono.interpreter.interpret.call(null,attrs21262)], null))));
+})(),sablono.interpreter.interpret.call(null,youtube_embed.core.slider.call(null,bmi_data,new cljs.core.Keyword(null,"width","width",-384071477),width,(30),(150)))),React.createElement("div",null,(function (){var attrs21263 = [cljs.core.str("height: "),cljs.core.str((height | (0))),cljs.core.str("px")].join('');
+return cljs.core.apply.call(null,React.createElement,"span",((cljs.core.map_QMARK_.call(null,attrs21263))?sablono.interpreter.attributes.call(null,attrs21263):null),cljs.core.remove.call(null,cljs.core.nil_QMARK_,((cljs.core.map_QMARK_.call(null,attrs21263))?cljs.core.PersistentVector.EMPTY:new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [sablono.interpreter.interpret.call(null,attrs21263)], null))));
+})(),sablono.interpreter.interpret.call(null,youtube_embed.core.slider.call(null,bmi_data,new cljs.core.Keyword(null,"height","height",1025178622),height,(100),(220)))),React.createElement("div",null,(function (){var attrs21264 = [cljs.core.str("ratio: "),cljs.core.str(cljs.pprint.cl_format.call(null,null,"~,3f",bmi)),cljs.core.str(" ")].join('');
+return cljs.core.apply.call(null,React.createElement,"span",((cljs.core.map_QMARK_.call(null,attrs21264))?sablono.interpreter.attributes.call(null,attrs21264):null),cljs.core.remove.call(null,cljs.core.nil_QMARK_,((cljs.core.map_QMARK_.call(null,attrs21264))?cljs.core.PersistentVector.EMPTY:new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [sablono.interpreter.interpret.call(null,attrs21264)], null))));
+})(),React.createElement("span",{"style": {"color": color}},sablono.interpreter.interpret.call(null,diagnose)),sablono.interpreter.interpret.call(null,youtube_embed.core.slider.call(null,bmi_data,new cljs.core.Keyword(null,"bmi","bmi",1421979636),bmi,(10),(50)))),React.createElement("div",null,(function (){var attrs21265 = [cljs.core.str("html")].join('');
+return cljs.core.apply.call(null,React.createElement,"span",((cljs.core.map_QMARK_.call(null,attrs21265))?sablono.interpreter.attributes.call(null,attrs21265):null),cljs.core.remove.call(null,cljs.core.nil_QMARK_,((cljs.core.map_QMARK_.call(null,attrs21265))?cljs.core.PersistentVector.EMPTY:new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [sablono.interpreter.interpret.call(null,attrs21265)], null))));
+})(),sablono.interpreter.interpret.call(null,youtube_embed.core.htmlout.call(null,bmi_data,new cljs.core.Keyword(null,"yurl","yurl",182188908),yurl,width,height,(10),(50),length))),React.createElement("div",null,(function (){var attrs21266 = [cljs.core.str("preview")].join('');
+return cljs.core.apply.call(null,React.createElement,"span",((cljs.core.map_QMARK_.call(null,attrs21266))?sablono.interpreter.attributes.call(null,attrs21266):null),cljs.core.remove.call(null,cljs.core.nil_QMARK_,((cljs.core.map_QMARK_.call(null,attrs21266))?cljs.core.PersistentVector.EMPTY:new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [sablono.interpreter.interpret.call(null,attrs21266)], null))));
 })(),sablono.interpreter.interpret.call(null,youtube_embed.core.htmloutvisual.call(null,bmi_data,new cljs.core.Keyword(null,"yurl","yurl",182188908),yurl,width,height,(10),(50),length))));
 });
 devcards.core.register_card.call(null,new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null,"path","path",-188191168),new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"youtube_embed.core","youtube_embed.core",1304469563),new cljs.core.Keyword(null,"YouTube","YouTube",36124916)], null),new cljs.core.Keyword(null,"func","func",-238706040),(function (){
@@ -129,4 +129,4 @@ return null;
 });
 youtube_embed.core.main.call(null);
 
-//# sourceMappingURL=core.js.map?rel=1453237966764
+//# sourceMappingURL=core.js.map?rel=1453239039119

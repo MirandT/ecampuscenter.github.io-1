@@ -113,7 +113,7 @@ skinny "</a> (" length ")</p><p>To display video captions, start video and click
       [:a {:href value
            :title "Video"
            :target "_blank"
-           }  value ]
+           }  value ] " (" length ")"
        ]
      [:p {:style {:font-size ".8em" }} "To display video captions, start video and click " [:strong "CC"] " in the video
      frame. To expand the video, use direct link above to open video in YouTube." ]
