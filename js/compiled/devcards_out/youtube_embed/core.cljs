@@ -10,7 +10,7 @@
 
 (enable-console-print!)
 
-(defonce first-example-state (atom {:yourl "http://youtube.com/watch?v=2FpW1ctrDHE"}))
+(defonce first-example-state (atom {:yourl "https://youtube.com/watch?v=2FpW1ctrDHE"}))
 
 
 (defcard
@@ -48,7 +48,7 @@
 
 (defn ifriendly [url]
   "create iframible youtube link for display http://stackoverflow.com/questions/20498831/refused-to-display-in-a-frame-because-it-set-x-frame-options-to-sameorigin"
-  (cs/replace-first url "watch?v=" "embed/")
+  (cs/replace-first (cs/replace-first url "watch?v=" "embed/") "https:" "")
   )
 
 (defn fluff [skinny width height length]
