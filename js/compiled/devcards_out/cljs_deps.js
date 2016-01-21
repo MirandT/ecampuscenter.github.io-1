@@ -37,6 +37,6 @@ goog.addDependency("../reagent/impl/batching.js", ['reagent.impl.batching'], ['r
 goog.addDependency("../reagent/impl/component.js", ['reagent.impl.component'], ['reagent.impl.util', 'reagent.interop', 'reagent.ratom', 'cljs.core', 'reagent.impl.batching', 'reagent.debug']);
 goog.addDependency("../reagent/impl/template.js", ['reagent.impl.template'], ['reagent.impl.util', 'reagent.interop', 'reagent.ratom', 'cljs.core', 'reagent.impl.batching', 'reagent.impl.component', 'reagent.debug', 'clojure.string']);
 goog.addDependency("../reagent/core.js", ['reagent.core'], ['reagent.impl.util', 'reagent.interop', 'reagent.ratom', 'cljs.core', 'cljsjs.react', 'reagent.impl.template', 'reagent.impl.batching', 'reagent.impl.component', 'reagent.debug']);
-goog.addDependency("../youtube_embed/core.js", ['youtube_embed.core'], ['reagent.core', 'cljs.core', 'sablono.core', 'clojure.string']);
+goog.addDependency("../youtube_embed/core.js", ['youtube_embed.core'], ['devcards.core', 'reagent.core', 'cljs.core', 'sablono.core', 'clojure.string']);
 goog.addDependency("../figwheel/connect.js", ['figwheel.connect'], ['devcards.core', 'cljs.core', 'figwheel.client', 'youtube_embed.core', 'figwheel.client.utils']);
 goog.addDependency("../sablono/normalize.js", ['sablono.normalize'], ['sablono.util', 'cljs.core', 'clojure.set', 'clojure.string']);
