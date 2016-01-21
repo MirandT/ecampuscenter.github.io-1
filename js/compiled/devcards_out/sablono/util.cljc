@@ -42,6 +42,13 @@
             (update-in [:style] camel-case-keys))))
     m))
 
+(defn element?
+  "Return true if `x` is an HTML element. True when `x` is a vector
+  and the first element is a keyword, e.g. `[:div]` or `[:div [:span \"x\"]`."
+  [x]
+  (and (vector? x)
+       (keyword? (first x))))
+
 (defn html-to-dom-attrs
   "Converts all HTML attributes to their DOM equivalents."
   [attrs]
@@ -49,65 +56,10 @@
                {:class :className
                 :for :htmlFor}))
 
-(defn compact-map
-  "Removes all map entries where the value of the entry is empty."
-  [m]
-  (reduce
-   (fn [m k]
-     (let [v (get m k)]
-       (if (empty? v)
-         (dissoc m k) m)))
-   m (keys m)))
-
-(defn merge-with-class
-  "Like clojure.core/merge but concatenate :class entries."
-  [& maps]
-  (let [classes (->> (mapcat #(cond
-                                (list? %1) [%1]
-                                (sequential? %1) %1
-                                :else [%1])
-                             (map :class maps))
-                     (remove nil?) vec)
-        maps (apply merge maps)]
-    (if (empty? classes)
-      maps (assoc maps :class classes))))
-
-(defn strip-css
-  "Strip the # and . characters from the beginning of `s`."
-  [s] (if s (replace s #"^[.#]" "")))
-
-(defn match-tag
-  "Match `s` as a CSS tag and return a vector of tag name, CSS id and
-  CSS classes."
-  [s]
-  (let [matches (re-seq #"[#.]?[^#.]+" (name s))
-        [tag-name names] (cond (empty? matches)
-                               (throw (ex-info (str "Can't match CSS tag: " s) {:tag s}))
-                               (#{\# \.} (ffirst matches)) ;; shorthand for div
-                               ["div" matches]
-                               :default
-                               [(first matches) (rest matches)])]
-    [tag-name
-     (first (map strip-css (filter #(= \# (first %1)) names)))
-     (vec (map strip-css (filter #(= \. (first %1)) names)))]))
-
-
-(defn normalize-element
-  "Ensure an element vector is of the form [tag-name attrs content]."
-  [[tag & content]]
-  (when (not (or (keyword? tag) (symbol? tag) (string? tag)))
-    (throw (ex-info (str tag " is not a valid element name.") {:tag tag :content content})))
-  (let [[tag id class] (match-tag tag)
-        tag-attrs (compact-map {:id id :class class})
-        map-attrs (first content)]
-    (if (map? map-attrs)
-      [tag (merge-with-class tag-attrs map-attrs) (next content)]
-      [tag tag-attrs content])))
-
 (defn join-classes
   "Join the `classes` with a whitespace."
   [classes]
-  (join " " (flatten classes)))
+  (join " " (sort (flatten (seq classes)))))
 
 (defn wrapped-type?
   "Return true if the element `type` needs to be wrapped."

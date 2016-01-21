@@ -1,5 +1,6 @@
 (ns sablono.interpreter
   (:require [clojure.string :refer [blank? join]]
+            [sablono.normalize :as normalize]
             [sablono.util :as util]
             #?(:cljs [goog.object :as gobject])
             #?(:cljs cljsjs.react)))
@@ -46,6 +47,7 @@
 
 #?(:cljs (def input (wrap-form-element js/React.DOM.input "input")))
 #?(:cljs (def option (wrap-form-element js/React.DOM.option "option")))
+#?(:cljs (def select (wrap-form-element js/React.DOM.select "select")))
 #?(:cljs (def textarea (wrap-form-element js/React.DOM.textarea "textarea")))
 
 #?(:cljs
@@ -53,6 +55,7 @@
      ((if (util/wrapped-type? type)
         (get {:input sablono.interpreter/input
               :option sablono.interpreter/option
+              :select sablono.interpreter/select
               :textarea sablono.interpreter/textarea}
              (keyword type))
         (partial js/React.createElement (name type)))
@@ -65,7 +68,7 @@
    (defn attributes [attrs]
      (let [attrs (clj->js (util/html-to-dom-attrs attrs))
            class (.-className attrs)
-           class (if (array? class) (join " " class) class)]
+           class (if (array? class) (join " " (sort class)) class)]
        (if (blank? class)
          (js-delete attrs "className")
          (set! (.-className attrs) class))
@@ -73,17 +76,17 @@
 
 #?(:cljs
    (defn element
-  "Render an element vector as a HTML element."
-  [element]
-  (let [[type attrs content] (util/normalize-element element)
-        js-attrs (attributes attrs)]
-    (cond
-      (and (sequential? content)
-           (= 1 (count content)))
-      (create-element type js-attrs (interpret (first content)))
-      content
-      (create-element type js-attrs (interpret content))
-      :else (create-element type js-attrs nil)))))
+     "Render an element vector as a HTML element."
+     [element]
+     (let [[type attrs content] (normalize/element element)
+           js-attrs (attributes attrs)]
+       (cond
+         (and (sequential? content)
+              (= 1 (count content)))
+         (create-element type js-attrs (interpret (first content)))
+         content
+         (create-element type js-attrs (interpret content))
+         :else (create-element type js-attrs nil)))))
 
 (defn- interpret-seq [s]
   (into-array (map interpret s)))
@@ -110,7 +113,9 @@
        (element this))
      PersistentVector
      (interpret [this]
-       (element this))
+       (if (util/element? this)
+         (element this)
+         (interpret (seq this))))
      default
      (interpret [this]
        this)

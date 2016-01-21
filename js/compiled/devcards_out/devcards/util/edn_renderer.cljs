@@ -3,6 +3,11 @@
    [sablono.core :as sab]
    [devcards.util.utils :as utils]))
 
+(defonce ^:dynamic *key-counter* nil)
+
+(defn get-key []
+  (swap! *key-counter* inc)
+  (str "k-" @*key-counter*))
 
 (declare html)
 
@@ -11,10 +16,10 @@
        (not (coll? x))))
 
 (defn separator* [s]
-  (sab/html [:span.seperator s]))
+  (sab/html [:span.seperator {:key (get-key)} s]))
 
 (defn clearfix-separator* [s]
-  (sab/html [:span (separator* s) [:span.clearfix]]))
+  (sab/html [:span {:key (get-key)} (separator* s) [:span.clearfix]]))
 
 (defn separate-fn [coll]
   (if (not (every? literal? coll)) clearfix-separator* separator*))
@@ -26,10 +31,13 @@
        to-array))
 
 (defn literal [class x]
-  (sab/html [:span { :className class } (utils/pprint-str x)]))
+  (sab/html [:span { :className class :key (get-key)} (utils/pprint-str x)]))
+
+(defn html-val [index v]
+  (sab/html [:span {:key index} (html v)]))
 
 (defn join-html [separator coll]
-  (interpose-separator (mapv html coll)
+  (interpose-separator (into [] (map-indexed html-val coll))
                        separator
                        (separate-fn coll)))
 
@@ -44,10 +52,10 @@
 
 (defn open-close [class-str opener closer rct-coll]
   (sab/html
-   [:span {:className class-str}
-    [:span.opener opener]
-    [:span.contents  rct-coll]
-    [:span.closer closer]]))
+   [:span {:className class-str :key (str (hash rct-coll))}
+    [:span.opener {:key 1} opener]
+    [:span.contents {:key 2} rct-coll]
+    [:span.closer {:key 3} closer]]))
 
 (defn html-collection [class opener closer coll]
   (open-close (str "collection " class ) opener closer (join-html " " coll))
@@ -76,4 +84,5 @@
    :else        (literal "literal" x)))
 
 (defn html-edn [e]
-  (sab/html [:div.com-rigsomelight-rendered-edn.com-rigsomelight-devcards-typog (html e)]))
+  (binding [*key-counter* (atom 0)]
+    (sab/html [:div.com-rigsomelight-rendered-edn.com-rigsomelight-devcards-typog (html e)])))

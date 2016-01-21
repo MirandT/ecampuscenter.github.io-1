@@ -2,10 +2,13 @@
   (:require-macros [sablono.core :refer [defelem gen-input-fields]])
   (:require [clojure.string :refer [upper-case]]
             [goog.string :as gstring]
+            [sablono.normalize :as normalize]
             [sablono.util :refer [as-str to-uri]]
             [sablono.interpreter :as interpreter]
             [goog.dom :as dom]
-            [cljsjs.react]))
+            [cljsjs.react]
+            [cljsjs.react.dom]
+            [cljsjs.react.dom.server]))
 
 (defn wrap-attrs
   "Add an optional attribute argument to a function that returns a element vector."
@@ -26,13 +29,13 @@
   "Render `element` as HTML string."
   [element]
   (if element
-    (js/React.renderToString element)))
+    (js/ReactDOMServer.renderToString element)))
 
 (defn render-static
   "Render `element` as HTML string, without React internal attributes."
   [element]
   (if element
-    (js/React.renderToStaticMarkup element)))
+    (js/ReactDOMServer.renderToStaticMarkup element)))
 
 (defn include-css
   "Include a list of external stylesheet files."
