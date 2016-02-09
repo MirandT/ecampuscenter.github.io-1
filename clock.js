@@ -7,7 +7,7 @@ function time_is_widget(){var ca=0,tD=0,tout=0,updint=1000,tl="",u="undefined"
             if(typeof cl[i]["id"]==u)cl[i]["id"]=i
             if(typeof cl[i]["time_format"]!=u)tF=cl[i]["time_format"]
             for(j in c)tF=tF.replace(j,c[j])
-            tl="http://time.is/"+i.substr(0,cl[i]["id"].indexOf("_z")).replace("__",",_");tF="<span onclick=\"window.location='"+tl.replace("'","\\\'")+"'\" title=\""+tl+'">'+tF+"</span>"
+            tl="https://time.is/"+i.substr(0,cl[i]["id"].indexOf("_z")).replace("__",",_");tF="<span onclick=\"window.location='"+tl.replace("'","\\\'")+"'\" title=\""+tl+'">'+tF+"</span>"
             if(typeof cl[i]["contents"]!=u)ct=cl[i]["contents"]
             cl[i]["contents"]=ct.replace("TIME",tF)
             if(typeof cl[i]["v"]==u)q.push(cl[i]["id"])}
