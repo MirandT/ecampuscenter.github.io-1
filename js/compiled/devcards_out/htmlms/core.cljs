@@ -9,16 +9,21 @@
     ; for converting youtube duration
     [cemerick.url :as cu]
     [cljs.core.async :refer [chan close!]]
-    ; for hostedcards builid see devcards as a standalone website https://github.com/bhauman/devcards
+    ;[cljsjs.tether]
+
+    ; see devcards as a standalone website https://github.com/bhauman/devcards
+    ; lein figwheel
+    ; -- do nothing --
+    ; lein cljsbuild once hostedcards
     [devcards.core :as dc]
     )
   (:require-macros
     ; for go/timeout
     [cljs.core.async.macros :as m :refer [go]]
-    ; mal figwheel see above hostedcards
-    ; [devcards.core :as dc :refer [defcard deftest]]
 
-    ; mal hostedcards build alternatively swapp commenting on these two requries and above
+    ; lein figwheel
+    ; [devcards.core :as dc :refer [defcard deftest]]
+    ; lein cljsbuild once hostedcards
     [devcards.core :refer [defcard]]
     )
   (:import [goog.net XhrIo]
@@ -26,13 +31,18 @@
 
 (enable-console-print!)
 
+; lein figwheel
+; -- do nothing --
+; lein cljsbuild once hostedcards
+(devcards.core/start-devcard-ui!)
+
+
+
 (defonce initial-title (atom {:inittitle "Like I Used to Do.mp4"}))
 (defonce initial-length (atom {:initlength "0m 0s"}))
 (def intervalobj (Interval.fromIsoString (:initlength @initial-length)) )
 
-; mal figwheel for hostedcards builid see devcards as a standalone website https://github.com/bhauman/devcards
-; when using this utilize lein cljsbuild once hostedcards
-(devcards.core/start-devcard-ui!)
+
 
 ; setting up youtube plumbing to read the video length
 (defn get-id-from-url [u]
@@ -95,7 +105,7 @@
                           ; also swap out new video length
                           (if (= param :yurl) (xhr-data (str "https://www.googleapis.com/youtube/v3/videos?part=contentDetails%2C+snippet&id="
                                                              (get-id-from-url (.-target.value e))
-                                                             "&fields=items(contentDetails%2Csnippet)&key=AIzaSyCMA_ad2PgYAG5qxWEFvo8y4EfjB9cGMjw")
+                                                             "&fields=items(contentDetails%2Csnippet)&key=AIzaSyAEqd5yONIxbtMZO-iF5t5aQ0Am1QmTPzs")
                                                         ; (fn [g] (swap! initial-length update-in [:initlength] (-> (get-in (t/read r g) ["items" 0 "contentDetails" "duration"]))
                                                         (fn [g] (let [updlength (-> (get-in (t/read r g) ["items" 0 "contentDetails" "duration"])) updtitle (-> (get-in (t/read r g) ["items" 0 "snippet" "title"]))]
 
@@ -141,11 +151,7 @@
 <p>If video doesn't appear, follow this direct link:
 <a href=\"" skinny "\" title=\"" title "\" target=\"_blank\">"
        title "</a> (" length ")</p><p>To display video captions, start video and click <strong>CC</strong> in the video frame. To expand the video, use direct link above to open video in YouTube.</p>
-")
-  )
-
-
-
+"))
 
 (defn get-data [bmi-data param value min max]
 
@@ -164,8 +170,6 @@
                             (swap! bmi-data assoc :length nil)
                             )
                           )}]))
-
-
 
 (defn htmlout [bmi-data param value width height min max length title]
   (sab/html
@@ -258,10 +262,6 @@
         (htmloutvisual bmi-data :yurl yurl width height 10 50 length title)
         ]
       ])))
-
-
-
-
 
 (defcard YouTube
          ;"see [devcards](https://github.com/bhauman/devcards) for deets"
