@@ -15,16 +15,16 @@
     ; lein figwheel
     ; -- do nothing --
     ; lein cljsbuild once hostedcards
-    [devcards.core :as dc]
+    ; [devcards.core :as dc]
     )
   (:require-macros
     ; for go/timeout
     [cljs.core.async.macros :as m :refer [go]]
 
     ; lein figwheel
-    ; [devcards.core :as dc :refer [defcard deftest]]
+    [devcards.core :as dc :refer [defcard deftest]]
     ; lein cljsbuild once hostedcards
-    [devcards.core :refer [defcard]]
+    ;[devcards.core :refer [defcard]]
     )
   (:import [goog.net XhrIo]
            [goog.date Interval]))
@@ -34,7 +34,7 @@
 ; lein figwheel
 ; -- do nothing --
 ; lein cljsbuild once hostedcards
-(devcards.core/start-devcard-ui!)
+; (devcards.core/start-devcard-ui!)
 
 
 
