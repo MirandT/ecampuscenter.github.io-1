@@ -32,6 +32,8 @@ goog.addDependency("../reagent/impl/batching.js", ['reagent.impl.batching'], ['r
 goog.addDependency("../reagent/impl/component.js", ['reagent.impl.component'], ['reagent.impl.util', 'reagent.interop', 'reagent.ratom', 'cljs.core', 'reagent.impl.batching', 'reagent.debug']);
 goog.addDependency("../reagent/impl/template.js", ['reagent.impl.template'], ['reagent.impl.util', 'reagent.interop', 'reagent.ratom', 'cljs.core', 'reagent.impl.batching', 'reagent.impl.component', 'reagent.debug', 'clojure.string']);
 goog.addDependency("../reagent/core.js", ['reagent.core'], ['reagent.impl.util', 'reagent.interop', 'reagent.ratom', 'cljs.core', 'cljsjs.react', 'reagent.impl.template', 'reagent.impl.batching', 'reagent.impl.component', 'reagent.debug']);
+goog.addDependency("../domina/support.js", ['domina.support'], ['goog.dom', 'cljs.core', 'goog.events']);
+goog.addDependency("../domina.js", ['domina'], ['goog.dom.forms', 'goog.dom', 'goog.dom.classes', 'goog.string', 'cljs.core', 'domina.support', 'goog.style', 'clojure.string', 'goog.events', 'goog.dom.xml']);
 goog.addDependency("../com/cognitect/transit/util.js", ['com.cognitect.transit.util'], ['goog.object']);
 goog.addDependency("../com/cognitect/transit/eq.js", ['com.cognitect.transit.eq'], ['com.cognitect.transit.util']);
 goog.addDependency("../com/cognitect/transit/types.js", ['com.cognitect.transit.types'], ['com.cognitect.transit.util', 'com.cognitect.transit.eq', 'goog.math.Long']);
@@ -45,8 +47,9 @@ goog.addDependency("../com/cognitect/transit.js", ['com.cognitect.transit'], ['c
 goog.addDependency("../cognitect/transit.js", ['cognitect.transit'], ['com.cognitect.transit.eq', 'cljs.core', 'com.cognitect.transit.types', 'com.cognitect.transit', 'goog.math.Long']);
 goog.addDependency("../pathetic/core.js", ['pathetic.core'], ['goog.string', 'goog.Uri', 'cljs.core', 'clojure.string']);
 goog.addDependency("../cemerick/url.js", ['cemerick.url'], ['pathetic.core', 'goog.Uri', 'cljs.core', 'clojure.string']);
+goog.addDependency("../domina/xpath.js", ['domina.xpath'], ['goog.dom', 'cljs.core', 'domina']);
 goog.addDependency("../cljs/reader.js", ['cljs.reader'], ['goog.string', 'cljs.core', 'goog.string.StringBuffer']);
-goog.addDependency("../htmlms/tedtalks.js", ['htmlms.tedtalks'], ['devcards.core', 'goog.net.XhrIo', 'reagent.core', 'cljs.core', 'cljs.core.async', 'goog.date.Interval', 'cognitect.transit', 'sablono.core', 'cemerick.url', 'clojure.string', 'cljs.reader']);
+goog.addDependency("../htmlms/tedtalks.js", ['htmlms.tedtalks'], ['devcards.core', 'goog.net.XhrIo', 'reagent.core', 'cljs.core', 'domina', 'cljs.core.async', 'goog.date.Interval', 'cognitect.transit', 'sablono.core', 'cemerick.url', 'domina.xpath', 'clojure.string', 'cljs.reader']);
 goog.addDependency("../htmlms/youtube.js", ['htmlms.youtube'], ['devcards.core', 'goog.net.XhrIo', 'reagent.core', 'cljs.core', 'cljs.core.async', 'goog.date.Interval', 'cognitect.transit', 'sablono.core', 'cemerick.url', 'clojure.string', 'cljs.reader']);
 goog.addDependency("../htmlms/start_ui.js", ['htmlms.start_ui'], ['cljs.core', 'htmlms.tedtalks', 'htmlms.youtube']);
 goog.addDependency("../figwheel/client/utils.js", ['figwheel.client.utils'], ['cljs.core', 'clojure.string']);
