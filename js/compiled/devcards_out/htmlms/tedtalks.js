@@ -1,4 +1,4 @@
-// Compiled by ClojureScript 1.7.170 {}
+// Compiled by ClojureScript 1.9.229 {}
 goog.provide('htmlms.tedtalks');
 goog.require('cljs.core');
 goog.require('cognitect.transit');
@@ -45,8 +45,8 @@ return devcards.core.card_base.call(null,new cljs.core.PersistentArrayMap(null, 
 })], null));
 htmlms.tedtalks.gcd = (function htmlms$tedtalks$gcd(a,b){
 return cljs.core.apply.call(null,cljs.core.max,cljs.core.apply.call(null,clojure.set.intersection,cljs.core.map.call(null,cljs.core.set,cljs.core.map.call(null,(function (x){
-return cljs.core.filter.call(null,(function (p1__20533_SHARP_){
-return (cljs.core.mod.call(null,x,p1__20533_SHARP_) === (0));
+return cljs.core.filter.call(null,(function (p1__29365_SHARP_){
+return (cljs.core.mod.call(null,x,p1__29365_SHARP_) === (0));
 }),cljs.core.range.call(null,(1),(x + (1))));
 }),new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [a,b], null)))));
 });
@@ -64,15 +64,15 @@ htmlms.tedtalks.xhr_data_ted = (function htmlms$tedtalks$xhr_data_ted(url,conten
 return goog.net.XhrIo.send.call(null,[cljs.core.str(url)].join(''),htmlms.tedtalks.receiver,"GET",content);
 });
 htmlms.tedtalks.calc_bmi = (function htmlms$tedtalks$calc_bmi(bmi_data){
-var map__20536 = bmi_data;
-var map__20536__$1 = ((((!((map__20536 == null)))?((((map__20536.cljs$lang$protocol_mask$partition0$ & (64))) || (map__20536.cljs$core$ISeq$))?true:false):false))?cljs.core.apply.call(null,cljs.core.hash_map,map__20536):map__20536);
-var data = map__20536__$1;
-var height = cljs.core.get.call(null,map__20536__$1,new cljs.core.Keyword(null,"height","height",1025178622));
-var width = cljs.core.get.call(null,map__20536__$1,new cljs.core.Keyword(null,"width","width",-384071477));
-var bmi = cljs.core.get.call(null,map__20536__$1,new cljs.core.Keyword(null,"bmi","bmi",1421979636));
-var yurl = cljs.core.get.call(null,map__20536__$1,new cljs.core.Keyword(null,"yurl","yurl",182188908));
-var length = cljs.core.get.call(null,map__20536__$1,new cljs.core.Keyword(null,"length","length",588987862));
-var title = cljs.core.get.call(null,map__20536__$1,new cljs.core.Keyword(null,"title","title",636505583));
+var map__29368 = bmi_data;
+var map__29368__$1 = ((((!((map__29368 == null)))?((((map__29368.cljs$lang$protocol_mask$partition0$ & (64))) || (map__29368.cljs$core$ISeq$))?true:false):false))?cljs.core.apply.call(null,cljs.core.hash_map,map__29368):map__29368);
+var data = map__29368__$1;
+var height = cljs.core.get.call(null,map__29368__$1,new cljs.core.Keyword(null,"height","height",1025178622));
+var width = cljs.core.get.call(null,map__29368__$1,new cljs.core.Keyword(null,"width","width",-384071477));
+var bmi = cljs.core.get.call(null,map__29368__$1,new cljs.core.Keyword(null,"bmi","bmi",1421979636));
+var yurl = cljs.core.get.call(null,map__29368__$1,new cljs.core.Keyword(null,"yurl","yurl",182188908));
+var length = cljs.core.get.call(null,map__29368__$1,new cljs.core.Keyword(null,"length","length",588987862));
+var title = cljs.core.get.call(null,map__29368__$1,new cljs.core.Keyword(null,"title","title",636505583));
 var h = (height / (100));
 if((bmi == null)){
 return cljs.core.assoc.call(null,data,new cljs.core.Keyword(null,"bmi","bmi",1421979636),((1) / ((width / htmlms.tedtalks.gcd.call(null,width,height)) / (height / htmlms.tedtalks.gcd.call(null,width,height)))));
@@ -81,7 +81,7 @@ return cljs.core.assoc.call(null,data,new cljs.core.Keyword(null,"width","width"
 }
 });
 htmlms.tedtalks.slider = (function htmlms$tedtalks$slider(bmi_data,param,value,min,max){
-return sablono.interpreter.create_element.call(null,"input",{"type": "text", "value": value, "min": min, "max": max, "style": {"width": "100%"}, "onChange": (function (e){
+return sablono.interpreter.create_element.call(null,"input",({"type": "text", "value": value, "min": min, "max": max, "style": ({"width": "100%"}), "onChange": (function (e){
 cljs.core.swap_BANG_.call(null,bmi_data,cljs.core.assoc,param,e.target.value);
 
 if(cljs.core._EQ_.call(null,param,new cljs.core.Keyword(null,"yurl","yurl",182188908))){
@@ -109,7 +109,7 @@ return cljs.core.swap_BANG_.call(null,bmi_data,cljs.core.assoc,new cljs.core.Key
 } else {
 return null;
 }
-})});
+})}));
 });
 htmlms.tedtalks.ifriendly = (function htmlms$tedtalks$ifriendly(url){
 
@@ -119,12 +119,12 @@ htmlms.tedtalks.fluff = (function htmlms$tedtalks$fluff(skinny,width,height,leng
 return [cljs.core.str("<p>Click the <strong>Play</strong> icon to begin.</p>\n<p><iframe width=\""),cljs.core.str(width),cljs.core.str("\" height=\""),cljs.core.str(height),cljs.core.str("\" src=\""),cljs.core.str(htmlms.tedtalks.ifriendly.call(null,skinny)),cljs.core.str("\" frameBorder=\"0\" scrolling=\"no\" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe></p>\n<p>If video doesn't appear, follow this direct link:\n<a href=\""),cljs.core.str(skinny),cljs.core.str("\" title=\""),cljs.core.str(title),cljs.core.str("\" target=\"_blank\">"),cljs.core.str(title),cljs.core.str("</a> ("),cljs.core.str(length),cljs.core.str(")</p><p>Start the video to access more options in the video frame. To display the video captions, click on the <strong>gray speech bubble</strong> with three dots in the center and choose the language you want the captions to be displayed in. To expand the video, use the <strong>Full Screen</strong> icon in the bottom right-hand corner or use the direct link above to open the video on the TED website. To navigate the video using the transcript, click <strong>Interactive Transcript</strong>.</p>\n")].join('');
 });
 htmlms.tedtalks.get_data = (function htmlms$tedtalks$get_data(bmi_data,param,value,min,max){
-return sablono.interpreter.create_element.call(null,"input",{"type": "text", "min": min, "max": max, "style": {"width": "100%"}, "value": value, "onChange": (function (e){
+return sablono.interpreter.create_element.call(null,"input",({"type": "text", "min": min, "max": max, "style": ({"width": "100%"}), "value": value, "onChange": (function (e){
 return cljs.core.swap_BANG_.call(null,bmi_data,cljs.core.assoc,param,e.target.value);
-})});
+})}));
 });
 htmlms.tedtalks.htmlout = (function htmlms$tedtalks$htmlout(bmi_data,param,value,width,height,min,max,length,title){
-return sablono.interpreter.create_element.call(null,"textarea",{"cols": max, "rows": min, "value": htmlms.tedtalks.fluff.call(null,value,width,height,length,title), "style": {"width": "100%"}, "onChange": (function (e){
+return sablono.interpreter.create_element.call(null,"textarea",({"cols": max, "rows": min, "value": htmlms.tedtalks.fluff.call(null,value,width,height,length,title), "style": ({"width": "100%"}), "onChange": (function (e){
 cljs.core.swap_BANG_.call(null,bmi_data,cljs.core.assoc,param,e.target.value);
 
 if(cljs.core.not_EQ_.call(null,param,new cljs.core.Keyword(null,"bmi","bmi",1421979636))){
@@ -132,10 +132,10 @@ return cljs.core.swap_BANG_.call(null,bmi_data,cljs.core.assoc,new cljs.core.Key
 } else {
 return null;
 }
-})});
+})}));
 });
 htmlms.tedtalks.htmloutvisual = (function htmlms$tedtalks$htmloutvisual(bmi_data,param,value,width,height,min,max,length,title){
-return React.createElement("div",null,React.createElement("p",{"style": {"fontSize": ".8em"}},"Click the ",React.createElement("strong",null,"Play")," icon to begin."),React.createElement("iframe",{"width": width, "height": height, "src": htmlms.tedtalks.ifriendly.call(null,[cljs.core.str(value),cljs.core.str("?rel=0")].join('')), "frameborder": (0), "allowfullscreen": null, "onChange": (function (e){
+return React.createElement("div",null,React.createElement("p",({"style": ({"fontSize": ".8em"})}),"Click the ",React.createElement("strong",null,"Play")," icon to begin."),React.createElement("iframe",({"width": width, "height": height, "src": htmlms.tedtalks.ifriendly.call(null,[cljs.core.str(value),cljs.core.str("?rel=0")].join('')), "frameborder": (0), "allowfullscreen": null, "onChange": (function (e){
 cljs.core.swap_BANG_.call(null,bmi_data,cljs.core.assoc,param,e.target.value);
 
 if(cljs.core.not_EQ_.call(null,param,new cljs.core.Keyword(null,"bmi","bmi",1421979636))){
@@ -143,7 +143,7 @@ return cljs.core.swap_BANG_.call(null,bmi_data,cljs.core.assoc,new cljs.core.Key
 } else {
 return null;
 }
-})}),React.createElement("p",{"style": {"fontSize": ".8em"}},"If video doesn't appear, follow this direct link: ",React.createElement("a",{"href": value, "title": title, "target": "_blank"},sablono.interpreter.interpret.call(null,title))," (",sablono.interpreter.interpret.call(null,length),")"),React.createElement("p",{"style": {"fontSize": ".8em"}},"Start the video to access more options in the video frame. To display the video captions,\n     click on the ",React.createElement("strong",null,"gray speech bubble")," with three dots in the center and choose the language you want the captions to be displayed in. To expand the video, use the ",React.createElement("strong",null,"Full Screen")," icon in the bottom right-hand corner or use the direct link above to open the video on the TED website.\n     To navigate the video using the transcript, click ",React.createElement("strong",null,"Interactive Transcript"),"."));
+})})),React.createElement("p",({"style": ({"fontSize": ".8em"})}),"If video doesn't appear, follow this direct link: ",React.createElement("a",({"href": value, "title": title, "target": "_blank"}),sablono.interpreter.interpret.call(null,title))," (",sablono.interpreter.interpret.call(null,length),")"),React.createElement("p",({"style": ({"fontSize": ".8em"})}),"Start the video to access more options in the video frame. To display the video captions,\n     click on the ",React.createElement("strong",null,"gray speech bubble")," with three dots in the center and choose the language you want the captions to be displayed in. To expand the video, use the ",React.createElement("strong",null,"Full Screen")," icon in the bottom right-hand corner or use the direct link above to open the video on the TED website.\n     To navigate the video using the transcript, click ",React.createElement("strong",null,"Interactive Transcript"),"."));
 });
 htmlms.tedtalks.height_ratio = (function htmlms$tedtalks$height_ratio(w,h){
 return (h / htmlms.tedtalks.gcd.call(null,w,h));
@@ -154,34 +154,34 @@ return (w / htmlms.tedtalks.gcd.call(null,w,h));
 htmlms.tedtalks.bmi_component = (function htmlms$tedtalks$bmi_component(bmi_data){
 cljs.core.println.call(null,"@bmi-data: ",cljs.core.deref.call(null,bmi_data));
 
-var map__20559 = htmlms.tedtalks.calc_bmi.call(null,cljs.core.deref.call(null,bmi_data));
-var map__20559__$1 = ((((!((map__20559 == null)))?((((map__20559.cljs$lang$protocol_mask$partition0$ & (64))) || (map__20559.cljs$core$ISeq$))?true:false):false))?cljs.core.apply.call(null,cljs.core.hash_map,map__20559):map__20559);
-var width = cljs.core.get.call(null,map__20559__$1,new cljs.core.Keyword(null,"width","width",-384071477));
-var height = cljs.core.get.call(null,map__20559__$1,new cljs.core.Keyword(null,"height","height",1025178622));
-var bmi = cljs.core.get.call(null,map__20559__$1,new cljs.core.Keyword(null,"bmi","bmi",1421979636));
-var yurl = cljs.core.get.call(null,map__20559__$1,new cljs.core.Keyword(null,"yurl","yurl",182188908));
-var length = cljs.core.get.call(null,map__20559__$1,new cljs.core.Keyword(null,"length","length",588987862));
-var title = cljs.core.get.call(null,map__20559__$1,new cljs.core.Keyword(null,"title","title",636505583));
-var vec__20560 = ((((bmi > .562)) && ((bmi < .563)))?new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, ["green",[cljs.core.str("approx ratio: 16:9. exact ratio: "),cljs.core.str(htmlms.tedtalks.width_ratio.call(null,width,height)),cljs.core.str(" by "),cljs.core.str(htmlms.tedtalks.height_ratio.call(null,width,height)),cljs.core.str(".")].join('')], null):((((bmi > .74)) && ((bmi < .76)))?new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, ["inherit",[cljs.core.str("approx ratio: 4:3. exact ratio: "),cljs.core.str(htmlms.tedtalks.width_ratio.call(null,width,height)),cljs.core.str(" by "),cljs.core.str(htmlms.tedtalks.height_ratio.call(null,width,height)),cljs.core.str(".")].join('')], null):new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, ["red",[cljs.core.str("non-standard ratio "),cljs.core.str(htmlms.tedtalks.width_ratio.call(null,width,height)),cljs.core.str(" by "),cljs.core.str(htmlms.tedtalks.height_ratio.call(null,width,height)),cljs.core.str(".")].join('')], null)
+var map__29393 = htmlms.tedtalks.calc_bmi.call(null,cljs.core.deref.call(null,bmi_data));
+var map__29393__$1 = ((((!((map__29393 == null)))?((((map__29393.cljs$lang$protocol_mask$partition0$ & (64))) || (map__29393.cljs$core$ISeq$))?true:false):false))?cljs.core.apply.call(null,cljs.core.hash_map,map__29393):map__29393);
+var width = cljs.core.get.call(null,map__29393__$1,new cljs.core.Keyword(null,"width","width",-384071477));
+var height = cljs.core.get.call(null,map__29393__$1,new cljs.core.Keyword(null,"height","height",1025178622));
+var bmi = cljs.core.get.call(null,map__29393__$1,new cljs.core.Keyword(null,"bmi","bmi",1421979636));
+var yurl = cljs.core.get.call(null,map__29393__$1,new cljs.core.Keyword(null,"yurl","yurl",182188908));
+var length = cljs.core.get.call(null,map__29393__$1,new cljs.core.Keyword(null,"length","length",588987862));
+var title = cljs.core.get.call(null,map__29393__$1,new cljs.core.Keyword(null,"title","title",636505583));
+var vec__29394 = ((((bmi > .562)) && ((bmi < .563)))?new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, ["green",[cljs.core.str("approx ratio: 16:9. exact ratio: "),cljs.core.str(htmlms.tedtalks.width_ratio.call(null,width,height)),cljs.core.str(" by "),cljs.core.str(htmlms.tedtalks.height_ratio.call(null,width,height)),cljs.core.str(".")].join('')], null):((((bmi > .74)) && ((bmi < .76)))?new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, ["inherit",[cljs.core.str("approx ratio: 4:3. exact ratio: "),cljs.core.str(htmlms.tedtalks.width_ratio.call(null,width,height)),cljs.core.str(" by "),cljs.core.str(htmlms.tedtalks.height_ratio.call(null,width,height)),cljs.core.str(".")].join('')], null):new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, ["red",[cljs.core.str("non-standard ratio "),cljs.core.str(htmlms.tedtalks.width_ratio.call(null,width,height)),cljs.core.str(" by "),cljs.core.str(htmlms.tedtalks.height_ratio.call(null,width,height)),cljs.core.str(".")].join('')], null)
 ));
-var color = cljs.core.nth.call(null,vec__20560,(0),null);
-var diagnose = cljs.core.nth.call(null,vec__20560,(1),null);
-return React.createElement("div",null,React.createElement("h3",null,"Parameters"),React.createElement("div",null,(function (){var attrs20564 = [cljs.core.str("url: "),cljs.core.str(yurl)].join('');
-return cljs.core.apply.call(null,React.createElement,"span",((cljs.core.map_QMARK_.call(null,attrs20564))?sablono.interpreter.attributes.call(null,attrs20564):null),cljs.core.remove.call(null,cljs.core.nil_QMARK_,((cljs.core.map_QMARK_.call(null,attrs20564))?cljs.core.PersistentVector.EMPTY:new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [sablono.interpreter.interpret.call(null,attrs20564)], null))));
-})(),sablono.interpreter.interpret.call(null,htmlms.tedtalks.slider.call(null,bmi_data,new cljs.core.Keyword(null,"yurl","yurl",182188908),yurl,(0),(100)))),React.createElement("div",null,(function (){var attrs20565 = [cljs.core.str("width: "),cljs.core.str((width | (0))),cljs.core.str("px")].join('');
-return cljs.core.apply.call(null,React.createElement,"span",((cljs.core.map_QMARK_.call(null,attrs20565))?sablono.interpreter.attributes.call(null,attrs20565):null),cljs.core.remove.call(null,cljs.core.nil_QMARK_,((cljs.core.map_QMARK_.call(null,attrs20565))?cljs.core.PersistentVector.EMPTY:new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [sablono.interpreter.interpret.call(null,attrs20565)], null))));
-})(),sablono.interpreter.interpret.call(null,htmlms.tedtalks.slider.call(null,bmi_data,new cljs.core.Keyword(null,"width","width",-384071477),width,(30),(150)))),React.createElement("div",null,(function (){var attrs20566 = [cljs.core.str("height: "),cljs.core.str((height | (0))),cljs.core.str("px")].join('');
-return cljs.core.apply.call(null,React.createElement,"span",((cljs.core.map_QMARK_.call(null,attrs20566))?sablono.interpreter.attributes.call(null,attrs20566):null),cljs.core.remove.call(null,cljs.core.nil_QMARK_,((cljs.core.map_QMARK_.call(null,attrs20566))?cljs.core.PersistentVector.EMPTY:new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [sablono.interpreter.interpret.call(null,attrs20566)], null))));
-})(),sablono.interpreter.interpret.call(null,htmlms.tedtalks.slider.call(null,bmi_data,new cljs.core.Keyword(null,"height","height",1025178622),height,(100),(220)))),React.createElement("div",null,(function (){var attrs20567 = [cljs.core.str("length: "),cljs.core.str(length)].join('');
-return cljs.core.apply.call(null,React.createElement,"span",((cljs.core.map_QMARK_.call(null,attrs20567))?sablono.interpreter.attributes.call(null,attrs20567):null),cljs.core.remove.call(null,cljs.core.nil_QMARK_,((cljs.core.map_QMARK_.call(null,attrs20567))?cljs.core.PersistentVector.EMPTY:new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [sablono.interpreter.interpret.call(null,attrs20567)], null))));
-})(),sablono.interpreter.interpret.call(null,htmlms.tedtalks.slider.call(null,bmi_data,new cljs.core.Keyword(null,"length","length",588987862),length,(0),(100)))),React.createElement("div",null,(function (){var attrs20568 = [cljs.core.str("Title: "),cljs.core.str(title)].join('');
-return cljs.core.apply.call(null,React.createElement,"span",((cljs.core.map_QMARK_.call(null,attrs20568))?sablono.interpreter.attributes.call(null,attrs20568):null),cljs.core.remove.call(null,cljs.core.nil_QMARK_,((cljs.core.map_QMARK_.call(null,attrs20568))?cljs.core.PersistentVector.EMPTY:new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [sablono.interpreter.interpret.call(null,attrs20568)], null))));
-})(),sablono.interpreter.interpret.call(null,htmlms.tedtalks.slider.call(null,bmi_data,new cljs.core.Keyword(null,"title","title",636505583),title,(0),(100)))),React.createElement("div",null,(function (){var attrs20569 = [cljs.core.str("ratio: "),cljs.core.str(cljs.pprint.cl_format.call(null,null,"~,3f",bmi)),cljs.core.str(" ")].join('');
-return cljs.core.apply.call(null,React.createElement,"span",((cljs.core.map_QMARK_.call(null,attrs20569))?sablono.interpreter.attributes.call(null,attrs20569):null),cljs.core.remove.call(null,cljs.core.nil_QMARK_,((cljs.core.map_QMARK_.call(null,attrs20569))?cljs.core.PersistentVector.EMPTY:new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [sablono.interpreter.interpret.call(null,attrs20569)], null))));
-})(),React.createElement("span",{"style": {"color": color}},sablono.interpreter.interpret.call(null,diagnose)),sablono.interpreter.interpret.call(null,htmlms.tedtalks.slider.call(null,bmi_data,new cljs.core.Keyword(null,"bmi","bmi",1421979636),bmi,(10),(50)))),React.createElement("div",null,(function (){var attrs20570 = [cljs.core.str("html:")].join('');
-return cljs.core.apply.call(null,React.createElement,"span",((cljs.core.map_QMARK_.call(null,attrs20570))?sablono.interpreter.attributes.call(null,attrs20570):null),cljs.core.remove.call(null,cljs.core.nil_QMARK_,((cljs.core.map_QMARK_.call(null,attrs20570))?cljs.core.PersistentVector.EMPTY:new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [sablono.interpreter.interpret.call(null,attrs20570)], null))));
-})(),sablono.interpreter.interpret.call(null,htmlms.tedtalks.htmlout.call(null,bmi_data,new cljs.core.Keyword(null,"yurl","yurl",182188908),yurl,width,height,(10),(50),length,title))),React.createElement("div",null,(function (){var attrs20571 = [cljs.core.str("preview:")].join('');
-return cljs.core.apply.call(null,React.createElement,"span",((cljs.core.map_QMARK_.call(null,attrs20571))?sablono.interpreter.attributes.call(null,attrs20571):null),cljs.core.remove.call(null,cljs.core.nil_QMARK_,((cljs.core.map_QMARK_.call(null,attrs20571))?cljs.core.PersistentVector.EMPTY:new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [sablono.interpreter.interpret.call(null,attrs20571)], null))));
+var color = cljs.core.nth.call(null,vec__29394,(0),null);
+var diagnose = cljs.core.nth.call(null,vec__29394,(1),null);
+return React.createElement("div",null,React.createElement("h3",null,"Parameters"),React.createElement("div",null,(function (){var attrs29400 = [cljs.core.str("url: "),cljs.core.str(yurl)].join('');
+return cljs.core.apply.call(null,React.createElement,"span",((cljs.core.map_QMARK_.call(null,attrs29400))?sablono.interpreter.attributes.call(null,attrs29400):null),((cljs.core.map_QMARK_.call(null,attrs29400))?null:new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [sablono.interpreter.interpret.call(null,attrs29400)], null)));
+})(),sablono.interpreter.interpret.call(null,htmlms.tedtalks.slider.call(null,bmi_data,new cljs.core.Keyword(null,"yurl","yurl",182188908),yurl,(0),(100)))),React.createElement("div",null,(function (){var attrs29401 = [cljs.core.str("width: "),cljs.core.str((width | (0))),cljs.core.str("px")].join('');
+return cljs.core.apply.call(null,React.createElement,"span",((cljs.core.map_QMARK_.call(null,attrs29401))?sablono.interpreter.attributes.call(null,attrs29401):null),((cljs.core.map_QMARK_.call(null,attrs29401))?null:new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [sablono.interpreter.interpret.call(null,attrs29401)], null)));
+})(),sablono.interpreter.interpret.call(null,htmlms.tedtalks.slider.call(null,bmi_data,new cljs.core.Keyword(null,"width","width",-384071477),width,(30),(150)))),React.createElement("div",null,(function (){var attrs29402 = [cljs.core.str("height: "),cljs.core.str((height | (0))),cljs.core.str("px")].join('');
+return cljs.core.apply.call(null,React.createElement,"span",((cljs.core.map_QMARK_.call(null,attrs29402))?sablono.interpreter.attributes.call(null,attrs29402):null),((cljs.core.map_QMARK_.call(null,attrs29402))?null:new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [sablono.interpreter.interpret.call(null,attrs29402)], null)));
+})(),sablono.interpreter.interpret.call(null,htmlms.tedtalks.slider.call(null,bmi_data,new cljs.core.Keyword(null,"height","height",1025178622),height,(100),(220)))),React.createElement("div",null,(function (){var attrs29403 = [cljs.core.str("length: "),cljs.core.str(length)].join('');
+return cljs.core.apply.call(null,React.createElement,"span",((cljs.core.map_QMARK_.call(null,attrs29403))?sablono.interpreter.attributes.call(null,attrs29403):null),((cljs.core.map_QMARK_.call(null,attrs29403))?null:new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [sablono.interpreter.interpret.call(null,attrs29403)], null)));
+})(),sablono.interpreter.interpret.call(null,htmlms.tedtalks.slider.call(null,bmi_data,new cljs.core.Keyword(null,"length","length",588987862),length,(0),(100)))),React.createElement("div",null,(function (){var attrs29404 = [cljs.core.str("Title: "),cljs.core.str(title)].join('');
+return cljs.core.apply.call(null,React.createElement,"span",((cljs.core.map_QMARK_.call(null,attrs29404))?sablono.interpreter.attributes.call(null,attrs29404):null),((cljs.core.map_QMARK_.call(null,attrs29404))?null:new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [sablono.interpreter.interpret.call(null,attrs29404)], null)));
+})(),sablono.interpreter.interpret.call(null,htmlms.tedtalks.slider.call(null,bmi_data,new cljs.core.Keyword(null,"title","title",636505583),title,(0),(100)))),React.createElement("div",null,(function (){var attrs29405 = [cljs.core.str("ratio: "),cljs.core.str(cljs.pprint.cl_format.call(null,null,"~,3f",bmi)),cljs.core.str(" ")].join('');
+return cljs.core.apply.call(null,React.createElement,"span",((cljs.core.map_QMARK_.call(null,attrs29405))?sablono.interpreter.attributes.call(null,attrs29405):null),((cljs.core.map_QMARK_.call(null,attrs29405))?null:new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [sablono.interpreter.interpret.call(null,attrs29405)], null)));
+})(),React.createElement("span",({"style": ({"color": color})}),sablono.interpreter.interpret.call(null,diagnose)),sablono.interpreter.interpret.call(null,htmlms.tedtalks.slider.call(null,bmi_data,new cljs.core.Keyword(null,"bmi","bmi",1421979636),bmi,(10),(50)))),React.createElement("div",null,(function (){var attrs29406 = [cljs.core.str("html:")].join('');
+return cljs.core.apply.call(null,React.createElement,"span",((cljs.core.map_QMARK_.call(null,attrs29406))?sablono.interpreter.attributes.call(null,attrs29406):null),((cljs.core.map_QMARK_.call(null,attrs29406))?null:new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [sablono.interpreter.interpret.call(null,attrs29406)], null)));
+})(),sablono.interpreter.interpret.call(null,htmlms.tedtalks.htmlout.call(null,bmi_data,new cljs.core.Keyword(null,"yurl","yurl",182188908),yurl,width,height,(10),(50),length,title))),React.createElement("div",null,(function (){var attrs29407 = [cljs.core.str("preview:")].join('');
+return cljs.core.apply.call(null,React.createElement,"span",((cljs.core.map_QMARK_.call(null,attrs29407))?sablono.interpreter.attributes.call(null,attrs29407):null),((cljs.core.map_QMARK_.call(null,attrs29407))?null:new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [sablono.interpreter.interpret.call(null,attrs29407)], null)));
 })(),sablono.interpreter.interpret.call(null,htmlms.tedtalks.htmloutvisual.call(null,bmi_data,new cljs.core.Keyword(null,"yurl","yurl",182188908),yurl,width,height,(10),(50),length,title))));
 });
 devcards.core.register_card.call(null,new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null,"path","path",-188191168),new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"htmlms.tedtalks","htmlms.tedtalks",-1913831246),new cljs.core.Keyword(null,"\u00A9TED-CC-BY-NC-ND-3.0","\u00A9TED-CC-BY-NC-ND-3.0",-832731975)], null),new cljs.core.Keyword(null,"func","func",-238706040),(function (){
@@ -190,9 +190,9 @@ return htmlms.tedtalks.bmi_component.call(null,data_atom);
 }),new cljs.core.Keyword(null,"initial-data","initial-data",-1315709804),new cljs.core.PersistentArrayMap(null, 5, [new cljs.core.Keyword(null,"height","height",1025178622),(315),new cljs.core.Keyword(null,"width","width",-384071477),(560),new cljs.core.Keyword(null,"yurl","yurl",182188908),"https://www.ted.com/talks/teenaged_boy_wonders_play_bluegrass",new cljs.core.Keyword(null,"length","length",588987862),"4m 55s",new cljs.core.Keyword(null,"title","title",636505583),"Sleep Man Banjo Boys: Teen wonders play bluegrass"], null),new cljs.core.Keyword(null,"options","options",99638489),new cljs.core.PersistentArrayMap(null, 4, [new cljs.core.Keyword(null,"inspect-data","inspect-data",640452006),false,new cljs.core.Keyword(null,"frame","frame",-1711082588),true,new cljs.core.Keyword(null,"history","history",-247395220),true,new cljs.core.Keyword(null,"heading","heading",-1312171873),true], null)], null));
 })], null));
 htmlms.tedtalks.main = (function htmlms$tedtalks$main(){
-var temp__4423__auto__ = document.getElementById("main-app-area");
-if(cljs.core.truth_(temp__4423__auto__)){
-var node = temp__4423__auto__;
+var temp__4655__auto__ = document.getElementById("main-app-area");
+if(cljs.core.truth_(temp__4655__auto__)){
+var node = temp__4655__auto__;
 return React.render(React.createElement("div",null,""),node);
 } else {
 return null;
@@ -200,4 +200,4 @@ return null;
 });
 htmlms.tedtalks.main.call(null);
 
-//# sourceMappingURL=tedtalks.js.map?rel=1474042927507
+//# sourceMappingURL=tedtalks.js.map?rel=1474300068563

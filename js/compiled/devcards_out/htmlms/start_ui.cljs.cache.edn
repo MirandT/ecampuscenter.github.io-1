@@ -1,2 +1,1 @@
-;; Analyzed by ClojureScript 1.7.170
-{:name htmlms.start-ui, :doc "trying to get all the various webpages listed as seen on http://rigsomelight.com/devcards/#!/", :excludes #{}, :use-macros nil, :require-macros nil, :uses nil, :requires {htmlms.youtube htmlms.youtube, htmlms.tedtalks htmlms.tedtalks}, :imports nil}
+{:rename-macros {}, :renames {}, :use-macros {}, :excludes #{}, :name htmlms.start-ui, :imports nil, :requires {htmlms.youtube htmlms.youtube, htmlms.tedtalks htmlms.tedtalks}, :uses nil, :require-macros nil, :doc "trying to get all the various webpages listed as seen on http://rigsomelight.com/devcards/#!/"}

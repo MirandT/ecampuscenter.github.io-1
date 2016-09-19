@@ -1,4 +1,4 @@
-// Compiled by ClojureScript 1.7.170 {}
+// Compiled by ClojureScript 1.9.229 {}
 goog.provide('cljs.core.async.impl.dispatch');
 goog.require('cljs.core');
 goog.require('cljs.core.async.impl.buffers');
@@ -7,22 +7,21 @@ cljs.core.async.impl.dispatch.tasks = cljs.core.async.impl.buffers.ring_buffer.c
 cljs.core.async.impl.dispatch.running_QMARK_ = false;
 cljs.core.async.impl.dispatch.queued_QMARK_ = false;
 cljs.core.async.impl.dispatch.TASK_BATCH_SIZE = (1024);
-cljs.core.async.impl.dispatch.queue_dispatcher;
 cljs.core.async.impl.dispatch.process_messages = (function cljs$core$async$impl$dispatch$process_messages(){
 cljs.core.async.impl.dispatch.running_QMARK_ = true;
 
 cljs.core.async.impl.dispatch.queued_QMARK_ = false;
 
-var count_18216 = (0);
+var count_21504 = (0);
 while(true){
-var m_18217 = cljs.core.async.impl.dispatch.tasks.pop();
-if((m_18217 == null)){
+var m_21505 = cljs.core.async.impl.dispatch.tasks.pop();
+if((m_21505 == null)){
 } else {
-m_18217.call(null);
+m_21505.call(null);
 
-if((count_18216 < cljs.core.async.impl.dispatch.TASK_BATCH_SIZE)){
-var G__18218 = (count_18216 + (1));
-count_18216 = G__18218;
+if((count_21504 < cljs.core.async.impl.dispatch.TASK_BATCH_SIZE)){
+var G__21506 = (count_21504 + (1));
+count_21504 = G__21506;
 continue;
 } else {
 }
@@ -39,11 +38,11 @@ return null;
 }
 });
 cljs.core.async.impl.dispatch.queue_dispatcher = (function cljs$core$async$impl$dispatch$queue_dispatcher(){
-if(cljs.core.truth_((function (){var and__16840__auto__ = cljs.core.async.impl.dispatch.queued_QMARK_;
-if(cljs.core.truth_(and__16840__auto__)){
+if(cljs.core.truth_((function (){var and__18704__auto__ = cljs.core.async.impl.dispatch.queued_QMARK_;
+if(cljs.core.truth_(and__18704__auto__)){
 return cljs.core.async.impl.dispatch.running_QMARK_;
 } else {
-return and__16840__auto__;
+return and__18704__auto__;
 }
 })())){
 return null;
@@ -62,4 +61,4 @@ cljs.core.async.impl.dispatch.queue_delay = (function cljs$core$async$impl$dispa
 return setTimeout(f,delay);
 });
 
-//# sourceMappingURL=dispatch.js.map?rel=1453415046619
+//# sourceMappingURL=dispatch.js.map?rel=1474300057359
