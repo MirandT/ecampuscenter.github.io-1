@@ -15,18 +15,18 @@ cljs.core.enable_console_print_BANG_();
 devcards.core.start_devcard_ui_BANG__STAR_.cljs$core$IFn$_invoke$arity$0();
 if(typeof htmlms.youtube.initial_title !== 'undefined'){
 } else {
-htmlms.youtube.initial_title = (function (){var G__24152 = new cljs.core.PersistentArrayMap(null, 1, [cljs.core.cst$kw$inittitle,"Like I Used to Do.mp4"], null);
-return (cljs.core.atom.cljs$core$IFn$_invoke$arity$1 ? cljs.core.atom.cljs$core$IFn$_invoke$arity$1(G__24152) : cljs.core.atom.call(null,G__24152));
+htmlms.youtube.initial_title = (function (){var G__24155 = new cljs.core.PersistentArrayMap(null, 1, [cljs.core.cst$kw$inittitle,"Like I Used to Do.mp4"], null);
+return (cljs.core.atom.cljs$core$IFn$_invoke$arity$1 ? cljs.core.atom.cljs$core$IFn$_invoke$arity$1(G__24155) : cljs.core.atom.call(null,G__24155));
 })();
 }
 if(typeof htmlms.youtube.initial_length !== 'undefined'){
 } else {
-htmlms.youtube.initial_length = (function (){var G__24153 = new cljs.core.PersistentArrayMap(null, 1, [cljs.core.cst$kw$initlength,"0m 0s"], null);
-return (cljs.core.atom.cljs$core$IFn$_invoke$arity$1 ? cljs.core.atom.cljs$core$IFn$_invoke$arity$1(G__24153) : cljs.core.atom.call(null,G__24153));
+htmlms.youtube.initial_length = (function (){var G__24156 = new cljs.core.PersistentArrayMap(null, 1, [cljs.core.cst$kw$initlength,"0m 0s"], null);
+return (cljs.core.atom.cljs$core$IFn$_invoke$arity$1 ? cljs.core.atom.cljs$core$IFn$_invoke$arity$1(G__24156) : cljs.core.atom.call(null,G__24156));
 })();
 }
-htmlms.youtube.intervalobj = (function (){var G__24154 = cljs.core.cst$kw$initlength.cljs$core$IFn$_invoke$arity$1((cljs.core.deref.cljs$core$IFn$_invoke$arity$1 ? cljs.core.deref.cljs$core$IFn$_invoke$arity$1(htmlms.youtube.initial_length) : cljs.core.deref.call(null,htmlms.youtube.initial_length)));
-return (goog.date.Interval.fromIsoString.cljs$core$IFn$_invoke$arity$1 ? goog.date.Interval.fromIsoString.cljs$core$IFn$_invoke$arity$1(G__24154) : goog.date.Interval.fromIsoString.call(null,G__24154));
+htmlms.youtube.intervalobj = (function (){var G__24157 = cljs.core.cst$kw$initlength.cljs$core$IFn$_invoke$arity$1((cljs.core.deref.cljs$core$IFn$_invoke$arity$1 ? cljs.core.deref.cljs$core$IFn$_invoke$arity$1(htmlms.youtube.initial_length) : cljs.core.deref.call(null,htmlms.youtube.initial_length)));
+return (goog.date.Interval.fromIsoString.cljs$core$IFn$_invoke$arity$1 ? goog.date.Interval.fromIsoString.cljs$core$IFn$_invoke$arity$1(G__24157) : goog.date.Interval.fromIsoString.call(null,G__24157));
 })();
 htmlms.youtube.get_id_from_url = (function htmlms$youtube$get_id_from_url(u){
 
@@ -36,13 +36,13 @@ cljs.core.println.cljs$core$IFn$_invoke$arity$variadic(cljs.core.array_seq([html
 htmlms.youtube.r = cognitect.transit.reader.cljs$core$IFn$_invoke$arity$1(cljs.core.cst$kw$json);
 htmlms.youtube.timeout = (function htmlms$youtube$timeout(ms){
 var c = cljs.core.async.chan.cljs$core$IFn$_invoke$arity$0();
-var G__24157_24159 = ((function (c){
+var G__24160_24162 = ((function (c){
 return (function (){
 return cljs.core.async.close_BANG_(c);
 });})(c))
 ;
-var G__24158_24160 = ms;
-setTimeout(G__24157_24159,G__24158_24160);
+var G__24161_24163 = ms;
+setTimeout(G__24160_24162,G__24161_24163);
 
 return c;
 });
@@ -51,32 +51,32 @@ return devcards.core.card_base(new cljs.core.PersistentArrayMap(null, 5, [cljs.c
 })], null));
 htmlms.youtube.gcd = (function htmlms$youtube$gcd(a,b){
 return cljs.core.apply.cljs$core$IFn$_invoke$arity$2(cljs.core.max,cljs.core.apply.cljs$core$IFn$_invoke$arity$2(clojure.set.intersection,cljs.core.map.cljs$core$IFn$_invoke$arity$2(cljs.core.set,cljs.core.map.cljs$core$IFn$_invoke$arity$2((function (x){
-return cljs.core.filter.cljs$core$IFn$_invoke$arity$2((function (p1__24161_SHARP_){
-return (cljs.core.mod(x,p1__24161_SHARP_) === (0));
+return cljs.core.filter.cljs$core$IFn$_invoke$arity$2((function (p1__24164_SHARP_){
+return (cljs.core.mod(x,p1__24164_SHARP_) === (0));
 }),cljs.core.range.cljs$core$IFn$_invoke$arity$2((1),(x + (1))));
 }),new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [a,b], null)))));
 });
 htmlms.youtube.xhr_data = (function htmlms$youtube$xhr_data(url,cb){
-var G__24165 = [cljs.core.str(url)].join('');
-var G__24166 = ((function (G__24165){
+var G__24168 = [cljs.core.str(url)].join('');
+var G__24169 = ((function (G__24168){
 return (function (f){
 var xhr = f.target;
-var G__24167 = xhr.getResponseText();
-return (cb.cljs$core$IFn$_invoke$arity$1 ? cb.cljs$core$IFn$_invoke$arity$1(G__24167) : cb.call(null,G__24167));
-});})(G__24165))
+var G__24170 = xhr.getResponseText();
+return (cb.cljs$core$IFn$_invoke$arity$1 ? cb.cljs$core$IFn$_invoke$arity$1(G__24170) : cb.call(null,G__24170));
+});})(G__24168))
 ;
-return (goog.net.XhrIo.send.cljs$core$IFn$_invoke$arity$2 ? goog.net.XhrIo.send.cljs$core$IFn$_invoke$arity$2(G__24165,G__24166) : goog.net.XhrIo.send.call(null,G__24165,G__24166));
+return (goog.net.XhrIo.send.cljs$core$IFn$_invoke$arity$2 ? goog.net.XhrIo.send.cljs$core$IFn$_invoke$arity$2(G__24168,G__24169) : goog.net.XhrIo.send.call(null,G__24168,G__24169));
 });
 htmlms.youtube.calc_bmi = (function htmlms$youtube$calc_bmi(bmi_data){
-var map__24170 = bmi_data;
-var map__24170__$1 = ((((!((map__24170 == null)))?((((map__24170.cljs$lang$protocol_mask$partition0$ & (64))) || (map__24170.cljs$core$ISeq$))?true:false):false))?cljs.core.apply.cljs$core$IFn$_invoke$arity$2(cljs.core.hash_map,map__24170):map__24170);
-var data = map__24170__$1;
-var height = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__24170__$1,cljs.core.cst$kw$height);
-var width = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__24170__$1,cljs.core.cst$kw$width);
-var bmi = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__24170__$1,cljs.core.cst$kw$bmi);
-var yurl = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__24170__$1,cljs.core.cst$kw$yurl);
-var length = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__24170__$1,cljs.core.cst$kw$length);
-var title = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__24170__$1,cljs.core.cst$kw$title);
+var map__24173 = bmi_data;
+var map__24173__$1 = ((((!((map__24173 == null)))?((((map__24173.cljs$lang$protocol_mask$partition0$ & (64))) || (map__24173.cljs$core$ISeq$))?true:false):false))?cljs.core.apply.cljs$core$IFn$_invoke$arity$2(cljs.core.hash_map,map__24173):map__24173);
+var data = map__24173__$1;
+var height = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__24173__$1,cljs.core.cst$kw$height);
+var width = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__24173__$1,cljs.core.cst$kw$width);
+var bmi = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__24173__$1,cljs.core.cst$kw$bmi);
+var yurl = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__24173__$1,cljs.core.cst$kw$yurl);
+var length = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__24173__$1,cljs.core.cst$kw$length);
+var title = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__24173__$1,cljs.core.cst$kw$title);
 var h = (height / (100));
 if((bmi == null)){
 return cljs.core.assoc.cljs$core$IFn$_invoke$arity$3(data,cljs.core.cst$kw$bmi,((1) / ((width / htmlms.youtube.gcd(width,height)) / (height / htmlms.youtube.gcd(width,height)))));
@@ -146,17 +146,17 @@ return null;
 })}));
 });
 htmlms.youtube.htmloutvisual = (function htmlms$youtube$htmloutvisual(bmi_data,param,value,width,height,min,max,length,title){
-var G__24208 = "div";
-var G__24209 = null;
-var G__24210 = (function (){var G__24214 = "p";
-var G__24215 = ({"style": ({"fontSize": ".8em"})});
-var G__24216 = "Click the ";
-var G__24217 = React.createElement("strong",null,"Play");
-var G__24218 = " icon to begin.";
-return React.createElement(G__24214,G__24215,G__24216,G__24217,G__24218);
+var G__24211 = "div";
+var G__24212 = null;
+var G__24213 = (function (){var G__24217 = "p";
+var G__24218 = ({"style": ({"fontSize": ".8em"})});
+var G__24219 = "Click the ";
+var G__24220 = React.createElement("strong",null,"Play");
+var G__24221 = " icon to begin.";
+return React.createElement(G__24217,G__24218,G__24219,G__24220,G__24221);
 })();
-var G__24211 = (function (){var G__24219 = "iframe";
-var G__24220 = ({"width": width, "height": height, "src": htmlms.youtube.ifriendly([cljs.core.str(value),cljs.core.str("?rel=0")].join('')), "frameborder": (0), "allowfullscreen": null, "onChange": ((function (G__24219,G__24208,G__24209,G__24210){
+var G__24214 = (function (){var G__24222 = "iframe";
+var G__24223 = ({"width": width, "height": height, "src": htmlms.youtube.ifriendly([cljs.core.str(value),cljs.core.str("?rel=0")].join('')), "frameborder": (0), "allowfullscreen": null, "onChange": ((function (G__24222,G__24211,G__24212,G__24213){
 return (function (e){
 cljs.core.swap_BANG_.cljs$core$IFn$_invoke$arity$4(bmi_data,cljs.core.assoc,param,e.target.value);
 
@@ -165,31 +165,31 @@ return cljs.core.swap_BANG_.cljs$core$IFn$_invoke$arity$4(bmi_data,cljs.core.ass
 } else {
 return null;
 }
-});})(G__24219,G__24208,G__24209,G__24210))
+});})(G__24222,G__24211,G__24212,G__24213))
 });
-return React.createElement(G__24219,G__24220);
+return React.createElement(G__24222,G__24223);
 })();
-var G__24212 = (function (){var G__24221 = "p";
-var G__24222 = ({"style": ({"fontSize": ".8em"})});
-var G__24223 = "If video doesn't appear, follow this direct link: ";
-var G__24224 = (function (){var G__24228 = "a";
-var G__24229 = ({"href": value, "title": title, "target": "_blank"});
-var G__24230 = sablono.interpreter.interpret(title);
-return React.createElement(G__24228,G__24229,G__24230);
+var G__24215 = (function (){var G__24224 = "p";
+var G__24225 = ({"style": ({"fontSize": ".8em"})});
+var G__24226 = "If video doesn't appear, follow this direct link: ";
+var G__24227 = (function (){var G__24231 = "a";
+var G__24232 = ({"href": value, "title": title, "target": "_blank"});
+var G__24233 = sablono.interpreter.interpret(title);
+return React.createElement(G__24231,G__24232,G__24233);
 })();
-var G__24225 = " (";
-var G__24226 = sablono.interpreter.interpret(length);
-var G__24227 = ")";
-return React.createElement(G__24221,G__24222,G__24223,G__24224,G__24225,G__24226,G__24227);
+var G__24228 = " (";
+var G__24229 = sablono.interpreter.interpret(length);
+var G__24230 = ")";
+return React.createElement(G__24224,G__24225,G__24226,G__24227,G__24228,G__24229,G__24230);
 })();
-var G__24213 = (function (){var G__24231 = "p";
-var G__24232 = ({"style": ({"fontSize": ".8em"})});
-var G__24233 = "Start the video to access more options in the video frame: to display the video captions, click ";
-var G__24234 = React.createElement("strong",null,"CC");
-var G__24235 = ".\u00A0\n     To expand the video, use the direct link above to open video in YouTube, and click the Full Screen icon. To navigate the video using the transcript,\n     click YouTube, select ...More, then Transcript.";
-return React.createElement(G__24231,G__24232,G__24233,G__24234,G__24235);
+var G__24216 = (function (){var G__24234 = "p";
+var G__24235 = ({"style": ({"fontSize": ".8em"})});
+var G__24236 = "Start the video to access more options in the video frame: to display the video captions, click ";
+var G__24237 = React.createElement("strong",null,"CC");
+var G__24238 = ".\u00A0\n     To expand the video, use the direct link above to open video in YouTube, and click the Full Screen icon. To navigate the video using the transcript,\n     click YouTube, select ...More, then Transcript.";
+return React.createElement(G__24234,G__24235,G__24236,G__24237,G__24238);
 })();
-return React.createElement(G__24208,G__24209,G__24210,G__24211,G__24212,G__24213);
+return React.createElement(G__24211,G__24212,G__24213,G__24214,G__24215,G__24216);
 });
 htmlms.youtube.height_ratio = (function htmlms$youtube$height_ratio(w,h){
 return (h / htmlms.youtube.gcd(w,h));
@@ -200,91 +200,91 @@ return (w / htmlms.youtube.gcd(w,h));
 htmlms.youtube.bmi_component = (function htmlms$youtube$bmi_component(bmi_data){
 cljs.core.println.cljs$core$IFn$_invoke$arity$variadic(cljs.core.array_seq(["@bmi-data: ",(cljs.core.deref.cljs$core$IFn$_invoke$arity$1 ? cljs.core.deref.cljs$core$IFn$_invoke$arity$1(bmi_data) : cljs.core.deref.call(null,bmi_data))], 0));
 
-var map__24298 = htmlms.youtube.calc_bmi((cljs.core.deref.cljs$core$IFn$_invoke$arity$1 ? cljs.core.deref.cljs$core$IFn$_invoke$arity$1(bmi_data) : cljs.core.deref.call(null,bmi_data)));
-var map__24298__$1 = ((((!((map__24298 == null)))?((((map__24298.cljs$lang$protocol_mask$partition0$ & (64))) || (map__24298.cljs$core$ISeq$))?true:false):false))?cljs.core.apply.cljs$core$IFn$_invoke$arity$2(cljs.core.hash_map,map__24298):map__24298);
-var width = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__24298__$1,cljs.core.cst$kw$width);
-var height = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__24298__$1,cljs.core.cst$kw$height);
-var bmi = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__24298__$1,cljs.core.cst$kw$bmi);
-var yurl = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__24298__$1,cljs.core.cst$kw$yurl);
-var length = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__24298__$1,cljs.core.cst$kw$length);
-var title = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__24298__$1,cljs.core.cst$kw$title);
-var vec__24299 = ((((bmi > .562)) && ((bmi < .563)))?new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, ["green",[cljs.core.str("approx ratio: 16:9. exact ratio: "),cljs.core.str(htmlms.youtube.width_ratio(width,height)),cljs.core.str(" by "),cljs.core.str(htmlms.youtube.height_ratio(width,height)),cljs.core.str(".")].join('')], null):((((bmi > .74)) && ((bmi < .76)))?new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, ["inherit",[cljs.core.str("approx ratio: 4:3. exact ratio: "),cljs.core.str(htmlms.youtube.width_ratio(width,height)),cljs.core.str(" by "),cljs.core.str(htmlms.youtube.height_ratio(width,height)),cljs.core.str(".")].join('')], null):new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, ["red",[cljs.core.str("non-standard ratio "),cljs.core.str(htmlms.youtube.width_ratio(width,height)),cljs.core.str(" by "),cljs.core.str(htmlms.youtube.height_ratio(width,height)),cljs.core.str(".")].join('')], null)
+var map__24301 = htmlms.youtube.calc_bmi((cljs.core.deref.cljs$core$IFn$_invoke$arity$1 ? cljs.core.deref.cljs$core$IFn$_invoke$arity$1(bmi_data) : cljs.core.deref.call(null,bmi_data)));
+var map__24301__$1 = ((((!((map__24301 == null)))?((((map__24301.cljs$lang$protocol_mask$partition0$ & (64))) || (map__24301.cljs$core$ISeq$))?true:false):false))?cljs.core.apply.cljs$core$IFn$_invoke$arity$2(cljs.core.hash_map,map__24301):map__24301);
+var width = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__24301__$1,cljs.core.cst$kw$width);
+var height = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__24301__$1,cljs.core.cst$kw$height);
+var bmi = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__24301__$1,cljs.core.cst$kw$bmi);
+var yurl = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__24301__$1,cljs.core.cst$kw$yurl);
+var length = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__24301__$1,cljs.core.cst$kw$length);
+var title = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__24301__$1,cljs.core.cst$kw$title);
+var vec__24302 = ((((bmi > .562)) && ((bmi < .563)))?new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, ["green",[cljs.core.str("approx ratio: 16:9. exact ratio: "),cljs.core.str(htmlms.youtube.width_ratio(width,height)),cljs.core.str(" by "),cljs.core.str(htmlms.youtube.height_ratio(width,height)),cljs.core.str(".")].join('')], null):((((bmi > .74)) && ((bmi < .76)))?new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, ["inherit",[cljs.core.str("approx ratio: 4:3. exact ratio: "),cljs.core.str(htmlms.youtube.width_ratio(width,height)),cljs.core.str(" by "),cljs.core.str(htmlms.youtube.height_ratio(width,height)),cljs.core.str(".")].join('')], null):new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, ["red",[cljs.core.str("non-standard ratio "),cljs.core.str(htmlms.youtube.width_ratio(width,height)),cljs.core.str(" by "),cljs.core.str(htmlms.youtube.height_ratio(width,height)),cljs.core.str(".")].join('')], null)
 ));
-var color = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__24299,(0),null);
-var diagnose = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__24299,(1),null);
-var G__24305 = "div";
-var G__24306 = null;
-var G__24307 = React.createElement("h3",null,"Parameters");
-var G__24308 = (function (){var G__24317 = "div";
-var G__24318 = null;
-var G__24319 = (function (){var attrs24316 = [cljs.core.str("url: "),cljs.core.str(yurl)].join('');
-return cljs.core.apply.cljs$core$IFn$_invoke$arity$4(React.createElement,"span",((cljs.core.map_QMARK_(attrs24316))?sablono.interpreter.attributes(attrs24316):null),((cljs.core.map_QMARK_(attrs24316))?null:new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [sablono.interpreter.interpret(attrs24316)], null)));
+var color = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__24302,(0),null);
+var diagnose = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__24302,(1),null);
+var G__24308 = "div";
+var G__24309 = null;
+var G__24310 = React.createElement("h3",null,"Parameters");
+var G__24311 = (function (){var G__24320 = "div";
+var G__24321 = null;
+var G__24322 = (function (){var attrs24319 = [cljs.core.str("url: "),cljs.core.str(yurl)].join('');
+return cljs.core.apply.cljs$core$IFn$_invoke$arity$4(React.createElement,"span",((cljs.core.map_QMARK_(attrs24319))?sablono.interpreter.attributes(attrs24319):null),((cljs.core.map_QMARK_(attrs24319))?null:new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [sablono.interpreter.interpret(attrs24319)], null)));
 })();
-var G__24320 = sablono.interpreter.interpret(htmlms.youtube.slider(bmi_data,cljs.core.cst$kw$yurl,clojure.string.replace_first(yurl,"youtu.be/","www.youtube.com/watch?v="),(0),(100)));
-return React.createElement(G__24317,G__24318,G__24319,G__24320);
+var G__24323 = sablono.interpreter.interpret(htmlms.youtube.slider(bmi_data,cljs.core.cst$kw$yurl,clojure.string.replace_first(yurl,"youtu.be/","www.youtube.com/watch?v="),(0),(100)));
+return React.createElement(G__24320,G__24321,G__24322,G__24323);
 })();
-var G__24309 = (function (){var G__24322 = "div";
-var G__24323 = null;
-var G__24324 = (function (){var attrs24321 = [cljs.core.str("width: "),cljs.core.str((width | (0))),cljs.core.str("px")].join('');
-return cljs.core.apply.cljs$core$IFn$_invoke$arity$4(React.createElement,"span",((cljs.core.map_QMARK_(attrs24321))?sablono.interpreter.attributes(attrs24321):null),((cljs.core.map_QMARK_(attrs24321))?null:new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [sablono.interpreter.interpret(attrs24321)], null)));
+var G__24312 = (function (){var G__24325 = "div";
+var G__24326 = null;
+var G__24327 = (function (){var attrs24324 = [cljs.core.str("width: "),cljs.core.str((width | (0))),cljs.core.str("px")].join('');
+return cljs.core.apply.cljs$core$IFn$_invoke$arity$4(React.createElement,"span",((cljs.core.map_QMARK_(attrs24324))?sablono.interpreter.attributes(attrs24324):null),((cljs.core.map_QMARK_(attrs24324))?null:new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [sablono.interpreter.interpret(attrs24324)], null)));
 })();
-var G__24325 = sablono.interpreter.interpret(htmlms.youtube.slider(bmi_data,cljs.core.cst$kw$width,width,(30),(150)));
-return React.createElement(G__24322,G__24323,G__24324,G__24325);
+var G__24328 = sablono.interpreter.interpret(htmlms.youtube.slider(bmi_data,cljs.core.cst$kw$width,width,(30),(150)));
+return React.createElement(G__24325,G__24326,G__24327,G__24328);
 })();
-var G__24310 = (function (){var G__24327 = "div";
-var G__24328 = null;
-var G__24329 = (function (){var attrs24326 = [cljs.core.str("height: "),cljs.core.str((height | (0))),cljs.core.str("px")].join('');
-return cljs.core.apply.cljs$core$IFn$_invoke$arity$4(React.createElement,"span",((cljs.core.map_QMARK_(attrs24326))?sablono.interpreter.attributes(attrs24326):null),((cljs.core.map_QMARK_(attrs24326))?null:new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [sablono.interpreter.interpret(attrs24326)], null)));
+var G__24313 = (function (){var G__24330 = "div";
+var G__24331 = null;
+var G__24332 = (function (){var attrs24329 = [cljs.core.str("height: "),cljs.core.str((height | (0))),cljs.core.str("px")].join('');
+return cljs.core.apply.cljs$core$IFn$_invoke$arity$4(React.createElement,"span",((cljs.core.map_QMARK_(attrs24329))?sablono.interpreter.attributes(attrs24329):null),((cljs.core.map_QMARK_(attrs24329))?null:new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [sablono.interpreter.interpret(attrs24329)], null)));
 })();
-var G__24330 = sablono.interpreter.interpret(htmlms.youtube.slider(bmi_data,cljs.core.cst$kw$height,height,(100),(220)));
-return React.createElement(G__24327,G__24328,G__24329,G__24330);
+var G__24333 = sablono.interpreter.interpret(htmlms.youtube.slider(bmi_data,cljs.core.cst$kw$height,height,(100),(220)));
+return React.createElement(G__24330,G__24331,G__24332,G__24333);
 })();
-var G__24311 = (function (){var G__24332 = "div";
-var G__24333 = null;
-var G__24334 = (function (){var attrs24331 = [cljs.core.str("length: "),cljs.core.str(length)].join('');
-return cljs.core.apply.cljs$core$IFn$_invoke$arity$4(React.createElement,"span",((cljs.core.map_QMARK_(attrs24331))?sablono.interpreter.attributes(attrs24331):null),((cljs.core.map_QMARK_(attrs24331))?null:new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [sablono.interpreter.interpret(attrs24331)], null)));
+var G__24314 = (function (){var G__24335 = "div";
+var G__24336 = null;
+var G__24337 = (function (){var attrs24334 = [cljs.core.str("length: "),cljs.core.str(length)].join('');
+return cljs.core.apply.cljs$core$IFn$_invoke$arity$4(React.createElement,"span",((cljs.core.map_QMARK_(attrs24334))?sablono.interpreter.attributes(attrs24334):null),((cljs.core.map_QMARK_(attrs24334))?null:new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [sablono.interpreter.interpret(attrs24334)], null)));
 })();
-var G__24335 = sablono.interpreter.interpret(htmlms.youtube.slider(bmi_data,cljs.core.cst$kw$length,length,(0),(100)));
-return React.createElement(G__24332,G__24333,G__24334,G__24335);
+var G__24338 = sablono.interpreter.interpret(htmlms.youtube.slider(bmi_data,cljs.core.cst$kw$length,length,(0),(100)));
+return React.createElement(G__24335,G__24336,G__24337,G__24338);
 })();
-var G__24312 = (function (){var G__24337 = "div";
-var G__24338 = null;
-var G__24339 = (function (){var attrs24336 = [cljs.core.str("Title: "),cljs.core.str(title)].join('');
-return cljs.core.apply.cljs$core$IFn$_invoke$arity$4(React.createElement,"span",((cljs.core.map_QMARK_(attrs24336))?sablono.interpreter.attributes(attrs24336):null),((cljs.core.map_QMARK_(attrs24336))?null:new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [sablono.interpreter.interpret(attrs24336)], null)));
+var G__24315 = (function (){var G__24340 = "div";
+var G__24341 = null;
+var G__24342 = (function (){var attrs24339 = [cljs.core.str("Title: "),cljs.core.str(title)].join('');
+return cljs.core.apply.cljs$core$IFn$_invoke$arity$4(React.createElement,"span",((cljs.core.map_QMARK_(attrs24339))?sablono.interpreter.attributes(attrs24339):null),((cljs.core.map_QMARK_(attrs24339))?null:new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [sablono.interpreter.interpret(attrs24339)], null)));
 })();
-var G__24340 = sablono.interpreter.interpret(htmlms.youtube.slider(bmi_data,cljs.core.cst$kw$title,title,(0),(100)));
-return React.createElement(G__24337,G__24338,G__24339,G__24340);
+var G__24343 = sablono.interpreter.interpret(htmlms.youtube.slider(bmi_data,cljs.core.cst$kw$title,title,(0),(100)));
+return React.createElement(G__24340,G__24341,G__24342,G__24343);
 })();
-var G__24313 = (function (){var G__24342 = "div";
-var G__24343 = null;
-var G__24344 = (function (){var attrs24341 = [cljs.core.str("ratio: "),cljs.core.str(cljs.pprint.cl_format.cljs$core$IFn$_invoke$arity$variadic(null,"~,3f",cljs.core.array_seq([bmi], 0))),cljs.core.str(" ")].join('');
-return cljs.core.apply.cljs$core$IFn$_invoke$arity$4(React.createElement,"span",((cljs.core.map_QMARK_(attrs24341))?sablono.interpreter.attributes(attrs24341):null),((cljs.core.map_QMARK_(attrs24341))?null:new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [sablono.interpreter.interpret(attrs24341)], null)));
+var G__24316 = (function (){var G__24345 = "div";
+var G__24346 = null;
+var G__24347 = (function (){var attrs24344 = [cljs.core.str("ratio: "),cljs.core.str(cljs.pprint.cl_format.cljs$core$IFn$_invoke$arity$variadic(null,"~,3f",cljs.core.array_seq([bmi], 0))),cljs.core.str(" ")].join('');
+return cljs.core.apply.cljs$core$IFn$_invoke$arity$4(React.createElement,"span",((cljs.core.map_QMARK_(attrs24344))?sablono.interpreter.attributes(attrs24344):null),((cljs.core.map_QMARK_(attrs24344))?null:new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [sablono.interpreter.interpret(attrs24344)], null)));
 })();
-var G__24345 = (function (){var G__24347 = "span";
-var G__24348 = ({"style": ({"color": color})});
-var G__24349 = sablono.interpreter.interpret(diagnose);
-return React.createElement(G__24347,G__24348,G__24349);
+var G__24348 = (function (){var G__24350 = "span";
+var G__24351 = ({"style": ({"color": color})});
+var G__24352 = sablono.interpreter.interpret(diagnose);
+return React.createElement(G__24350,G__24351,G__24352);
 })();
-var G__24346 = sablono.interpreter.interpret(htmlms.youtube.slider(bmi_data,cljs.core.cst$kw$bmi,bmi,(10),(50)));
-return React.createElement(G__24342,G__24343,G__24344,G__24345,G__24346);
+var G__24349 = sablono.interpreter.interpret(htmlms.youtube.slider(bmi_data,cljs.core.cst$kw$bmi,bmi,(10),(50)));
+return React.createElement(G__24345,G__24346,G__24347,G__24348,G__24349);
 })();
-var G__24314 = (function (){var G__24351 = "div";
-var G__24352 = null;
-var G__24353 = (function (){var attrs24350 = [cljs.core.str("html:")].join('');
-return cljs.core.apply.cljs$core$IFn$_invoke$arity$4(React.createElement,"span",((cljs.core.map_QMARK_(attrs24350))?sablono.interpreter.attributes(attrs24350):null),((cljs.core.map_QMARK_(attrs24350))?null:new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [sablono.interpreter.interpret(attrs24350)], null)));
+var G__24317 = (function (){var G__24354 = "div";
+var G__24355 = null;
+var G__24356 = (function (){var attrs24353 = [cljs.core.str("html:")].join('');
+return cljs.core.apply.cljs$core$IFn$_invoke$arity$4(React.createElement,"span",((cljs.core.map_QMARK_(attrs24353))?sablono.interpreter.attributes(attrs24353):null),((cljs.core.map_QMARK_(attrs24353))?null:new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [sablono.interpreter.interpret(attrs24353)], null)));
 })();
-var G__24354 = sablono.interpreter.interpret(htmlms.youtube.htmlout(bmi_data,cljs.core.cst$kw$yurl,yurl,width,height,(10),(50),length,title));
-return React.createElement(G__24351,G__24352,G__24353,G__24354);
+var G__24357 = sablono.interpreter.interpret(htmlms.youtube.htmlout(bmi_data,cljs.core.cst$kw$yurl,yurl,width,height,(10),(50),length,title));
+return React.createElement(G__24354,G__24355,G__24356,G__24357);
 })();
-var G__24315 = (function (){var G__24356 = "div";
-var G__24357 = null;
-var G__24358 = (function (){var attrs24355 = [cljs.core.str("preview:")].join('');
-return cljs.core.apply.cljs$core$IFn$_invoke$arity$4(React.createElement,"span",((cljs.core.map_QMARK_(attrs24355))?sablono.interpreter.attributes(attrs24355):null),((cljs.core.map_QMARK_(attrs24355))?null:new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [sablono.interpreter.interpret(attrs24355)], null)));
+var G__24318 = (function (){var G__24359 = "div";
+var G__24360 = null;
+var G__24361 = (function (){var attrs24358 = [cljs.core.str("preview:")].join('');
+return cljs.core.apply.cljs$core$IFn$_invoke$arity$4(React.createElement,"span",((cljs.core.map_QMARK_(attrs24358))?sablono.interpreter.attributes(attrs24358):null),((cljs.core.map_QMARK_(attrs24358))?null:new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [sablono.interpreter.interpret(attrs24358)], null)));
 })();
-var G__24359 = sablono.interpreter.interpret(htmlms.youtube.htmloutvisual(bmi_data,cljs.core.cst$kw$yurl,yurl,width,height,(10),(50),length,title));
-return React.createElement(G__24356,G__24357,G__24358,G__24359);
+var G__24362 = sablono.interpreter.interpret(htmlms.youtube.htmloutvisual(bmi_data,cljs.core.cst$kw$yurl,yurl,width,height,(10),(50),length,title));
+return React.createElement(G__24359,G__24360,G__24361,G__24362);
 })();
-return React.createElement(G__24305,G__24306,G__24307,G__24308,G__24309,G__24310,G__24311,G__24312,G__24313,G__24314,G__24315);
+return React.createElement(G__24308,G__24309,G__24310,G__24311,G__24312,G__24313,G__24314,G__24315,G__24316,G__24317,G__24318);
 });
 devcards.core.register_card(new cljs.core.PersistentArrayMap(null, 2, [cljs.core.cst$kw$path,new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [cljs.core.cst$kw$htmlms$youtube,cljs.core.cst$kw$YouTube], null),cljs.core.cst$kw$func,(function (){
 return devcards.core.card_base(new cljs.core.PersistentArrayMap(null, 5, [cljs.core.cst$kw$name,"YouTube",cljs.core.cst$kw$documentation,null,cljs.core.cst$kw$main_DASH_obj,(function (data_atom,_){
@@ -295,9 +295,9 @@ htmlms.youtube.main = (function htmlms$youtube$main(){
 var temp__4655__auto__ = document.getElementById("main-app-area");
 if(cljs.core.truth_(temp__4655__auto__)){
 var node = temp__4655__auto__;
-var G__24364 = React.createElement("div",null,"");
-var G__24365 = node;
-return React.render(G__24364,G__24365);
+var G__24367 = React.createElement("div",null,"");
+var G__24368 = node;
+return React.render(G__24367,G__24368);
 } else {
 return null;
 }

@@ -16,20 +16,20 @@ devcards.util.edn_renderer.literal_QMARK_ = (function devcards$util$edn_renderer
 return (!(cljs.core.seq_QMARK_(x))) && (!(cljs.core.coll_QMARK_(x)));
 });
 devcards.util.edn_renderer.separator_STAR_ = (function devcards$util$edn_renderer$separator_STAR_(s){
-var G__19457 = "span";
-var G__19458 = ({"key": devcards.util.edn_renderer.get_key(), "className": "seperator"});
-var G__19459 = sablono.interpreter.interpret(s);
-return React.createElement(G__19457,G__19458,G__19459);
+var G__19460 = "span";
+var G__19461 = ({"key": devcards.util.edn_renderer.get_key(), "className": "seperator"});
+var G__19462 = sablono.interpreter.interpret(s);
+return React.createElement(G__19460,G__19461,G__19462);
 });
 devcards.util.edn_renderer.clearfix_separator_STAR_ = (function devcards$util$edn_renderer$clearfix_separator_STAR_(s){
-var G__19470 = "span";
-var G__19471 = ({"key": devcards.util.edn_renderer.get_key()});
-var G__19472 = sablono.interpreter.interpret(devcards.util.edn_renderer.separator_STAR_(s));
-var G__19473 = (function (){var G__19474 = "span";
-var G__19475 = ({"className": "clearfix"});
-return React.createElement(G__19474,G__19475);
+var G__19473 = "span";
+var G__19474 = ({"key": devcards.util.edn_renderer.get_key()});
+var G__19475 = sablono.interpreter.interpret(devcards.util.edn_renderer.separator_STAR_(s));
+var G__19476 = (function (){var G__19477 = "span";
+var G__19478 = ({"className": "clearfix"});
+return React.createElement(G__19477,G__19478);
 })();
-return React.createElement(G__19470,G__19471,G__19472,G__19473);
+return React.createElement(G__19473,G__19474,G__19475,G__19476);
 });
 devcards.util.edn_renderer.separate_fn = (function devcards$util$edn_renderer$separate_fn(coll){
 if(!(cljs.core.every_QMARK_(devcards.util.edn_renderer.literal_QMARK_,coll))){
@@ -44,52 +44,52 @@ return (sep_fn.cljs$core$IFn$_invoke$arity$1 ? sep_fn.cljs$core$IFn$_invoke$arit
 })),cljs.core.rest(rct_coll))));
 });
 devcards.util.edn_renderer.literal = (function devcards$util$edn_renderer$literal(class$,x){
-var G__19479 = "span";
-var G__19480 = ({"className": class$, "key": devcards.util.edn_renderer.get_key()});
-var G__19481 = sablono.interpreter.interpret(devcards.util.utils.pprint_str(x));
-return React.createElement(G__19479,G__19480,G__19481);
+var G__19482 = "span";
+var G__19483 = ({"className": class$, "key": devcards.util.edn_renderer.get_key()});
+var G__19484 = sablono.interpreter.interpret(devcards.util.utils.pprint_str(x));
+return React.createElement(G__19482,G__19483,G__19484);
 });
 devcards.util.edn_renderer.html_val = (function devcards$util$edn_renderer$html_val(index,v){
-var G__19485 = "span";
-var G__19486 = ({"key": index});
-var G__19487 = sablono.interpreter.interpret((devcards.util.edn_renderer.html.cljs$core$IFn$_invoke$arity$1 ? devcards.util.edn_renderer.html.cljs$core$IFn$_invoke$arity$1(v) : devcards.util.edn_renderer.html.call(null,v)));
-return React.createElement(G__19485,G__19486,G__19487);
+var G__19488 = "span";
+var G__19489 = ({"key": index});
+var G__19490 = sablono.interpreter.interpret((devcards.util.edn_renderer.html.cljs$core$IFn$_invoke$arity$1 ? devcards.util.edn_renderer.html.cljs$core$IFn$_invoke$arity$1(v) : devcards.util.edn_renderer.html.call(null,v)));
+return React.createElement(G__19488,G__19489,G__19490);
 });
 devcards.util.edn_renderer.join_html = (function devcards$util$edn_renderer$join_html(separator,coll){
 return devcards.util.edn_renderer.interpose_separator(cljs.core.into.cljs$core$IFn$_invoke$arity$2(cljs.core.PersistentVector.EMPTY,cljs.core.map_indexed.cljs$core$IFn$_invoke$arity$2(devcards.util.edn_renderer.html_val,coll)),separator,devcards.util.edn_renderer.separate_fn(coll));
 });
-devcards.util.edn_renderer.html_keyval = (function devcards$util$edn_renderer$html_keyval(p__19488){
-var vec__19496 = p__19488;
-var k = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__19496,(0),null);
-var v = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__19496,(1),null);
-var G__19499 = "span";
-var G__19500 = ({"key": cljs.core.prn_str.cljs$core$IFn$_invoke$arity$variadic(cljs.core.array_seq([k], 0)), "className": "keyval"});
-var G__19501 = sablono.interpreter.interpret((devcards.util.edn_renderer.html.cljs$core$IFn$_invoke$arity$1 ? devcards.util.edn_renderer.html.cljs$core$IFn$_invoke$arity$1(k) : devcards.util.edn_renderer.html.call(null,k)));
-var G__19502 = sablono.interpreter.interpret((devcards.util.edn_renderer.html.cljs$core$IFn$_invoke$arity$1 ? devcards.util.edn_renderer.html.cljs$core$IFn$_invoke$arity$1(v) : devcards.util.edn_renderer.html.call(null,v)));
-return React.createElement(G__19499,G__19500,G__19501,G__19502);
+devcards.util.edn_renderer.html_keyval = (function devcards$util$edn_renderer$html_keyval(p__19491){
+var vec__19499 = p__19491;
+var k = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__19499,(0),null);
+var v = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__19499,(1),null);
+var G__19502 = "span";
+var G__19503 = ({"key": cljs.core.prn_str.cljs$core$IFn$_invoke$arity$variadic(cljs.core.array_seq([k], 0)), "className": "keyval"});
+var G__19504 = sablono.interpreter.interpret((devcards.util.edn_renderer.html.cljs$core$IFn$_invoke$arity$1 ? devcards.util.edn_renderer.html.cljs$core$IFn$_invoke$arity$1(k) : devcards.util.edn_renderer.html.call(null,k)));
+var G__19505 = sablono.interpreter.interpret((devcards.util.edn_renderer.html.cljs$core$IFn$_invoke$arity$1 ? devcards.util.edn_renderer.html.cljs$core$IFn$_invoke$arity$1(v) : devcards.util.edn_renderer.html.call(null,v)));
+return React.createElement(G__19502,G__19503,G__19504,G__19505);
 });
 devcards.util.edn_renderer.html_keyvals = (function devcards$util$edn_renderer$html_keyvals(coll){
 return devcards.util.edn_renderer.interpose_separator(cljs.core.mapv.cljs$core$IFn$_invoke$arity$2(devcards.util.edn_renderer.html_keyval,coll)," ",devcards.util.edn_renderer.separate_fn(cljs.core.vals(coll)));
 });
 devcards.util.edn_renderer.open_close = (function devcards$util$edn_renderer$open_close(class_str,opener,closer,rct_coll){
-var G__19517 = "span";
-var G__19518 = ({"className": class_str, "key": [cljs.core.str(cljs.core.hash(rct_coll))].join('')});
-var G__19519 = (function (){var G__19522 = "span";
-var G__19523 = ({"key": (1), "className": "opener"});
-var G__19524 = sablono.interpreter.interpret(opener);
-return React.createElement(G__19522,G__19523,G__19524);
-})();
-var G__19520 = (function (){var G__19525 = "span";
-var G__19526 = ({"key": (2), "className": "contents"});
-var G__19527 = sablono.interpreter.interpret(rct_coll);
+var G__19520 = "span";
+var G__19521 = ({"className": class_str, "key": [cljs.core.str(cljs.core.hash(rct_coll))].join('')});
+var G__19522 = (function (){var G__19525 = "span";
+var G__19526 = ({"key": (1), "className": "opener"});
+var G__19527 = sablono.interpreter.interpret(opener);
 return React.createElement(G__19525,G__19526,G__19527);
 })();
-var G__19521 = (function (){var G__19528 = "span";
-var G__19529 = ({"key": (3), "className": "closer"});
-var G__19530 = sablono.interpreter.interpret(closer);
+var G__19523 = (function (){var G__19528 = "span";
+var G__19529 = ({"key": (2), "className": "contents"});
+var G__19530 = sablono.interpreter.interpret(rct_coll);
 return React.createElement(G__19528,G__19529,G__19530);
 })();
-return React.createElement(G__19517,G__19518,G__19519,G__19520,G__19521);
+var G__19524 = (function (){var G__19531 = "span";
+var G__19532 = ({"key": (3), "className": "closer"});
+var G__19533 = sablono.interpreter.interpret(closer);
+return React.createElement(G__19531,G__19532,G__19533);
+})();
+return React.createElement(G__19520,G__19521,G__19522,G__19523,G__19524);
 });
 devcards.util.edn_renderer.html_collection = (function devcards$util$edn_renderer$html_collection(class$,opener,closer,coll){
 return devcards.util.edn_renderer.open_close([cljs.core.str("collection "),cljs.core.str(class$)].join(''),opener,closer,devcards.util.edn_renderer.join_html(" ",coll));
@@ -137,12 +137,12 @@ return devcards.util.edn_renderer.literal("literal",x);
 }
 });
 devcards.util.edn_renderer.html_edn = (function devcards$util$edn_renderer$html_edn(e){
-var _STAR_key_counter_STAR_19535 = devcards.util.edn_renderer._STAR_key_counter_STAR_;
+var _STAR_key_counter_STAR_19538 = devcards.util.edn_renderer._STAR_key_counter_STAR_;
 devcards.util.edn_renderer._STAR_key_counter_STAR_ = (cljs.core.atom.cljs$core$IFn$_invoke$arity$1 ? cljs.core.atom.cljs$core$IFn$_invoke$arity$1((0)) : cljs.core.atom.call(null,(0)));
 
-try{var G__19536 = "div";
-var G__19537 = ({"key": "devcards-edn-block", "className": "com-rigsomelight-rendered-edn com-rigsomelight-devcards-typog"});
-var G__19538 = sablono.interpreter.interpret(devcards.util.edn_renderer.html(e));
-return React.createElement(G__19536,G__19537,G__19538);
-}finally {devcards.util.edn_renderer._STAR_key_counter_STAR_ = _STAR_key_counter_STAR_19535;
+try{var G__19539 = "div";
+var G__19540 = ({"key": "devcards-edn-block", "className": "com-rigsomelight-rendered-edn com-rigsomelight-devcards-typog"});
+var G__19541 = sablono.interpreter.interpret(devcards.util.edn_renderer.html(e));
+return React.createElement(G__19539,G__19540,G__19541);
+}finally {devcards.util.edn_renderer._STAR_key_counter_STAR_ = _STAR_key_counter_STAR_19538;
 }});
