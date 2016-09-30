@@ -122,10 +122,18 @@
                                                                   ; (.log js/console "intervalobj: " intervalobj)
                                                                   ;(swap! intervalobj assoc )
 
-                                                                  (swap! bmi-data assoc :length updlength)
+                                                                  ;(swap! bmi-data assoc :length updlength)
+                                                                  (swap! bmi-data assoc :length  (cs/replace-first updlength  #"\.(\d+)" ""))
                                                                   ; (swap! bmi-data assoc :length (let [me (Interval.fromIsoString updlength)] (str (if (> me.hours 0) (str me.hours "h ") ) me.minutes "m " me.seconds "s")))
                                                                   ;(swap! bmi-data assoc :length updlength)
-                                                                  (swap! initial-length assoc :initlength updlength)
+                                                                  ; truncate decimal seconds
+                                                                  ; play around with at http://www.tryclj.com/
+                                                                  ; (clojure.string/replace-first "00:34:31.0810000" #"\.(\d+)" "")
+                                                                  ; "00:34:31"
+                                                                  ; cljs
+                                                                  ;(cs/replace-first updlength  #"\.(\d+)" "")
+                                                                  ;(swap! initial-length assoc :initlength updlength)
+                                                                  (swap! initial-length assoc :initlength (cs/replace-first updlength  #"\.(\d+)" "") )
                                                                   (println ":initlength: " (:initlength @initial-length))
 
                                                                   ; title

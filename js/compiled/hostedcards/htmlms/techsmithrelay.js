@@ -98,9 +98,9 @@ cljs.core.println.cljs$core$IFn$_invoke$arity$variadic(cljs.core.array_seq(["can
 
 cljs.core.println.cljs$core$IFn$_invoke$arity$variadic(cljs.core.array_seq(["updlength: ",updlength], 0));
 
-cljs.core.swap_BANG_.cljs$core$IFn$_invoke$arity$4(bmi_data,cljs.core.assoc,cljs.core.cst$kw$length,updlength);
+cljs.core.swap_BANG_.cljs$core$IFn$_invoke$arity$4(bmi_data,cljs.core.assoc,cljs.core.cst$kw$length,clojure.string.replace_first(updlength,/\.(\d+)/,""));
 
-cljs.core.swap_BANG_.cljs$core$IFn$_invoke$arity$4(htmlms.techsmithrelay.initial_length,cljs.core.assoc,cljs.core.cst$kw$initlength,updlength);
+cljs.core.swap_BANG_.cljs$core$IFn$_invoke$arity$4(htmlms.techsmithrelay.initial_length,cljs.core.assoc,cljs.core.cst$kw$initlength,clojure.string.replace_first(updlength,/\.(\d+)/,""));
 
 cljs.core.println.cljs$core$IFn$_invoke$arity$variadic(cljs.core.array_seq([":initlength: ",cljs.core.cst$kw$initlength.cljs$core$IFn$_invoke$arity$1((cljs.core.deref.cljs$core$IFn$_invoke$arity$1 ? cljs.core.deref.cljs$core$IFn$_invoke$arity$1(htmlms.techsmithrelay.initial_length) : cljs.core.deref.call(null,htmlms.techsmithrelay.initial_length)))], 0));
 
