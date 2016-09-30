@@ -1,4 +1,4 @@
-(ns htmlms.core
+(ns htmlms.techsmithrelay
   (:require
     #_[om.core :as om :include-macros true]
     [reagent.core :as r]
@@ -12,20 +12,22 @@
     ;[cljsjs.tether]
 
     ; see devcards as a standalone website https://github.com/bhauman/devcards
+    ; remember to run lein figwheel and then browse to
+    ; http://localhost:3449/cards.html
     ; lein figwheel
     ; -- do nothing --
     ; lein cljsbuild once hostedcards
-    ; [devcards.core :as dc]
-    )
+    [devcards.core :as dc])
+
   (:require-macros
     ; for go/timeout
     [cljs.core.async.macros :as m :refer [go]]
 
     ; lein figwheel
-    [devcards.core :as dc :refer [defcard deftest]]
+    ; [devcards.core :as dc :refer [defcard deftest]]
     ; lein cljsbuild once hostedcards
-    ;[devcards.core :refer [defcard]]
-    )
+    [devcards.core :refer [defcard]])
+
   (:import [goog.net XhrIo]
            [goog.date Interval]))
 
@@ -34,23 +36,26 @@
 ; lein figwheel
 ; -- do nothing --
 ; lein cljsbuild once hostedcards
-; (devcards.core/start-devcard-ui!)
+(devcards.core/start-devcard-ui!)
 
 
 
 (defonce initial-title (atom {:inittitle "Like I Used to Do.mp4"}))
 (defonce initial-length (atom {:initlength "0m 0s"}))
-(def intervalobj (Interval.fromIsoString (:initlength @initial-length)) )
+(def intervalobj (Interval.fromIsoString (:initlength @initial-length)))
 
 
 
 ; setting up youtube plumbing to read the video length
 (defn get-id-from-url [u]
-  "given a YouTube URL return the video’s ID"
-  (get (:query (cu/url u)) "v")
-  )
+  "given a TechSmith Relay URL return the video’s ID"
+  ;(cs/replace-first u "youtu.be/" "www.youtube.com/watch?v=")
+  ; in youtube you have to get by parameter... don't think I'll have to do this in this case
+  ; (get (:query (cu/url (cs/replace-first u "youtu.be/" "www.youtube.com/watch?v="))) "v"))
+  (cs/replace-first u "https://boisestate.techsmithrelay.com/" ""))
 
-(println (get-id-from-url "https://www.youtube.com/watch?v=Wfj4g8zh2gk"))
+
+  (println (get-id-from-url "https://boisestate.techsmithrelay.com/TB3U"))
 
 
 (def r (t/reader :json))
@@ -103,11 +108,11 @@
              :on-change (fn [e]
                           (swap! bmi-data assoc param (.-target.value e))
                           ; also swap out new video length
-                          (if (= param :yurl) (xhr-data (str "https://www.googleapis.com/youtube/v3/videos?part=contentDetails%2C+snippet&id="
+                          (if (= param :yurl) (xhr-data (str "https://boisestate.techsmithrelay.com/api/v1/media/"
                                                              (get-id-from-url (.-target.value e))
-                                                             "&fields=items(contentDetails%2Csnippet)&key=AIzaSyAEqd5yONIxbtMZO-iF5t5aQ0Am1QmTPzs")
+                                                             "/details")
                                                         ; (fn [g] (swap! initial-length update-in [:initlength] (-> (get-in (t/read r g) ["items" 0 "contentDetails" "duration"]))
-                                                        (fn [g] (let [updlength (-> (get-in (t/read r g) ["items" 0 "contentDetails" "duration"])) updtitle (-> (get-in (t/read r g) ["items" 0 "snippet" "title"]))]
+                                                        (fn [g] (let [updlength (-> (get-in (t/read r g) ["Duration"])) updtitle (-> (get-in (t/read r g) ["Description"]))]
 
                                                                   ; (go
                                                                   (println "url: " value)
@@ -117,8 +122,8 @@
                                                                   ; (.log js/console "intervalobj: " intervalobj)
                                                                   ;(swap! intervalobj assoc )
 
-
-                                                                  (swap! bmi-data assoc :length (let [me (Interval.fromIsoString updlength)] (str (if (> me.hours 0) (str me.hours "h ") ) me.minutes "m " me.seconds "s")))
+                                                                  (swap! bmi-data assoc :length updlength)
+                                                                  ; (swap! bmi-data assoc :length (let [me (Interval.fromIsoString updlength)] (str (if (> me.hours 0) (str me.hours "h ") ) me.minutes "m " me.seconds "s")))
                                                                   ;(swap! bmi-data assoc :length updlength)
                                                                   (swap! initial-length assoc :initlength updlength)
                                                                   (println ":initlength: " (:initlength @initial-length))
@@ -128,29 +133,39 @@
 
                                                                   ;)
 
-                                                          ;(swap! intervalobj (Interval.fromIsoString (:initlength @initial-length)) )
-                                                          ;(swap! bmi-data assoc :length (let [me (Interval.fromIsoString (:initlength @initial-length))] (str me.hours me.minutes me.seconds)))
-                                                          ;(swap! bmi-data assoc :length (let [me (Interval.fromIsoString udplength)] (str me.hours me.minutes me.seconds)))
+                                                                  ;(swap! intervalobj (Interval.fromIsoString (:initlength @initial-length)) )
+                                                                  ;(swap! bmi-data assoc :length (let [me (Interval.fromIsoString (:initlength @initial-length))] (str me.hours me.minutes me.seconds)))
+                                                                  ;(swap! bmi-data assoc :length (let [me (Interval.fromIsoString udplength)] (str me.hours me.minutes me.seconds)))
 
-                                                          ))))
-             (println "initial-length: " initial-length)
-                        (when (not= param :bmi)
-                          (println (str "param:" param))
-                          (swap! bmi-data assoc :bmi nil)
-                          ))}]))
+                                                                  ))))
+                          (println "initial-length: " initial-length)
+                          (when (not= param :bmi)
+                            (println (str "param:" param))
+                            (swap! bmi-data assoc :bmi nil)))}]))
+
 
 
 (defn ifriendly [url]
-  "create iframible youtube link for display http://stackoverflow.com/questions/20498831/refused-to-display-in-a-frame-because-it-set-x-frame-options-to-sameorigin"
-  (cs/replace-first (cs/replace-first url "watch?v=" "embed/") "https:" "")
+  "create (iframe friendly) iframible TechSmith Relay link for display. http://stackoverflow.com/questions/20498831/refused-to-display-in-a-frame-because-it-set-x-frame-options-to-sameorigin"
+  ; e.g. convert:
+  ;    https://boisestate.techsmithrelay.com/TB3U -> https://boisestate.techsmithrelay.com/connector/embed/index/TB3U
+  ; replacing this with threading macro (->) below
+  ; (cs/replace-first url "boisestate.techsmithrelay.com/" "boisestate.techsmithrelay.com/connector/embed/index/")
+  ; (cs/replace-first url "https:" "")
+  (-> url
+      (cs/replace-first "boisestate.techsmithrelay.com/" "boisestate.techsmithrelay.com/connector/embed/index/")
+      (cs/replace-first "https:" "")
+      )
   )
+
 
 (defn fluff [skinny width height length title]
   (str "<p>Click the <strong>Play</strong> icon to begin.</p>
-<p><iframe width=\"" width "\" height=\"" height "\" src=\"" (ifriendly skinny) "?rel=0\" frameBorder=\"0\" allowfullscreen></iframe></p>
+<p><iframe width=\"" width "\" height=\"" height "\" src=\"" (ifriendly skinny) "\" scrolling=\"no\" style=\"width: " width ";height: " height " border:0;\" frameBorder=\"0\" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe></p>
 <p>If video doesn't appear, follow this direct link:
 <a href=\"" skinny "\" title=\"" title "\" target=\"_blank\">"
-       title "</a> (" length ")</p><p>To display video captions, start video and click <strong>CC</strong> in the video frame. To expand the video, use direct link above to open video in YouTube.</p>
+       title "</a> (" length ")</p><p>Start the video to access more options in the video frame. To access the <strong>closed captions</strong> for this video click on the
+       <strong>CC</strong> button in the toolbar at the bottom of the video. To expand the video, click the <strong>Full Screen icon</strong> in the toolbar at the bottom of the video.</p>
 "))
 
 (defn get-data [bmi-data param value min max]
@@ -162,13 +177,13 @@
              :style     {:width "100%"}
              :value value
              :on-change (fn [e]
-                                ; (swap! bmi-data assoc param (.-target.value  (.log js/console (-> (get-in (t/read r e) ["items" 0 "contentDetails" "duration"]))    )   )    )
-                                ;(swap! bmi-data assoc :length (.-target.value (-> (get-in (t/read r e) ["items" 0 "contentDetails" "duration"])    )   )    )
-                                (swap! bmi-data assoc param (.-target.value e))
-                                ; (swap! bmi-data assoc param (.-target.value  (.parse js/JSON e)    ))
+                          ; (swap! bmi-data assoc param (.-target.value  (.log js/console (-> (get-in (t/read r e) ["items" 0 "contentDetails" "duration"]))    )   )    )
+                          ;(swap! bmi-data assoc :length (.-target.value (-> (get-in (t/read r e) ["items" 0 "contentDetails" "duration"])    )   )    )
+                          (swap! bmi-data assoc param (.-target.value e))
+                          ; (swap! bmi-data assoc param (.-target.value  (.parse js/JSON e)    ))
                           #_(when (not= param :length)
-                            (swap! bmi-data assoc :length nil)
-                            )
+                              (swap! bmi-data assoc :length nil)
+                              )
                           )}]))
 
 (defn htmlout [bmi-data param value width height min max length title]
@@ -180,10 +195,10 @@
                 :style     {:width "100%"}
                 :on-change (fn [e] (swap! bmi-data assoc param (.-target.value e))
                              (when (not= param :bmi)
-                               (swap! bmi-data assoc :bmi nil)
-                               )
-                             )}]
-    ))
+                               (swap! bmi-data assoc :bmi nil)))}]))
+
+
+
 
 
 (defn htmloutvisual [bmi-data param value width height min max length title]
@@ -193,32 +208,33 @@
       [:strong "Play"] " icon to begin."]
      [:iframe {:width           width
                :height          height
-               :src             (ifriendly (str value "?rel=0"))
+               :src             (ifriendly (str value))
                :frameborder     0
                :allowfullscreen nil
                :on-change       (fn [e] (swap! bmi-data assoc param (.-target.value e))
                                   (when (not= param :bmi)
-                                    (swap! bmi-data assoc :bmi nil)
-                                    )
-                                  )}]
+                                    (swap! bmi-data assoc :bmi nil)))}]
+
+
      [:p {:style {:font-size ".8em"}} "If video doesn't appear, follow this direct link: "
       [:a {:href   value
            :title  title
            :target "_blank"
            } title] " (" length ")"
       ]
-     [:p {:style {:font-size ".8em"}} "To display video captions, start video and click " [:strong "CC"] " in the video
-     frame. To expand the video, use direct link above to open video in YouTube."]
+     [:p {:style {:font-size ".8em"}} "Start the video to access more options in the video frame. To access the " [:strong "closed captions"] " for this video click on
+     the " [:strong "CC"] " button in the toolbar at the bottom of the video. To " [:strong "expand the video"] ", click the " [:strong "Full Screen icon" ] " in the toolbar
+     at the bottom of the video."]
      ]
     ))
 
 (defn height-ratio [w h]
-  (/ h (gcd w h))
-  )
+  (/ h (gcd w h)))
+
 
 (defn width-ratio [w h]
-  (/ w (gcd w h))
-  )
+  (/ w (gcd w h)))
+
 
 (defn bmi-component [bmi-data]
   (println "@bmi-data: " @bmi-data)
@@ -228,7 +244,7 @@
                            (and (> bmi .562) (< bmi .563)) ["green" (str "approx ratio: 16:9. exact ratio: " (width-ratio width height)  " by " (height-ratio width height) ".")]
                            (and (> bmi .74) (< bmi .76)) ["inherit" (str "approx ratio: 4:3. exact ratio: " (width-ratio width height) " by " (height-ratio width height) ".")]
                            ; (< bmi 30) ["orange" "overweight"]
-                           :else ["red" (str "non-standard ratio " (width-ratio width height)  " by " (height-ratio width height) ".") ])]
+                           :else ["red" (str "non-standard ratio " (width-ratio width height)  " by " (height-ratio width height) ".")])]
     (sab/html
       [:div
        [:h3 "Parameters"]
@@ -243,48 +259,43 @@
         (slider bmi-data :height height 100 220)]
        [:div
         [:span (str "length: " length)]
-        (slider bmi-data :length length 0 100)
-        ]
+        (slider bmi-data :length length 0 100)]
+
        [:div
         [:span (str "Title: " title)]
-        (slider bmi-data :title title 0 100)
-        ]
+        (slider bmi-data :title title 0 100)]
+
        [:div
         [:span (str "ratio: " (cljs.pprint/cl-format nil "~,3f" bmi) " ")]
         [:span {:style {:color color}} diagnose]
         (slider bmi-data :bmi bmi 10 50)]
        [:div
         [:span (str "html:")]
-        (htmlout bmi-data :yurl yurl width height 10 50 length title)
-        ]
+        (htmlout bmi-data :yurl yurl width height 10 50 length title)]
+
        [:div
         [:span (str "preview:")]
-        (htmloutvisual bmi-data :yurl yurl width height 10 50 length title)
-        ]
-      ])))
+        (htmloutvisual bmi-data :yurl yurl width height 10 50 length title)]])))
 
-(defcard YouTube
-         ;"see [devcards](https://github.com/bhauman/devcards) for deets"
+
+
+(defcard TechSmithRelay
+         ; see [devcards](https://github.com/bhauman/devcards) for deets
          (fn [data-atom _] (bmi-component data-atom))
-         ; (merge {:height 360 :width 640 :yurl "https://www.youtube.com/watch?v=BZWuYU2kcLg" } {:length (:initlength @initial-length)} )
-         ;(merge {:height 360 :width 640 :yurl "https://www.youtube.com/watch?v=Wfj4g8zh2gk" } {:length (str (if (> intervalobj.hours 0) (str intervalobj.hours "h ") ) intervalobj.minutes "m " intervalobj.seconds "s") } )
-         {:height 360 :width 640 :yurl "https://www.youtube.com/watch?v=Wfj4g8zh2gk" :length "4m 16s" :title "Like I used to do.mp4" }
-         ; {:height 360 :width 640 :yurl "https://www.youtube.com/watch?v=Wfj4g8zh2gk"}
-         ; {:height 360 :width 640 }
+         {:height 315 :width 560 :yurl "https://boisestate.techsmithrelay.com/TB3U" :length "04:22" :title "Stephen Hill Introduction"}
          {:inspect-data false
           :frame        true
           :history      true
-          :heading      true
-          })
+          :heading      true})
 
 #_(defcard
-  example-counter
-  (fn [data-atom owner]
-    (sab/html
-      [:h3
-       "Example Counter w/Shared Initial Atom: "
-       (:initlength @data-atom)]))
-  initial-length)
+    example-counter
+    (fn [data-atom owner]
+      (sab/html
+        [:h3
+         "Example Counter w/Shared Initial Atom: "
+         (:initlength @data-atom)]))
+    initial-length)
 
 ;(.log js/console (:initlength @initial-length))
 ; aiming for Duration.parse(duration).getSeconds()
@@ -297,8 +308,8 @@
   ;; conditionally start the app based on wether the #main-app-area
   ;; node is on the page
   (if-let [node (.getElementById js/document "main-app-area")]
-    (js/React.render (sab/html [:div ""]) node)
-    ))
+    (js/React.render (sab/html [:div ""]) node)))
+
 
 
 
@@ -307,8 +318,8 @@
 ;; remember to run lein figwheel and then browse to
 ;; http://localhost:3449/cards.html
 
-;; api to youtube to return duration... be sure to supply a key
-;; https://www.googleapis.com/youtube/v3/videos?part=contentDetails&id=lm8oxC24QZc&fields=items%2FcontentDetails%2Fduration&key=
-;; {"items" :
-;;  [{"contentDetails" :
-;;     {"duration" : "PT3M57S" } } ] }
+;; api to TechSmith Relay to return duration... be sure to supply a key
+;; https://boisestate.techsmithrelay.com/api/v1/media/LnS3/details
+;; {...
+;;     "Description": "Stephen Hill Introduction",
+;;     "Duration": "00:04:22.5070000",
