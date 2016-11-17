@@ -43,8 +43,8 @@ return devcards.core.card_base.call(null,new cljs.core.PersistentArrayMap(null, 
 })], null));
 htmlms.youtube.gcd = (function htmlms$youtube$gcd(a,b){
 return cljs.core.apply.call(null,cljs.core.max,cljs.core.apply.call(null,clojure.set.intersection,cljs.core.map.call(null,cljs.core.set,cljs.core.map.call(null,(function (x){
-return cljs.core.filter.call(null,(function (p1__34821_SHARP_){
-return (cljs.core.mod.call(null,x,p1__34821_SHARP_) === (0));
+return cljs.core.filter.call(null,(function (p1__38334_SHARP_){
+return (cljs.core.mod.call(null,x,p1__38334_SHARP_) === (0));
 }),cljs.core.range.call(null,(1),(x + (1))));
 }),new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [a,b], null)))));
 });
@@ -55,15 +55,15 @@ return cb.call(null,xhr.getResponseText());
 }));
 });
 htmlms.youtube.calc_bmi = (function htmlms$youtube$calc_bmi(bmi_data){
-var map__34824 = bmi_data;
-var map__34824__$1 = ((((!((map__34824 == null)))?((((map__34824.cljs$lang$protocol_mask$partition0$ & (64))) || (map__34824.cljs$core$ISeq$))?true:false):false))?cljs.core.apply.call(null,cljs.core.hash_map,map__34824):map__34824);
-var data = map__34824__$1;
-var height = cljs.core.get.call(null,map__34824__$1,new cljs.core.Keyword(null,"height","height",1025178622));
-var width = cljs.core.get.call(null,map__34824__$1,new cljs.core.Keyword(null,"width","width",-384071477));
-var bmi = cljs.core.get.call(null,map__34824__$1,new cljs.core.Keyword(null,"bmi","bmi",1421979636));
-var yurl = cljs.core.get.call(null,map__34824__$1,new cljs.core.Keyword(null,"yurl","yurl",182188908));
-var length = cljs.core.get.call(null,map__34824__$1,new cljs.core.Keyword(null,"length","length",588987862));
-var title = cljs.core.get.call(null,map__34824__$1,new cljs.core.Keyword(null,"title","title",636505583));
+var map__38337 = bmi_data;
+var map__38337__$1 = ((((!((map__38337 == null)))?((((map__38337.cljs$lang$protocol_mask$partition0$ & (64))) || (map__38337.cljs$core$ISeq$))?true:false):false))?cljs.core.apply.call(null,cljs.core.hash_map,map__38337):map__38337);
+var data = map__38337__$1;
+var height = cljs.core.get.call(null,map__38337__$1,new cljs.core.Keyword(null,"height","height",1025178622));
+var width = cljs.core.get.call(null,map__38337__$1,new cljs.core.Keyword(null,"width","width",-384071477));
+var bmi = cljs.core.get.call(null,map__38337__$1,new cljs.core.Keyword(null,"bmi","bmi",1421979636));
+var yurl = cljs.core.get.call(null,map__38337__$1,new cljs.core.Keyword(null,"yurl","yurl",182188908));
+var length = cljs.core.get.call(null,map__38337__$1,new cljs.core.Keyword(null,"length","length",588987862));
+var title = cljs.core.get.call(null,map__38337__$1,new cljs.core.Keyword(null,"title","title",636505583));
 var h = (height / (100));
 if((bmi == null)){
 return cljs.core.assoc.call(null,data,new cljs.core.Keyword(null,"bmi","bmi",1421979636),((1) / ((width / htmlms.youtube.gcd.call(null,width,height)) / (height / htmlms.youtube.gcd.call(null,width,height)))));
@@ -113,16 +113,16 @@ htmlms.youtube.ifriendly = (function htmlms$youtube$ifriendly(url){
 
 return clojure.string.replace_first.call(null,clojure.string.replace_first.call(null,clojure.string.replace_first.call(null,url,"youtu.be/","www.youtube.com/watch?v="),"watch?v=","embed/"),"https:","");
 });
-htmlms.youtube.fluff = (function htmlms$youtube$fluff(skinny,width,height,length,title){
-return [cljs.core.str("<p>Click the <strong>Play</strong> icon to begin.</p>\n<p><iframe width=\""),cljs.core.str(width),cljs.core.str("\" height=\""),cljs.core.str(height),cljs.core.str("\" src=\""),cljs.core.str(htmlms.youtube.ifriendly.call(null,skinny)),cljs.core.str("?rel=0\" frameBorder=\"0\" allowfullscreen></iframe></p>\n<p>If video doesn't appear, follow this direct link:\n<a href=\""),cljs.core.str(skinny),cljs.core.str("\" title=\""),cljs.core.str(title),cljs.core.str("\" target=\"_blank\">"),cljs.core.str(title),cljs.core.str("</a> ("),cljs.core.str(length),cljs.core.str(")</p><p>Start the video to access more options in the video frame: to display the video captions, click\u00A0<strong>CC</strong>.\u00A0To expand the video, use the direct link above to open video in YouTube, and click the Full Screen icon. To navigate the video using the transcript, click YouTube, select ...More, then Transcript.</p>\n")].join('');
+htmlms.youtube.fluff = (function htmlms$youtube$fluff(skinny,startTime,width,height,length,title){
+return [cljs.core.str("<p>Click the <strong>Play</strong> icon to begin.</p>\n<p><iframe width=\""),cljs.core.str(width),cljs.core.str("\" height=\""),cljs.core.str(height),cljs.core.str("\" src=\""),cljs.core.str(htmlms.youtube.ifriendly.call(null,skinny)),cljs.core.str("?rel=0&start="),cljs.core.str(startTime),cljs.core.str("\" frameBorder=\"0\" allowfullscreen></iframe></p>\n<p>If video doesn't appear, follow this direct link:\n<a href=\""),cljs.core.str([cljs.core.str(skinny),cljs.core.str("&t="),cljs.core.str(startTime)].join('')),cljs.core.str("\" title=\""),cljs.core.str(title),cljs.core.str("\" target=\"_blank\">"),cljs.core.str(title),cljs.core.str("</a> ("),cljs.core.str(length),cljs.core.str(")</p><p>Start the video to access more options in the video frame: to display the video captions, click\u00A0<strong>CC</strong>.\u00A0To expand the video, use the direct link above to open video in YouTube, and click the Full Screen icon. To navigate the video using the transcript, click YouTube, select ...More, then Transcript.</p>\n")].join('');
 });
 htmlms.youtube.get_data = (function htmlms$youtube$get_data(bmi_data,param,value,min,max){
 return sablono.interpreter.create_element.call(null,"input",({"type": "text", "min": min, "max": max, "style": ({"width": "100%"}), "value": value, "onChange": (function (e){
 return cljs.core.swap_BANG_.call(null,bmi_data,cljs.core.assoc,param,e.target.value);
 })}));
 });
-htmlms.youtube.htmlout = (function htmlms$youtube$htmlout(bmi_data,param,value,width,height,min,max,length,title){
-return sablono.interpreter.create_element.call(null,"textarea",({"cols": max, "rows": min, "value": htmlms.youtube.fluff.call(null,value,width,height,length,title), "style": ({"width": "100%"}), "onChange": (function (e){
+htmlms.youtube.htmlout = (function htmlms$youtube$htmlout(bmi_data,param,value,startTime,width,height,min,max,length,title){
+return sablono.interpreter.create_element.call(null,"textarea",({"cols": max, "rows": min, "value": htmlms.youtube.fluff.call(null,value,startTime,width,height,length,title), "style": ({"width": "100%"}), "onChange": (function (e){
 cljs.core.swap_BANG_.call(null,bmi_data,cljs.core.assoc,param,e.target.value);
 
 if(cljs.core.not_EQ_.call(null,param,new cljs.core.Keyword(null,"bmi","bmi",1421979636))){
@@ -132,8 +132,8 @@ return null;
 }
 })}));
 });
-htmlms.youtube.htmloutvisual = (function htmlms$youtube$htmloutvisual(bmi_data,param,value,width,height,min,max,length,title){
-return React.createElement("div",null,React.createElement("p",({"style": ({"fontSize": ".8em"})}),"Click the ",React.createElement("strong",null,"Play")," icon to begin."),React.createElement("iframe",({"width": width, "height": height, "src": htmlms.youtube.ifriendly.call(null,[cljs.core.str(value),cljs.core.str("?rel=0")].join('')), "frameborder": (0), "allowfullscreen": null, "onChange": (function (e){
+htmlms.youtube.htmloutvisual = (function htmlms$youtube$htmloutvisual(bmi_data,param,value,startTime,width,height,min,max,length,title){
+return React.createElement("div",null,React.createElement("p",({"style": ({"fontSize": ".8em"})}),"Click the ",React.createElement("strong",null,"Play")," icon to begin."),React.createElement("iframe",({"width": width, "height": height, "src": htmlms.youtube.ifriendly.call(null,[cljs.core.str(value),cljs.core.str("?rel=0&start="),cljs.core.str(startTime)].join('')), "frameborder": (0), "allowfullscreen": null, "onChange": (function (e){
 cljs.core.swap_BANG_.call(null,bmi_data,cljs.core.assoc,param,e.target.value);
 
 if(cljs.core.not_EQ_.call(null,param,new cljs.core.Keyword(null,"bmi","bmi",1421979636))){
@@ -141,7 +141,7 @@ return cljs.core.swap_BANG_.call(null,bmi_data,cljs.core.assoc,new cljs.core.Key
 } else {
 return null;
 }
-})})),React.createElement("p",({"style": ({"fontSize": ".8em"})}),"If video doesn't appear, follow this direct link: ",React.createElement("a",({"href": value, "title": title, "target": "_blank"}),sablono.interpreter.interpret.call(null,title))," (",sablono.interpreter.interpret.call(null,length),")"),React.createElement("p",({"style": ({"fontSize": ".8em"})}),"Start the video to access more options in the video frame: to display the video captions, click ",React.createElement("strong",null,"CC"),".\u00A0\n     To expand the video, use the direct link above to open video in YouTube, and click the Full Screen icon. To navigate the video using the transcript,\n     click YouTube, select ...More, then Transcript."));
+})})),React.createElement("p",({"style": ({"fontSize": ".8em"})}),"If video doesn't appear, follow this direct link: ",React.createElement("a",({"href": [cljs.core.str(value),cljs.core.str("&t="),cljs.core.str(startTime)].join(''), "title": title, "target": "_blank"}),sablono.interpreter.interpret.call(null,title))," (",sablono.interpreter.interpret.call(null,length),")"),React.createElement("p",({"style": ({"fontSize": ".8em"})}),"Start the video to access more options in the video frame: to display the video captions, click ",React.createElement("strong",null,"CC"),".\u00A0\n     To expand the video, use the direct link above to open video in YouTube, and click the Full Screen icon. To navigate the video using the transcript,\n     click YouTube, select ...More, then Transcript."));
 });
 htmlms.youtube.height_ratio = (function htmlms$youtube$height_ratio(w,h){
 return (h / htmlms.youtube.gcd.call(null,w,h));
@@ -152,40 +152,43 @@ return (w / htmlms.youtube.gcd.call(null,w,h));
 htmlms.youtube.bmi_component = (function htmlms$youtube$bmi_component(bmi_data){
 cljs.core.println.call(null,"@bmi-data: ",cljs.core.deref.call(null,bmi_data));
 
-var map__34849 = htmlms.youtube.calc_bmi.call(null,cljs.core.deref.call(null,bmi_data));
-var map__34849__$1 = ((((!((map__34849 == null)))?((((map__34849.cljs$lang$protocol_mask$partition0$ & (64))) || (map__34849.cljs$core$ISeq$))?true:false):false))?cljs.core.apply.call(null,cljs.core.hash_map,map__34849):map__34849);
-var width = cljs.core.get.call(null,map__34849__$1,new cljs.core.Keyword(null,"width","width",-384071477));
-var height = cljs.core.get.call(null,map__34849__$1,new cljs.core.Keyword(null,"height","height",1025178622));
-var bmi = cljs.core.get.call(null,map__34849__$1,new cljs.core.Keyword(null,"bmi","bmi",1421979636));
-var yurl = cljs.core.get.call(null,map__34849__$1,new cljs.core.Keyword(null,"yurl","yurl",182188908));
-var length = cljs.core.get.call(null,map__34849__$1,new cljs.core.Keyword(null,"length","length",588987862));
-var title = cljs.core.get.call(null,map__34849__$1,new cljs.core.Keyword(null,"title","title",636505583));
-var vec__34850 = ((((bmi > .562)) && ((bmi < .563)))?new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, ["green",[cljs.core.str("approx ratio: 16:9. exact ratio: "),cljs.core.str(htmlms.youtube.width_ratio.call(null,width,height)),cljs.core.str(" by "),cljs.core.str(htmlms.youtube.height_ratio.call(null,width,height)),cljs.core.str(".")].join('')], null):((((bmi > .74)) && ((bmi < .76)))?new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, ["inherit",[cljs.core.str("approx ratio: 4:3. exact ratio: "),cljs.core.str(htmlms.youtube.width_ratio.call(null,width,height)),cljs.core.str(" by "),cljs.core.str(htmlms.youtube.height_ratio.call(null,width,height)),cljs.core.str(".")].join('')], null):new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, ["red",[cljs.core.str("non-standard ratio "),cljs.core.str(htmlms.youtube.width_ratio.call(null,width,height)),cljs.core.str(" by "),cljs.core.str(htmlms.youtube.height_ratio.call(null,width,height)),cljs.core.str(".")].join('')], null)
+var map__38363 = htmlms.youtube.calc_bmi.call(null,cljs.core.deref.call(null,bmi_data));
+var map__38363__$1 = ((((!((map__38363 == null)))?((((map__38363.cljs$lang$protocol_mask$partition0$ & (64))) || (map__38363.cljs$core$ISeq$))?true:false):false))?cljs.core.apply.call(null,cljs.core.hash_map,map__38363):map__38363);
+var startTime = cljs.core.get.call(null,map__38363__$1,new cljs.core.Keyword(null,"startTime","startTime",1583467878));
+var width = cljs.core.get.call(null,map__38363__$1,new cljs.core.Keyword(null,"width","width",-384071477));
+var height = cljs.core.get.call(null,map__38363__$1,new cljs.core.Keyword(null,"height","height",1025178622));
+var bmi = cljs.core.get.call(null,map__38363__$1,new cljs.core.Keyword(null,"bmi","bmi",1421979636));
+var yurl = cljs.core.get.call(null,map__38363__$1,new cljs.core.Keyword(null,"yurl","yurl",182188908));
+var length = cljs.core.get.call(null,map__38363__$1,new cljs.core.Keyword(null,"length","length",588987862));
+var title = cljs.core.get.call(null,map__38363__$1,new cljs.core.Keyword(null,"title","title",636505583));
+var vec__38364 = ((((bmi > .562)) && ((bmi < .563)))?new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, ["green",[cljs.core.str("approx ratio: 16:9. exact ratio: "),cljs.core.str(htmlms.youtube.width_ratio.call(null,width,height)),cljs.core.str(" by "),cljs.core.str(htmlms.youtube.height_ratio.call(null,width,height)),cljs.core.str(".")].join('')], null):((((bmi > .74)) && ((bmi < .76)))?new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, ["inherit",[cljs.core.str("approx ratio: 4:3. exact ratio: "),cljs.core.str(htmlms.youtube.width_ratio.call(null,width,height)),cljs.core.str(" by "),cljs.core.str(htmlms.youtube.height_ratio.call(null,width,height)),cljs.core.str(".")].join('')], null):new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, ["red",[cljs.core.str("non-standard ratio "),cljs.core.str(htmlms.youtube.width_ratio.call(null,width,height)),cljs.core.str(" by "),cljs.core.str(htmlms.youtube.height_ratio.call(null,width,height)),cljs.core.str(".")].join('')], null)
 ));
-var color = cljs.core.nth.call(null,vec__34850,(0),null);
-var diagnose = cljs.core.nth.call(null,vec__34850,(1),null);
-return React.createElement("div",null,React.createElement("h3",null,"Parameters"),React.createElement("div",null,(function (){var attrs34856 = [cljs.core.str("url: "),cljs.core.str(yurl)].join('');
-return cljs.core.apply.call(null,React.createElement,"span",((cljs.core.map_QMARK_.call(null,attrs34856))?sablono.interpreter.attributes.call(null,attrs34856):null),((cljs.core.map_QMARK_.call(null,attrs34856))?null:new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [sablono.interpreter.interpret.call(null,attrs34856)], null)));
-})(),sablono.interpreter.interpret.call(null,htmlms.youtube.slider.call(null,bmi_data,new cljs.core.Keyword(null,"yurl","yurl",182188908),clojure.string.replace_first.call(null,yurl,"youtu.be/","www.youtube.com/watch?v="),(0),(100)))),React.createElement("div",null,(function (){var attrs34857 = [cljs.core.str("width: "),cljs.core.str((width | (0))),cljs.core.str("px")].join('');
-return cljs.core.apply.call(null,React.createElement,"span",((cljs.core.map_QMARK_.call(null,attrs34857))?sablono.interpreter.attributes.call(null,attrs34857):null),((cljs.core.map_QMARK_.call(null,attrs34857))?null:new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [sablono.interpreter.interpret.call(null,attrs34857)], null)));
-})(),sablono.interpreter.interpret.call(null,htmlms.youtube.slider.call(null,bmi_data,new cljs.core.Keyword(null,"width","width",-384071477),width,(30),(150)))),React.createElement("div",null,(function (){var attrs34858 = [cljs.core.str("height: "),cljs.core.str((height | (0))),cljs.core.str("px")].join('');
-return cljs.core.apply.call(null,React.createElement,"span",((cljs.core.map_QMARK_.call(null,attrs34858))?sablono.interpreter.attributes.call(null,attrs34858):null),((cljs.core.map_QMARK_.call(null,attrs34858))?null:new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [sablono.interpreter.interpret.call(null,attrs34858)], null)));
-})(),sablono.interpreter.interpret.call(null,htmlms.youtube.slider.call(null,bmi_data,new cljs.core.Keyword(null,"height","height",1025178622),height,(100),(220)))),React.createElement("div",null,(function (){var attrs34859 = [cljs.core.str("length: "),cljs.core.str(length)].join('');
-return cljs.core.apply.call(null,React.createElement,"span",((cljs.core.map_QMARK_.call(null,attrs34859))?sablono.interpreter.attributes.call(null,attrs34859):null),((cljs.core.map_QMARK_.call(null,attrs34859))?null:new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [sablono.interpreter.interpret.call(null,attrs34859)], null)));
-})(),sablono.interpreter.interpret.call(null,htmlms.youtube.slider.call(null,bmi_data,new cljs.core.Keyword(null,"length","length",588987862),length,(0),(100)))),React.createElement("div",null,(function (){var attrs34860 = [cljs.core.str("Title: "),cljs.core.str(title)].join('');
-return cljs.core.apply.call(null,React.createElement,"span",((cljs.core.map_QMARK_.call(null,attrs34860))?sablono.interpreter.attributes.call(null,attrs34860):null),((cljs.core.map_QMARK_.call(null,attrs34860))?null:new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [sablono.interpreter.interpret.call(null,attrs34860)], null)));
-})(),sablono.interpreter.interpret.call(null,htmlms.youtube.slider.call(null,bmi_data,new cljs.core.Keyword(null,"title","title",636505583),title,(0),(100)))),React.createElement("div",null,(function (){var attrs34861 = [cljs.core.str("ratio: "),cljs.core.str(cljs.pprint.cl_format.call(null,null,"~,3f",bmi)),cljs.core.str(" ")].join('');
-return cljs.core.apply.call(null,React.createElement,"span",((cljs.core.map_QMARK_.call(null,attrs34861))?sablono.interpreter.attributes.call(null,attrs34861):null),((cljs.core.map_QMARK_.call(null,attrs34861))?null:new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [sablono.interpreter.interpret.call(null,attrs34861)], null)));
-})(),React.createElement("span",({"style": ({"color": color})}),sablono.interpreter.interpret.call(null,diagnose)),sablono.interpreter.interpret.call(null,htmlms.youtube.slider.call(null,bmi_data,new cljs.core.Keyword(null,"bmi","bmi",1421979636),bmi,(10),(50)))),React.createElement("div",null,(function (){var attrs34862 = [cljs.core.str("html:")].join('');
-return cljs.core.apply.call(null,React.createElement,"span",((cljs.core.map_QMARK_.call(null,attrs34862))?sablono.interpreter.attributes.call(null,attrs34862):null),((cljs.core.map_QMARK_.call(null,attrs34862))?null:new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [sablono.interpreter.interpret.call(null,attrs34862)], null)));
-})(),sablono.interpreter.interpret.call(null,htmlms.youtube.htmlout.call(null,bmi_data,new cljs.core.Keyword(null,"yurl","yurl",182188908),yurl,width,height,(10),(50),length,title))),React.createElement("div",null,(function (){var attrs34863 = [cljs.core.str("preview:")].join('');
-return cljs.core.apply.call(null,React.createElement,"span",((cljs.core.map_QMARK_.call(null,attrs34863))?sablono.interpreter.attributes.call(null,attrs34863):null),((cljs.core.map_QMARK_.call(null,attrs34863))?null:new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [sablono.interpreter.interpret.call(null,attrs34863)], null)));
-})(),sablono.interpreter.interpret.call(null,htmlms.youtube.htmloutvisual.call(null,bmi_data,new cljs.core.Keyword(null,"yurl","yurl",182188908),yurl,width,height,(10),(50),length,title))));
+var color = cljs.core.nth.call(null,vec__38364,(0),null);
+var diagnose = cljs.core.nth.call(null,vec__38364,(1),null);
+return React.createElement("div",null,React.createElement("h3",null,"Parameters"),React.createElement("div",null,(function (){var attrs38370 = [cljs.core.str("url: "),cljs.core.str([cljs.core.str(yurl),cljs.core.str("&t="),cljs.core.str(startTime)].join(''))].join('');
+return cljs.core.apply.call(null,React.createElement,"span",((cljs.core.map_QMARK_.call(null,attrs38370))?sablono.interpreter.attributes.call(null,attrs38370):null),((cljs.core.map_QMARK_.call(null,attrs38370))?null:new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [sablono.interpreter.interpret.call(null,attrs38370)], null)));
+})(),sablono.interpreter.interpret.call(null,htmlms.youtube.slider.call(null,bmi_data,new cljs.core.Keyword(null,"yurl","yurl",182188908),[cljs.core.str(clojure.string.replace_first.call(null,yurl,"youtu.be/","www.youtube.com/watch?v=")),cljs.core.str("&t="),cljs.core.str(startTime)].join(''),(0),(100)))),React.createElement("div",null,(function (){var attrs38371 = [cljs.core.str("start time: "),cljs.core.str((startTime | (0))),cljs.core.str("s")].join('');
+return cljs.core.apply.call(null,React.createElement,"span",((cljs.core.map_QMARK_.call(null,attrs38371))?sablono.interpreter.attributes.call(null,attrs38371):null),((cljs.core.map_QMARK_.call(null,attrs38371))?null:new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [sablono.interpreter.interpret.call(null,attrs38371)], null)));
+})(),sablono.interpreter.interpret.call(null,htmlms.youtube.slider.call(null,bmi_data,new cljs.core.Keyword(null,"startTime","startTime",1583467878),startTime,(0),(100)))),React.createElement("div",null,(function (){var attrs38372 = [cljs.core.str("width: "),cljs.core.str((width | (0))),cljs.core.str("px")].join('');
+return cljs.core.apply.call(null,React.createElement,"span",((cljs.core.map_QMARK_.call(null,attrs38372))?sablono.interpreter.attributes.call(null,attrs38372):null),((cljs.core.map_QMARK_.call(null,attrs38372))?null:new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [sablono.interpreter.interpret.call(null,attrs38372)], null)));
+})(),sablono.interpreter.interpret.call(null,htmlms.youtube.slider.call(null,bmi_data,new cljs.core.Keyword(null,"width","width",-384071477),width,(30),(150)))),React.createElement("div",null,(function (){var attrs38373 = [cljs.core.str("height: "),cljs.core.str((height | (0))),cljs.core.str("px")].join('');
+return cljs.core.apply.call(null,React.createElement,"span",((cljs.core.map_QMARK_.call(null,attrs38373))?sablono.interpreter.attributes.call(null,attrs38373):null),((cljs.core.map_QMARK_.call(null,attrs38373))?null:new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [sablono.interpreter.interpret.call(null,attrs38373)], null)));
+})(),sablono.interpreter.interpret.call(null,htmlms.youtube.slider.call(null,bmi_data,new cljs.core.Keyword(null,"height","height",1025178622),height,(100),(220)))),React.createElement("div",null,(function (){var attrs38374 = [cljs.core.str("length: "),cljs.core.str(length)].join('');
+return cljs.core.apply.call(null,React.createElement,"span",((cljs.core.map_QMARK_.call(null,attrs38374))?sablono.interpreter.attributes.call(null,attrs38374):null),((cljs.core.map_QMARK_.call(null,attrs38374))?null:new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [sablono.interpreter.interpret.call(null,attrs38374)], null)));
+})(),sablono.interpreter.interpret.call(null,htmlms.youtube.slider.call(null,bmi_data,new cljs.core.Keyword(null,"length","length",588987862),length,(0),(100)))),React.createElement("div",null,(function (){var attrs38375 = [cljs.core.str("Title: "),cljs.core.str(title)].join('');
+return cljs.core.apply.call(null,React.createElement,"span",((cljs.core.map_QMARK_.call(null,attrs38375))?sablono.interpreter.attributes.call(null,attrs38375):null),((cljs.core.map_QMARK_.call(null,attrs38375))?null:new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [sablono.interpreter.interpret.call(null,attrs38375)], null)));
+})(),sablono.interpreter.interpret.call(null,htmlms.youtube.slider.call(null,bmi_data,new cljs.core.Keyword(null,"title","title",636505583),title,(0),(100)))),React.createElement("div",null,(function (){var attrs38376 = [cljs.core.str("ratio: "),cljs.core.str(cljs.pprint.cl_format.call(null,null,"~,3f",bmi)),cljs.core.str(" ")].join('');
+return cljs.core.apply.call(null,React.createElement,"span",((cljs.core.map_QMARK_.call(null,attrs38376))?sablono.interpreter.attributes.call(null,attrs38376):null),((cljs.core.map_QMARK_.call(null,attrs38376))?null:new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [sablono.interpreter.interpret.call(null,attrs38376)], null)));
+})(),React.createElement("span",({"style": ({"color": color})}),sablono.interpreter.interpret.call(null,diagnose)),sablono.interpreter.interpret.call(null,htmlms.youtube.slider.call(null,bmi_data,new cljs.core.Keyword(null,"bmi","bmi",1421979636),bmi,(10),(50)))),React.createElement("div",null,(function (){var attrs38377 = [cljs.core.str("html:")].join('');
+return cljs.core.apply.call(null,React.createElement,"span",((cljs.core.map_QMARK_.call(null,attrs38377))?sablono.interpreter.attributes.call(null,attrs38377):null),((cljs.core.map_QMARK_.call(null,attrs38377))?null:new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [sablono.interpreter.interpret.call(null,attrs38377)], null)));
+})(),sablono.interpreter.interpret.call(null,htmlms.youtube.htmlout.call(null,bmi_data,new cljs.core.Keyword(null,"yurl","yurl",182188908),yurl,startTime,width,height,(10),(50),length,title))),React.createElement("div",null,(function (){var attrs38378 = [cljs.core.str("preview:")].join('');
+return cljs.core.apply.call(null,React.createElement,"span",((cljs.core.map_QMARK_.call(null,attrs38378))?sablono.interpreter.attributes.call(null,attrs38378):null),((cljs.core.map_QMARK_.call(null,attrs38378))?null:new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [sablono.interpreter.interpret.call(null,attrs38378)], null)));
+})(),sablono.interpreter.interpret.call(null,htmlms.youtube.htmloutvisual.call(null,bmi_data,new cljs.core.Keyword(null,"yurl","yurl",182188908),yurl,startTime,width,height,(10),(50),length,title))));
 });
 devcards.core.register_card.call(null,new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null,"path","path",-188191168),new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"htmlms.youtube","htmlms.youtube",1853509686),new cljs.core.Keyword(null,"YouTube","YouTube",36124916)], null),new cljs.core.Keyword(null,"func","func",-238706040),(function (){
 return devcards.core.card_base.call(null,new cljs.core.PersistentArrayMap(null, 5, [new cljs.core.Keyword(null,"name","name",1843675177),"YouTube",new cljs.core.Keyword(null,"documentation","documentation",1889593999),null,new cljs.core.Keyword(null,"main-obj","main-obj",-1544409742),(function (data_atom,_){
 return htmlms.youtube.bmi_component.call(null,data_atom);
-}),new cljs.core.Keyword(null,"initial-data","initial-data",-1315709804),new cljs.core.PersistentArrayMap(null, 5, [new cljs.core.Keyword(null,"height","height",1025178622),(315),new cljs.core.Keyword(null,"width","width",-384071477),(560),new cljs.core.Keyword(null,"yurl","yurl",182188908),"https://www.youtube.com/watch?v=Wfj4g8zh2gk",new cljs.core.Keyword(null,"length","length",588987862),"4m 16s",new cljs.core.Keyword(null,"title","title",636505583),"Like I used to do.mp4"], null),new cljs.core.Keyword(null,"options","options",99638489),new cljs.core.PersistentArrayMap(null, 4, [new cljs.core.Keyword(null,"inspect-data","inspect-data",640452006),false,new cljs.core.Keyword(null,"frame","frame",-1711082588),true,new cljs.core.Keyword(null,"history","history",-247395220),true,new cljs.core.Keyword(null,"heading","heading",-1312171873),true], null)], null));
+}),new cljs.core.Keyword(null,"initial-data","initial-data",-1315709804),new cljs.core.PersistentArrayMap(null, 6, [new cljs.core.Keyword(null,"startTime","startTime",1583467878),(0),new cljs.core.Keyword(null,"height","height",1025178622),(315),new cljs.core.Keyword(null,"width","width",-384071477),(560),new cljs.core.Keyword(null,"yurl","yurl",182188908),"https://www.youtube.com/watch?v=Wfj4g8zh2gk",new cljs.core.Keyword(null,"length","length",588987862),"4m 16s",new cljs.core.Keyword(null,"title","title",636505583),"Like I used to do.mp4"], null),new cljs.core.Keyword(null,"options","options",99638489),new cljs.core.PersistentArrayMap(null, 4, [new cljs.core.Keyword(null,"inspect-data","inspect-data",640452006),false,new cljs.core.Keyword(null,"frame","frame",-1711082588),true,new cljs.core.Keyword(null,"history","history",-247395220),true,new cljs.core.Keyword(null,"heading","heading",-1312171873),true], null)], null));
 })], null));
 htmlms.youtube.main = (function htmlms$youtube$main(){
 var temp__4655__auto__ = document.getElementById("main-app-area");
@@ -198,4 +201,4 @@ return null;
 });
 htmlms.youtube.main.call(null);
 
-//# sourceMappingURL=youtube.js.map?rel=1475267980769
+//# sourceMappingURL=youtube.js.map?rel=1479424193176

@@ -43,8 +43,8 @@ return devcards.core.card_base.call(null,new cljs.core.PersistentArrayMap(null, 
 })], null));
 htmlms.techsmithrelay.gcd = (function htmlms$techsmithrelay$gcd(a,b){
 return cljs.core.apply.call(null,cljs.core.max,cljs.core.apply.call(null,clojure.set.intersection,cljs.core.map.call(null,cljs.core.set,cljs.core.map.call(null,(function (x){
-return cljs.core.filter.call(null,(function (p1__30831_SHARP_){
-return (cljs.core.mod.call(null,x,p1__30831_SHARP_) === (0));
+return cljs.core.filter.call(null,(function (p1__27978_SHARP_){
+return (cljs.core.mod.call(null,x,p1__27978_SHARP_) === (0));
 }),cljs.core.range.call(null,(1),(x + (1))));
 }),new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [a,b], null)))));
 });
@@ -55,15 +55,15 @@ return cb.call(null,xhr.getResponseText());
 }));
 });
 htmlms.techsmithrelay.calc_bmi = (function htmlms$techsmithrelay$calc_bmi(bmi_data){
-var map__30834 = bmi_data;
-var map__30834__$1 = ((((!((map__30834 == null)))?((((map__30834.cljs$lang$protocol_mask$partition0$ & (64))) || (map__30834.cljs$core$ISeq$))?true:false):false))?cljs.core.apply.call(null,cljs.core.hash_map,map__30834):map__30834);
-var data = map__30834__$1;
-var height = cljs.core.get.call(null,map__30834__$1,new cljs.core.Keyword(null,"height","height",1025178622));
-var width = cljs.core.get.call(null,map__30834__$1,new cljs.core.Keyword(null,"width","width",-384071477));
-var bmi = cljs.core.get.call(null,map__30834__$1,new cljs.core.Keyword(null,"bmi","bmi",1421979636));
-var yurl = cljs.core.get.call(null,map__30834__$1,new cljs.core.Keyword(null,"yurl","yurl",182188908));
-var length = cljs.core.get.call(null,map__30834__$1,new cljs.core.Keyword(null,"length","length",588987862));
-var title = cljs.core.get.call(null,map__30834__$1,new cljs.core.Keyword(null,"title","title",636505583));
+var map__27981 = bmi_data;
+var map__27981__$1 = ((((!((map__27981 == null)))?((((map__27981.cljs$lang$protocol_mask$partition0$ & (64))) || (map__27981.cljs$core$ISeq$))?true:false):false))?cljs.core.apply.call(null,cljs.core.hash_map,map__27981):map__27981);
+var data = map__27981__$1;
+var height = cljs.core.get.call(null,map__27981__$1,new cljs.core.Keyword(null,"height","height",1025178622));
+var width = cljs.core.get.call(null,map__27981__$1,new cljs.core.Keyword(null,"width","width",-384071477));
+var bmi = cljs.core.get.call(null,map__27981__$1,new cljs.core.Keyword(null,"bmi","bmi",1421979636));
+var yurl = cljs.core.get.call(null,map__27981__$1,new cljs.core.Keyword(null,"yurl","yurl",182188908));
+var length = cljs.core.get.call(null,map__27981__$1,new cljs.core.Keyword(null,"length","length",588987862));
+var title = cljs.core.get.call(null,map__27981__$1,new cljs.core.Keyword(null,"title","title",636505583));
 var h = (height / (100));
 if((bmi == null)){
 return cljs.core.assoc.call(null,data,new cljs.core.Keyword(null,"bmi","bmi",1421979636),((1) / ((width / htmlms.techsmithrelay.gcd.call(null,width,height)) / (height / htmlms.techsmithrelay.gcd.call(null,width,height)))));
@@ -150,34 +150,34 @@ return (w / htmlms.techsmithrelay.gcd.call(null,w,h));
 htmlms.techsmithrelay.bmi_component = (function htmlms$techsmithrelay$bmi_component(bmi_data){
 cljs.core.println.call(null,"@bmi-data: ",cljs.core.deref.call(null,bmi_data));
 
-var map__30859 = htmlms.techsmithrelay.calc_bmi.call(null,cljs.core.deref.call(null,bmi_data));
-var map__30859__$1 = ((((!((map__30859 == null)))?((((map__30859.cljs$lang$protocol_mask$partition0$ & (64))) || (map__30859.cljs$core$ISeq$))?true:false):false))?cljs.core.apply.call(null,cljs.core.hash_map,map__30859):map__30859);
-var width = cljs.core.get.call(null,map__30859__$1,new cljs.core.Keyword(null,"width","width",-384071477));
-var height = cljs.core.get.call(null,map__30859__$1,new cljs.core.Keyword(null,"height","height",1025178622));
-var bmi = cljs.core.get.call(null,map__30859__$1,new cljs.core.Keyword(null,"bmi","bmi",1421979636));
-var yurl = cljs.core.get.call(null,map__30859__$1,new cljs.core.Keyword(null,"yurl","yurl",182188908));
-var length = cljs.core.get.call(null,map__30859__$1,new cljs.core.Keyword(null,"length","length",588987862));
-var title = cljs.core.get.call(null,map__30859__$1,new cljs.core.Keyword(null,"title","title",636505583));
-var vec__30860 = ((((bmi > .562)) && ((bmi < .563)))?new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, ["green",[cljs.core.str("approx ratio: 16:9. exact ratio: "),cljs.core.str(htmlms.techsmithrelay.width_ratio.call(null,width,height)),cljs.core.str(" by "),cljs.core.str(htmlms.techsmithrelay.height_ratio.call(null,width,height)),cljs.core.str(".")].join('')], null):((((bmi > .74)) && ((bmi < .76)))?new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, ["inherit",[cljs.core.str("approx ratio: 4:3. exact ratio: "),cljs.core.str(htmlms.techsmithrelay.width_ratio.call(null,width,height)),cljs.core.str(" by "),cljs.core.str(htmlms.techsmithrelay.height_ratio.call(null,width,height)),cljs.core.str(".")].join('')], null):new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, ["red",[cljs.core.str("non-standard ratio "),cljs.core.str(htmlms.techsmithrelay.width_ratio.call(null,width,height)),cljs.core.str(" by "),cljs.core.str(htmlms.techsmithrelay.height_ratio.call(null,width,height)),cljs.core.str(".")].join('')], null)
+var map__28006 = htmlms.techsmithrelay.calc_bmi.call(null,cljs.core.deref.call(null,bmi_data));
+var map__28006__$1 = ((((!((map__28006 == null)))?((((map__28006.cljs$lang$protocol_mask$partition0$ & (64))) || (map__28006.cljs$core$ISeq$))?true:false):false))?cljs.core.apply.call(null,cljs.core.hash_map,map__28006):map__28006);
+var width = cljs.core.get.call(null,map__28006__$1,new cljs.core.Keyword(null,"width","width",-384071477));
+var height = cljs.core.get.call(null,map__28006__$1,new cljs.core.Keyword(null,"height","height",1025178622));
+var bmi = cljs.core.get.call(null,map__28006__$1,new cljs.core.Keyword(null,"bmi","bmi",1421979636));
+var yurl = cljs.core.get.call(null,map__28006__$1,new cljs.core.Keyword(null,"yurl","yurl",182188908));
+var length = cljs.core.get.call(null,map__28006__$1,new cljs.core.Keyword(null,"length","length",588987862));
+var title = cljs.core.get.call(null,map__28006__$1,new cljs.core.Keyword(null,"title","title",636505583));
+var vec__28007 = ((((bmi > .562)) && ((bmi < .563)))?new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, ["green",[cljs.core.str("approx ratio: 16:9. exact ratio: "),cljs.core.str(htmlms.techsmithrelay.width_ratio.call(null,width,height)),cljs.core.str(" by "),cljs.core.str(htmlms.techsmithrelay.height_ratio.call(null,width,height)),cljs.core.str(".")].join('')], null):((((bmi > .74)) && ((bmi < .76)))?new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, ["inherit",[cljs.core.str("approx ratio: 4:3. exact ratio: "),cljs.core.str(htmlms.techsmithrelay.width_ratio.call(null,width,height)),cljs.core.str(" by "),cljs.core.str(htmlms.techsmithrelay.height_ratio.call(null,width,height)),cljs.core.str(".")].join('')], null):new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, ["red",[cljs.core.str("non-standard ratio "),cljs.core.str(htmlms.techsmithrelay.width_ratio.call(null,width,height)),cljs.core.str(" by "),cljs.core.str(htmlms.techsmithrelay.height_ratio.call(null,width,height)),cljs.core.str(".")].join('')], null)
 ));
-var color = cljs.core.nth.call(null,vec__30860,(0),null);
-var diagnose = cljs.core.nth.call(null,vec__30860,(1),null);
-return React.createElement("div",null,React.createElement("h3",null,"Parameters"),React.createElement("div",null,(function (){var attrs30866 = [cljs.core.str("url: "),cljs.core.str(yurl)].join('');
-return cljs.core.apply.call(null,React.createElement,"span",((cljs.core.map_QMARK_.call(null,attrs30866))?sablono.interpreter.attributes.call(null,attrs30866):null),((cljs.core.map_QMARK_.call(null,attrs30866))?null:new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [sablono.interpreter.interpret.call(null,attrs30866)], null)));
-})(),sablono.interpreter.interpret.call(null,htmlms.techsmithrelay.slider.call(null,bmi_data,new cljs.core.Keyword(null,"yurl","yurl",182188908),yurl,(0),(100)))),React.createElement("div",null,(function (){var attrs30867 = [cljs.core.str("width: "),cljs.core.str((width | (0))),cljs.core.str("px")].join('');
-return cljs.core.apply.call(null,React.createElement,"span",((cljs.core.map_QMARK_.call(null,attrs30867))?sablono.interpreter.attributes.call(null,attrs30867):null),((cljs.core.map_QMARK_.call(null,attrs30867))?null:new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [sablono.interpreter.interpret.call(null,attrs30867)], null)));
-})(),sablono.interpreter.interpret.call(null,htmlms.techsmithrelay.slider.call(null,bmi_data,new cljs.core.Keyword(null,"width","width",-384071477),width,(30),(150)))),React.createElement("div",null,(function (){var attrs30868 = [cljs.core.str("height: "),cljs.core.str((height | (0))),cljs.core.str("px")].join('');
-return cljs.core.apply.call(null,React.createElement,"span",((cljs.core.map_QMARK_.call(null,attrs30868))?sablono.interpreter.attributes.call(null,attrs30868):null),((cljs.core.map_QMARK_.call(null,attrs30868))?null:new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [sablono.interpreter.interpret.call(null,attrs30868)], null)));
-})(),sablono.interpreter.interpret.call(null,htmlms.techsmithrelay.slider.call(null,bmi_data,new cljs.core.Keyword(null,"height","height",1025178622),height,(100),(220)))),React.createElement("div",null,(function (){var attrs30869 = [cljs.core.str("length: "),cljs.core.str(length)].join('');
-return cljs.core.apply.call(null,React.createElement,"span",((cljs.core.map_QMARK_.call(null,attrs30869))?sablono.interpreter.attributes.call(null,attrs30869):null),((cljs.core.map_QMARK_.call(null,attrs30869))?null:new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [sablono.interpreter.interpret.call(null,attrs30869)], null)));
-})(),sablono.interpreter.interpret.call(null,htmlms.techsmithrelay.slider.call(null,bmi_data,new cljs.core.Keyword(null,"length","length",588987862),length,(0),(100)))),React.createElement("div",null,(function (){var attrs30870 = [cljs.core.str("Title: "),cljs.core.str(title)].join('');
-return cljs.core.apply.call(null,React.createElement,"span",((cljs.core.map_QMARK_.call(null,attrs30870))?sablono.interpreter.attributes.call(null,attrs30870):null),((cljs.core.map_QMARK_.call(null,attrs30870))?null:new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [sablono.interpreter.interpret.call(null,attrs30870)], null)));
-})(),sablono.interpreter.interpret.call(null,htmlms.techsmithrelay.slider.call(null,bmi_data,new cljs.core.Keyword(null,"title","title",636505583),title,(0),(100)))),React.createElement("div",null,(function (){var attrs30871 = [cljs.core.str("ratio: "),cljs.core.str(cljs.pprint.cl_format.call(null,null,"~,3f",bmi)),cljs.core.str(" ")].join('');
-return cljs.core.apply.call(null,React.createElement,"span",((cljs.core.map_QMARK_.call(null,attrs30871))?sablono.interpreter.attributes.call(null,attrs30871):null),((cljs.core.map_QMARK_.call(null,attrs30871))?null:new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [sablono.interpreter.interpret.call(null,attrs30871)], null)));
-})(),React.createElement("span",({"style": ({"color": color})}),sablono.interpreter.interpret.call(null,diagnose)),sablono.interpreter.interpret.call(null,htmlms.techsmithrelay.slider.call(null,bmi_data,new cljs.core.Keyword(null,"bmi","bmi",1421979636),bmi,(10),(50)))),React.createElement("div",null,(function (){var attrs30872 = [cljs.core.str("html:")].join('');
-return cljs.core.apply.call(null,React.createElement,"span",((cljs.core.map_QMARK_.call(null,attrs30872))?sablono.interpreter.attributes.call(null,attrs30872):null),((cljs.core.map_QMARK_.call(null,attrs30872))?null:new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [sablono.interpreter.interpret.call(null,attrs30872)], null)));
-})(),sablono.interpreter.interpret.call(null,htmlms.techsmithrelay.htmlout.call(null,bmi_data,new cljs.core.Keyword(null,"yurl","yurl",182188908),yurl,width,height,(10),(50),length,title))),React.createElement("div",null,(function (){var attrs30873 = [cljs.core.str("preview:")].join('');
-return cljs.core.apply.call(null,React.createElement,"span",((cljs.core.map_QMARK_.call(null,attrs30873))?sablono.interpreter.attributes.call(null,attrs30873):null),((cljs.core.map_QMARK_.call(null,attrs30873))?null:new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [sablono.interpreter.interpret.call(null,attrs30873)], null)));
+var color = cljs.core.nth.call(null,vec__28007,(0),null);
+var diagnose = cljs.core.nth.call(null,vec__28007,(1),null);
+return React.createElement("div",null,React.createElement("h3",null,"Parameters"),React.createElement("div",null,(function (){var attrs28013 = [cljs.core.str("url: "),cljs.core.str(yurl)].join('');
+return cljs.core.apply.call(null,React.createElement,"span",((cljs.core.map_QMARK_.call(null,attrs28013))?sablono.interpreter.attributes.call(null,attrs28013):null),((cljs.core.map_QMARK_.call(null,attrs28013))?null:new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [sablono.interpreter.interpret.call(null,attrs28013)], null)));
+})(),sablono.interpreter.interpret.call(null,htmlms.techsmithrelay.slider.call(null,bmi_data,new cljs.core.Keyword(null,"yurl","yurl",182188908),yurl,(0),(100)))),React.createElement("div",null,(function (){var attrs28014 = [cljs.core.str("width: "),cljs.core.str((width | (0))),cljs.core.str("px")].join('');
+return cljs.core.apply.call(null,React.createElement,"span",((cljs.core.map_QMARK_.call(null,attrs28014))?sablono.interpreter.attributes.call(null,attrs28014):null),((cljs.core.map_QMARK_.call(null,attrs28014))?null:new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [sablono.interpreter.interpret.call(null,attrs28014)], null)));
+})(),sablono.interpreter.interpret.call(null,htmlms.techsmithrelay.slider.call(null,bmi_data,new cljs.core.Keyword(null,"width","width",-384071477),width,(30),(150)))),React.createElement("div",null,(function (){var attrs28015 = [cljs.core.str("height: "),cljs.core.str((height | (0))),cljs.core.str("px")].join('');
+return cljs.core.apply.call(null,React.createElement,"span",((cljs.core.map_QMARK_.call(null,attrs28015))?sablono.interpreter.attributes.call(null,attrs28015):null),((cljs.core.map_QMARK_.call(null,attrs28015))?null:new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [sablono.interpreter.interpret.call(null,attrs28015)], null)));
+})(),sablono.interpreter.interpret.call(null,htmlms.techsmithrelay.slider.call(null,bmi_data,new cljs.core.Keyword(null,"height","height",1025178622),height,(100),(220)))),React.createElement("div",null,(function (){var attrs28016 = [cljs.core.str("length: "),cljs.core.str(length)].join('');
+return cljs.core.apply.call(null,React.createElement,"span",((cljs.core.map_QMARK_.call(null,attrs28016))?sablono.interpreter.attributes.call(null,attrs28016):null),((cljs.core.map_QMARK_.call(null,attrs28016))?null:new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [sablono.interpreter.interpret.call(null,attrs28016)], null)));
+})(),sablono.interpreter.interpret.call(null,htmlms.techsmithrelay.slider.call(null,bmi_data,new cljs.core.Keyword(null,"length","length",588987862),length,(0),(100)))),React.createElement("div",null,(function (){var attrs28017 = [cljs.core.str("Title: "),cljs.core.str(title)].join('');
+return cljs.core.apply.call(null,React.createElement,"span",((cljs.core.map_QMARK_.call(null,attrs28017))?sablono.interpreter.attributes.call(null,attrs28017):null),((cljs.core.map_QMARK_.call(null,attrs28017))?null:new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [sablono.interpreter.interpret.call(null,attrs28017)], null)));
+})(),sablono.interpreter.interpret.call(null,htmlms.techsmithrelay.slider.call(null,bmi_data,new cljs.core.Keyword(null,"title","title",636505583),title,(0),(100)))),React.createElement("div",null,(function (){var attrs28018 = [cljs.core.str("ratio: "),cljs.core.str(cljs.pprint.cl_format.call(null,null,"~,3f",bmi)),cljs.core.str(" ")].join('');
+return cljs.core.apply.call(null,React.createElement,"span",((cljs.core.map_QMARK_.call(null,attrs28018))?sablono.interpreter.attributes.call(null,attrs28018):null),((cljs.core.map_QMARK_.call(null,attrs28018))?null:new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [sablono.interpreter.interpret.call(null,attrs28018)], null)));
+})(),React.createElement("span",({"style": ({"color": color})}),sablono.interpreter.interpret.call(null,diagnose)),sablono.interpreter.interpret.call(null,htmlms.techsmithrelay.slider.call(null,bmi_data,new cljs.core.Keyword(null,"bmi","bmi",1421979636),bmi,(10),(50)))),React.createElement("div",null,(function (){var attrs28019 = [cljs.core.str("html:")].join('');
+return cljs.core.apply.call(null,React.createElement,"span",((cljs.core.map_QMARK_.call(null,attrs28019))?sablono.interpreter.attributes.call(null,attrs28019):null),((cljs.core.map_QMARK_.call(null,attrs28019))?null:new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [sablono.interpreter.interpret.call(null,attrs28019)], null)));
+})(),sablono.interpreter.interpret.call(null,htmlms.techsmithrelay.htmlout.call(null,bmi_data,new cljs.core.Keyword(null,"yurl","yurl",182188908),yurl,width,height,(10),(50),length,title))),React.createElement("div",null,(function (){var attrs28020 = [cljs.core.str("preview:")].join('');
+return cljs.core.apply.call(null,React.createElement,"span",((cljs.core.map_QMARK_.call(null,attrs28020))?sablono.interpreter.attributes.call(null,attrs28020):null),((cljs.core.map_QMARK_.call(null,attrs28020))?null:new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [sablono.interpreter.interpret.call(null,attrs28020)], null)));
 })(),sablono.interpreter.interpret.call(null,htmlms.techsmithrelay.htmloutvisual.call(null,bmi_data,new cljs.core.Keyword(null,"yurl","yurl",182188908),yurl,width,height,(10),(50),length,title))));
 });
 devcards.core.register_card.call(null,new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null,"path","path",-188191168),new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"htmlms.techsmithrelay","htmlms.techsmithrelay",1537614166),new cljs.core.Keyword(null,"TechSmithRelay","TechSmithRelay",1570964309)], null),new cljs.core.Keyword(null,"func","func",-238706040),(function (){
@@ -196,4 +196,4 @@ return null;
 });
 htmlms.techsmithrelay.main.call(null);
 
-//# sourceMappingURL=techsmithrelay.js.map?rel=1475276535991
+//# sourceMappingURL=techsmithrelay.js.map?rel=1475506588862

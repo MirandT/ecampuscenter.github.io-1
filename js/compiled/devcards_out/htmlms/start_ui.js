@@ -5,4 +5,4 @@ goog.require('htmlms.youtube');
 goog.require('htmlms.tedtalks');
 goog.require('htmlms.techsmithrelay');
 
-//# sourceMappingURL=start_ui.js.map?rel=1475273009073
+//# sourceMappingURL=start_ui.js.map?rel=1479424193228
