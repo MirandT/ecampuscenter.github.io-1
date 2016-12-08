@@ -4,5 +4,6 @@ goog.require('cljs.core');
 goog.require('htmlms.youtube');
 goog.require('htmlms.tedtalks');
 goog.require('htmlms.techsmithrelay');
+goog.require('htmlms.vimeo');
 
-//# sourceMappingURL=start_ui.js.map?rel=1479424193228
+//# sourceMappingURL=start_ui.js.map?rel=1481221518662

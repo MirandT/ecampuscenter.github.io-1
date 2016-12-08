@@ -4,3 +4,4 @@ goog.require('cljs.core');
 goog.require('htmlms.youtube');
 goog.require('htmlms.tedtalks');
 goog.require('htmlms.techsmithrelay');
+goog.require('htmlms.vimeo');
