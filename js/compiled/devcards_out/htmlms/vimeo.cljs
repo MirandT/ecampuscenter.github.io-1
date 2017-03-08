@@ -7,8 +7,6 @@
     [cljs.reader :as reader]
     [domina :as domi]
     [domina.xpath :as x]
-    ;[domina.css :as c]
-    [dommy.core :refer-macros [sel sel1]]
     ; for converting youtube duration
     [cemerick.url :as cu]
     [cljs.core.async :refer [chan close!]]

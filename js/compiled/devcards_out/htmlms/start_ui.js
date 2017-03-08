@@ -6,4 +6,4 @@ goog.require('htmlms.tedtalks');
 goog.require('htmlms.techsmithrelay');
 goog.require('htmlms.vimeo');
 
-//# sourceMappingURL=start_ui.js.map?rel=1481221518662
+//# sourceMappingURL=start_ui.js.map?rel=1488930992004

@@ -126,8 +126,12 @@ htmlms.youtube.ifriendly = (function htmlms$youtube$ifriendly(url){
 
 return clojure.string.replace_first(clojure.string.replace_first(clojure.string.replace_first(url,"youtu.be/","www.youtube.com/watch?v="),"watch?v=","embed/"),"https:","");
 });
+htmlms.youtube.ialmostfriendly = (function htmlms$youtube$ialmostfriendly(url){
+
+return clojure.string.replace_first(clojure.string.replace_first(url,"youtu.be/","www.youtube.com/watch?v="),"https:","");
+});
 htmlms.youtube.fluff = (function htmlms$youtube$fluff(skinny,startTime,width,height,length,title){
-return [cljs.core.str("<p>Click the <strong>Play</strong> icon to begin.</p>\n<p><iframe width=\""),cljs.core.str(width),cljs.core.str("\" height=\""),cljs.core.str(height),cljs.core.str("\" src=\""),cljs.core.str(htmlms.youtube.ifriendly(skinny)),cljs.core.str("?rel=0&start="),cljs.core.str(startTime),cljs.core.str("\" frameBorder=\"0\" allowfullscreen></iframe></p>\n<p>If video doesn't appear, follow this direct link:\n<a href=\""),cljs.core.str([cljs.core.str(skinny),cljs.core.str("&t="),cljs.core.str(startTime)].join('')),cljs.core.str("\" title=\""),cljs.core.str(title),cljs.core.str("\" target=\"_blank\">"),cljs.core.str(title),cljs.core.str("</a> ("),cljs.core.str(length),cljs.core.str(")</p><p>Start the video to access more options in the video frame: to display the video captions, click\u00A0<strong>CC</strong>.\u00A0To expand the video, use the direct link above to open video in YouTube, and click the Full Screen icon. To navigate the video using the transcript, click YouTube, select ...More, then Transcript.</p>\n")].join('');
+return [cljs.core.str("<p>Click the <strong>Play</strong> icon to begin.</p>\n<p><iframe width=\""),cljs.core.str(width),cljs.core.str("\" height=\""),cljs.core.str(height),cljs.core.str("\" src=\""),cljs.core.str(htmlms.youtube.ifriendly(skinny)),cljs.core.str("?rel=0&start="),cljs.core.str(startTime),cljs.core.str("\" frameBorder=\"0\" allowfullscreen></iframe></p>\n<p>If video doesn't appear, follow this direct link:\n<a href=\""),cljs.core.str([cljs.core.str(htmlms.youtube.ialmostfriendly(skinny)),cljs.core.str("&t="),cljs.core.str(startTime)].join('')),cljs.core.str("\" title=\""),cljs.core.str(title),cljs.core.str("\" target=\"_blank\">"),cljs.core.str(title),cljs.core.str("</a> ("),cljs.core.str(length),cljs.core.str(")</p><p>Start the video to access more options in the video frame: to display the video captions, click\u00A0<strong>CC</strong>.\u00A0To expand the video, use the direct link above to open video in YouTube, and click the Full Screen icon. To navigate the video using the transcript, click YouTube, select ...More, then Transcript.</p>\n")].join('');
 });
 htmlms.youtube.get_data = (function htmlms$youtube$get_data(bmi_data,param,value,min,max){
 return sablono.interpreter.create_element("input",({"type": "text", "min": min, "max": max, "style": ({"width": "100%"}), "value": value, "onChange": (function (e){
@@ -173,7 +177,7 @@ var G__24445 = (function (){var G__24454 = "p";
 var G__24455 = ({"style": ({"fontSize": ".8em"})});
 var G__24456 = "If video doesn't appear, follow this direct link: ";
 var G__24457 = (function (){var G__24461 = "a";
-var G__24462 = ({"href": [cljs.core.str(value),cljs.core.str("&t="),cljs.core.str(startTime)].join(''), "title": title, "target": "_blank"});
+var G__24462 = ({"href": [cljs.core.str(htmlms.youtube.ialmostfriendly(value)),cljs.core.str("&t="),cljs.core.str(startTime)].join(''), "title": title, "target": "_blank"});
 var G__24463 = sablono.interpreter.interpret(title);
 return React.createElement(G__24461,G__24462,G__24463);
 })();

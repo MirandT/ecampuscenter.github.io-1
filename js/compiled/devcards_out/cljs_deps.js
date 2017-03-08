@@ -59,10 +59,8 @@ goog.addDependency("../com/cognitect/transit.js", ['com.cognitect.transit'], ['c
 goog.addDependency("../cognitect/transit.js", ['cognitect.transit'], ['com.cognitect.transit.eq', 'cljs.core', 'com.cognitect.transit.types', 'com.cognitect.transit', 'goog.math.Long']);
 goog.addDependency("../pathetic/core.js", ['pathetic.core'], ['goog.string', 'goog.Uri', 'cljs.core', 'clojure.string']);
 goog.addDependency("../cemerick/url.js", ['cemerick.url'], ['pathetic.core', 'goog.Uri', 'cljs.core', 'clojure.string']);
-goog.addDependency("../dommy/utils.js", ['dommy.utils'], ['cljs.core']);
-goog.addDependency("../dommy/core.js", ['dommy.core'], ['cljs.core', 'dommy.utils', 'clojure.string']);
 goog.addDependency("../domina/xpath.js", ['domina.xpath'], ['goog.dom', 'cljs.core', 'domina']);
-goog.addDependency("../htmlms/vimeo.js", ['htmlms.vimeo'], ['devcards.core', 'goog.net.XhrIo', 'reagent.core', 'cljs.core', 'domina', 'cljs.core.async', 'goog.date.Interval', 'cognitect.transit', 'sablono.core', 'cemerick.url', 'dommy.core', 'domina.xpath', 'clojure.string', 'cljs.reader']);
+goog.addDependency("../htmlms/vimeo.js", ['htmlms.vimeo'], ['devcards.core', 'goog.net.XhrIo', 'reagent.core', 'cljs.core', 'domina', 'cljs.core.async', 'goog.date.Interval', 'cognitect.transit', 'sablono.core', 'cemerick.url', 'domina.xpath', 'clojure.string', 'cljs.reader']);
 goog.addDependency("../htmlms/tedtalks.js", ['htmlms.tedtalks'], ['devcards.core', 'goog.net.XhrIo', 'reagent.core', 'cljs.core', 'domina', 'cljs.core.async', 'goog.date.Interval', 'cognitect.transit', 'sablono.core', 'cemerick.url', 'domina.xpath', 'clojure.string', 'cljs.reader']);
 goog.addDependency("../htmlms/youtube.js", ['htmlms.youtube'], ['devcards.core', 'goog.net.XhrIo', 'reagent.core', 'cljs.core', 'cljs.core.async', 'goog.date.Interval', 'cognitect.transit', 'sablono.core', 'cemerick.url', 'clojure.string', 'cljs.reader']);
 goog.addDependency("../htmlms/techsmithrelay.js", ['htmlms.techsmithrelay'], ['devcards.core', 'goog.net.XhrIo', 'reagent.core', 'cljs.core', 'cljs.core.async', 'goog.date.Interval', 'cognitect.transit', 'sablono.core', 'cemerick.url', 'clojure.string', 'cljs.reader']);
