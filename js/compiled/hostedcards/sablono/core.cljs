@@ -16,8 +16,10 @@
     (if (map? (first args))
       (let [[tag & body] (apply func (rest args))]
         (if (map? (first body))
-          (apply vector tag (merge (first body) (first args)) (rest body))
-          (apply vector tag (first args) body)))
+          (into [tag (merge (first body) (first args))]
+                (rest body))
+          (into [tag (first args)]
+                body)))
       (apply func args))))
 
 (defn- update-arglists [arglists]
@@ -84,11 +86,15 @@
 
 (defn- input-field*
   "Creates a new <input> element."
-  [type name value]
-  [:input {:type type
-           :name (make-name name)
-           :id (make-id name)
-           :value (or value js/undefined)}])
+  ([type name]
+   [:input {:type type
+            :name (make-name name)
+            :id (make-id name)}])
+  ([type name value]
+   [:input {:type type
+            :name (make-name name)
+            :id (make-id name)
+            :value (or value js/undefined)}]))
 
 (gen-input-fields)
 
@@ -96,25 +102,45 @@
 
 (defelem check-box
   "Creates a check box."
-  ([name] (check-box name nil))
-  ([name checked?] (check-box name checked? "true"))
+  ([name]
+   [:input
+    {:type "checkbox"
+     :name (make-name name)
+     :id (make-id name)}])
+  ([name checked?]
+   [:input
+    {:type "checkbox"
+     :name (make-name name)
+     :id (make-id name)
+     :checked checked?}])
   ([name checked? value]
-   [:input {:type "checkbox"
-            :name (make-name name)
-            :id   (make-id name)
-            :value (or value js/undefined)
-            :checked checked?}]))
+   [:input
+    {:type "checkbox"
+     :name (make-name name)
+     :id (make-id name)
+     :value value
+     :checked checked?}]))
 
 (defelem radio-button
   "Creates a radio button."
-  ([group] (radio-button group nil))
-  ([group checked?] (radio-button group checked? "true"))
+  ([group]
+   [:input
+    {:type "radio"
+     :name (make-name group)
+     :id (make-id (as-str group))}])
+  ([group checked?]
+   [:input
+    {:type "radio"
+     :name (make-name group)
+     :id (make-id (as-str group))
+     :checked checked?}])
   ([group checked? value]
-   [:input {:type "radio"
-            :name (make-name group)
-            :id   (make-id (str (as-str group) "-" (as-str value)))
-            :value (or value js/undefined)
-            :checked checked?}]))
+   [:input
+    {:type "radio"
+     :name (make-name group)
+     :id (make-id (str (as-str group) "-" (as-str value)))
+     :value value
+     :checked checked?}]))
 
 (defn- hash-key [x]
   (gstring/hashCode (pr-str x)))
@@ -152,7 +178,10 @@
 
 (defelem text-area
   "Creates a text area element."
-  ([name] (text-area name nil))
+  ([name]
+   [:textarea
+    {:name (make-name name)
+     :id (make-id name)}])
   ([name value]
    [:textarea
     {:name (make-name name)
