@@ -1,10 +1,9 @@
-// Compiled by ClojureScript 1.9.542 {:static-fns true, :optimize-constants true}
+// Compiled by ClojureScript 1.9.542 {}
 goog.provide('cljs.core.async.impl.dispatch');
 goog.require('cljs.core');
-goog.require('cljs.core.constants');
 goog.require('cljs.core.async.impl.buffers');
 goog.require('goog.async.nextTick');
-cljs.core.async.impl.dispatch.tasks = cljs.core.async.impl.buffers.ring_buffer((32));
+cljs.core.async.impl.dispatch.tasks = cljs.core.async.impl.buffers.ring_buffer.call(null,(32));
 cljs.core.async.impl.dispatch.running_QMARK_ = false;
 cljs.core.async.impl.dispatch.queued_QMARK_ = false;
 cljs.core.async.impl.dispatch.TASK_BATCH_SIZE = (1024);
@@ -13,16 +12,16 @@ cljs.core.async.impl.dispatch.running_QMARK_ = true;
 
 cljs.core.async.impl.dispatch.queued_QMARK_ = false;
 
-var count_16177 = (0);
+var count_15642 = (0);
 while(true){
-var m_16178 = cljs.core.async.impl.dispatch.tasks.pop();
-if((m_16178 == null)){
+var m_15643 = cljs.core.async.impl.dispatch.tasks.pop();
+if((m_15643 == null)){
 } else {
-(m_16178.cljs$core$IFn$_invoke$arity$0 ? m_16178.cljs$core$IFn$_invoke$arity$0() : m_16178.call(null));
+m_15643.call(null);
 
-if((count_16177 < cljs.core.async.impl.dispatch.TASK_BATCH_SIZE)){
-var G__16179 = (count_16177 + (1));
-count_16177 = G__16179;
+if((count_15642 < cljs.core.async.impl.dispatch.TASK_BATCH_SIZE)){
+var G__15644 = (count_15642 + (1));
+count_15642 = G__15644;
 continue;
 } else {
 }
@@ -33,7 +32,7 @@ break;
 cljs.core.async.impl.dispatch.running_QMARK_ = false;
 
 if((cljs.core.async.impl.dispatch.tasks.length > (0))){
-return (cljs.core.async.impl.dispatch.queue_dispatcher.cljs$core$IFn$_invoke$arity$0 ? cljs.core.async.impl.dispatch.queue_dispatcher.cljs$core$IFn$_invoke$arity$0() : cljs.core.async.impl.dispatch.queue_dispatcher.call(null));
+return cljs.core.async.impl.dispatch.queue_dispatcher.call(null);
 } else {
 return null;
 }
@@ -50,7 +49,7 @@ return goog.async.nextTick(cljs.core.async.impl.dispatch.process_messages);
 cljs.core.async.impl.dispatch.run = (function cljs$core$async$impl$dispatch$run(f){
 cljs.core.async.impl.dispatch.tasks.unbounded_unshift(f);
 
-return cljs.core.async.impl.dispatch.queue_dispatcher();
+return cljs.core.async.impl.dispatch.queue_dispatcher.call(null);
 });
 cljs.core.async.impl.dispatch.queue_delay = (function cljs$core$async$impl$dispatch$queue_delay(f,delay){
 return setTimeout(f,delay);
