@@ -76,12 +76,10 @@ return sablono.interpreter.create_element.call(null,"input",({"type": "text", "v
 cljs.core.swap_BANG_.call(null,bmi_data,cljs.core.assoc,param,e.target.value);
 
 if(cljs.core._EQ_.call(null,param,new cljs.core.Keyword(null,"yurl","yurl",182188908))){
-htmlms.techsmithrelay.xhr_data.call(null,[cljs.core.str.cljs$core$IFn$_invoke$arity$1("https://boisestate.techsmithrelay.com/api/v1/media/"),cljs.core.str.cljs$core$IFn$_invoke$arity$1(htmlms.techsmithrelay.get_id_from_url.call(null,e.target.value)),cljs.core.str.cljs$core$IFn$_invoke$arity$1("/details")].join(''),(function (g){
+htmlms.techsmithrelay.xhr_data.call(null,[cljs.core.str.cljs$core$IFn$_invoke$arity$1("https://boisestate.techsmithrelay.com/api/v2/media/"),cljs.core.str.cljs$core$IFn$_invoke$arity$1(htmlms.techsmithrelay.get_id_from_url.call(null,e.target.value)),cljs.core.str.cljs$core$IFn$_invoke$arity$1("/details")].join(''),(function (g){
 var updlength = cljs.core.get_in.call(null,cognitect.transit.read.call(null,htmlms.techsmithrelay.r,g),new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, ["Duration"], null));
 var updtitle = cljs.core.get_in.call(null,cognitect.transit.read.call(null,htmlms.techsmithrelay.r,g),new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, ["Description"], null));
 cljs.core.println.call(null,"url: ",value);
-
-cljs.core.println.call(null,"can i get a new url? ",e.target.value);
 
 cljs.core.println.call(null,"updlength: ",updlength);
 
