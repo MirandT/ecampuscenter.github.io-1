@@ -26,7 +26,6 @@ htmlms.techsmithrelay.get_id_from_url = (function htmlms$techsmithrelay$get_id_f
 
 return clojure.string.replace_first.call(null,u,"https://boisestate.techsmithrelay.com/","");
 });
-cljs.core.println.call(null,htmlms.techsmithrelay.get_id_from_url.call(null,"https://boisestate.techsmithrelay.com/TB3U"));
 htmlms.techsmithrelay.r = cognitect.transit.reader.call(null,new cljs.core.Keyword(null,"json","json",1279968570));
 htmlms.techsmithrelay.timeout = (function htmlms$techsmithrelay$timeout(ms){
 var c = cljs.core.async.chan.call(null);
@@ -107,7 +106,7 @@ return null;
 });
 htmlms.techsmithrelay.ifriendly = (function htmlms$techsmithrelay$ifriendly(url){
 
-return clojure.string.replace_first.call(null,clojure.string.replace_first.call(null,url,"boisestate.techsmithrelay.com/","boisestate.techsmithrelay.com/connector/embed/index/"),"https:","");
+return clojure.string.replace_first.call(null,url,"boisestate.techsmithrelay.com/","boisestate.techsmithrelay.com/connector/embed/index/");
 });
 htmlms.techsmithrelay.fluff = (function htmlms$techsmithrelay$fluff(skinny,width,height,length,title){
 return [cljs.core.str.cljs$core$IFn$_invoke$arity$1("<p>Click the <strong>Play</strong> icon to begin.</p>\n<p><iframe width=\""),cljs.core.str.cljs$core$IFn$_invoke$arity$1(width),cljs.core.str.cljs$core$IFn$_invoke$arity$1("\" height=\""),cljs.core.str.cljs$core$IFn$_invoke$arity$1(height),cljs.core.str.cljs$core$IFn$_invoke$arity$1("\" src=\""),cljs.core.str.cljs$core$IFn$_invoke$arity$1(htmlms.techsmithrelay.ifriendly.call(null,skinny)),cljs.core.str.cljs$core$IFn$_invoke$arity$1("\" scrolling=\"no\" style=\"width: "),cljs.core.str.cljs$core$IFn$_invoke$arity$1(width),cljs.core.str.cljs$core$IFn$_invoke$arity$1(";height: "),cljs.core.str.cljs$core$IFn$_invoke$arity$1(height),cljs.core.str.cljs$core$IFn$_invoke$arity$1(" border:0;\" frameBorder=\"0\" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe></p>\n<p>If video doesn't appear, follow this direct link:\n<a href=\""),cljs.core.str.cljs$core$IFn$_invoke$arity$1(skinny),cljs.core.str.cljs$core$IFn$_invoke$arity$1("\" title=\""),cljs.core.str.cljs$core$IFn$_invoke$arity$1(title),cljs.core.str.cljs$core$IFn$_invoke$arity$1("\" target=\"_blank\">"),cljs.core.str.cljs$core$IFn$_invoke$arity$1(title),cljs.core.str.cljs$core$IFn$_invoke$arity$1("</a> ("),cljs.core.str.cljs$core$IFn$_invoke$arity$1(length),cljs.core.str.cljs$core$IFn$_invoke$arity$1(")</p><p>Start the video to access more options in the video frame. To access the <strong>closed captions</strong> for this video click on the\n       <strong>CC</strong> button in the toolbar at the bottom of the video. To expand the video, click the <strong>Full Screen icon</strong> in the toolbar at the bottom of the video.</p>\n")].join('');
