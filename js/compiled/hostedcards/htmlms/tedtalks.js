@@ -25,6 +25,8 @@ htmlms.tedtalks.initial_length = cljs.core.atom.call(null,new cljs.core.Persiste
 }
 htmlms.tedtalks.intervalobj = goog.date.Interval.fromIsoString.call(null,new cljs.core.Keyword(null,"initlength","initlength",768389849).cljs$core$IFn$_invoke$arity$1(cljs.core.deref.call(null,htmlms.tedtalks.initial_length)));
 htmlms.tedtalks.get_id_from_url = (function htmlms$tedtalks$get_id_from_url(u){
+console.log([cljs.core.str.cljs$core$IFn$_invoke$arity$1("47: u url: "),cljs.core.str.cljs$core$IFn$_invoke$arity$1(u)].join(''));
+
 
 return u;
 });
@@ -61,6 +63,8 @@ return cb.call(null,xhr.getResponseText());
 }));
 });
 htmlms.tedtalks.xhr_data_ted = (function htmlms$tedtalks$xhr_data_ted(url,content){
+console.log([cljs.core.str.cljs$core$IFn$_invoke$arity$1("url: "),cljs.core.str.cljs$core$IFn$_invoke$arity$1(url)].join(''));
+
 return goog.net.XhrIo.send.call(null,[cljs.core.str.cljs$core$IFn$_invoke$arity$1(url)].join(''),htmlms.tedtalks.receiver,"GET",content);
 });
 htmlms.tedtalks.calc_bmi = (function htmlms$tedtalks$calc_bmi(bmi_data){
@@ -82,20 +86,32 @@ return cljs.core.assoc.call(null,data,new cljs.core.Keyword(null,"width","width"
 });
 htmlms.tedtalks.slider = (function htmlms$tedtalks$slider(bmi_data,param,value,min,max){
 return sablono.interpreter.create_element.call(null,"input",({"type": "text", "value": value, "min": min, "max": max, "style": ({"width": "100%"}), "onChange": (function (e){
+e.persist();
+
 cljs.core.swap_BANG_.call(null,bmi_data,cljs.core.assoc,param,e.target.value);
 
 if(cljs.core._EQ_.call(null,param,new cljs.core.Keyword(null,"yurl","yurl",182188908))){
-htmlms.tedtalks.xhr_data.call(null,[cljs.core.str.cljs$core$IFn$_invoke$arity$1(htmlms.tedtalks.get_id_from_url.call(null,e.target.value))].join(''),(function (g){
+htmlms.tedtalks.xhr_data.call(null,[cljs.core.str.cljs$core$IFn$_invoke$arity$1(e.target.value)].join(''),(function (g){
+console.log("testing time");
+
+htmlms.tedtalks.lengthdom = domina.attr.call(null,domina.xpath.xpath.call(null,g,"//*[@id=\"shoji\"]/div[2]/div/div[2]/div/meta[3]"),"content");
+
+console.log(htmlms.tedtalks.lengthdom);
+
 var response = g.target;
-var updlength = domina.text.call(null,domina.xpath.xpath.call(null,g,"//*[@id=\"player-hero\"]/div[1]/div[2]/div/span[1]"));
-var updtitle = domina.text.call(null,domina.xpath.xpath.call(null,g,"//*[@id=\"player-hero\"]/div[1]/div[2]/h1/div[2]/span"));
-cljs.core.swap_BANG_.call(null,bmi_data,cljs.core.assoc,new cljs.core.Keyword(null,"length","length",588987862),updlength);
+var updlength = [cljs.core.str.cljs$core$IFn$_invoke$arity$1(htmlms.tedtalks.lengthdom)].join('');
+var updtitle = domina.attr.call(null,domina.xpath.xpath.call(null,g,"//*[@id=\"shoji\"]/div[2]/div/div[2]/div/meta[1]"),"content");
+cljs.core.swap_BANG_.call(null,bmi_data,cljs.core.assoc,new cljs.core.Keyword(null,"length","length",588987862),(function (){var me = goog.date.Interval.fromIsoString.call(null,updlength);
+return [cljs.core.str.cljs$core$IFn$_invoke$arity$1((((me.hours > (0)))?[cljs.core.str.cljs$core$IFn$_invoke$arity$1(me.hours),cljs.core.str.cljs$core$IFn$_invoke$arity$1("h ")].join(''):null)),cljs.core.str.cljs$core$IFn$_invoke$arity$1(me.minutes),cljs.core.str.cljs$core$IFn$_invoke$arity$1("m "),cljs.core.str.cljs$core$IFn$_invoke$arity$1(me.seconds),cljs.core.str.cljs$core$IFn$_invoke$arity$1("s")].join('');
+})());
 
 cljs.core.swap_BANG_.call(null,htmlms.tedtalks.initial_length,cljs.core.assoc,new cljs.core.Keyword(null,"initlength","initlength",768389849),updlength);
 
 cljs.core.println.call(null,":initlength: ",new cljs.core.Keyword(null,"initlength","initlength",768389849).cljs$core$IFn$_invoke$arity$1(cljs.core.deref.call(null,htmlms.tedtalks.initial_length)));
 
-return cljs.core.swap_BANG_.call(null,bmi_data,cljs.core.assoc,new cljs.core.Keyword(null,"title","title",636505583),updtitle);
+cljs.core.swap_BANG_.call(null,bmi_data,cljs.core.assoc,new cljs.core.Keyword(null,"title","title",636505583),updtitle);
+
+return cljs.core.println.call(null,"can i get a new url? ",e.target.value);
 }));
 } else {
 }
@@ -113,10 +129,12 @@ return null;
 });
 htmlms.tedtalks.ifriendly = (function htmlms$tedtalks$ifriendly(url){
 
-return clojure.string.replace_first.call(null,clojure.string.replace_first.call(null,clojure.string.replace_first.call(null,url,"www.ted.com/talks","embed-ssl.ted.com/talks/lang/en"),"https:",""),"http:","");
+console.log([cljs.core.str.cljs$core$IFn$_invoke$arity$1("ifriendlyurl: "),cljs.core.str.cljs$core$IFn$_invoke$arity$1(url)].join(''));
+
+return clojure.string.replace_first.call(null,clojure.string.replace_first.call(null,url,"www.ted.com/talks","embed-ssl.ted.com/talks"),"http:","https:");
 });
 htmlms.tedtalks.fluff = (function htmlms$tedtalks$fluff(skinny,width,height,length,title){
-return [cljs.core.str.cljs$core$IFn$_invoke$arity$1("<p>Click the <strong>Play</strong> icon to begin.</p>\n<p><iframe width=\""),cljs.core.str.cljs$core$IFn$_invoke$arity$1(width),cljs.core.str.cljs$core$IFn$_invoke$arity$1("\" height=\""),cljs.core.str.cljs$core$IFn$_invoke$arity$1(height),cljs.core.str.cljs$core$IFn$_invoke$arity$1("\" src=\""),cljs.core.str.cljs$core$IFn$_invoke$arity$1(htmlms.tedtalks.ifriendly.call(null,skinny)),cljs.core.str.cljs$core$IFn$_invoke$arity$1("\" frameBorder=\"0\" scrolling=\"no\" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe></p>\n<p>If video doesn't appear, follow this direct link:\n<a href=\""),cljs.core.str.cljs$core$IFn$_invoke$arity$1(skinny),cljs.core.str.cljs$core$IFn$_invoke$arity$1("\" title=\""),cljs.core.str.cljs$core$IFn$_invoke$arity$1(title),cljs.core.str.cljs$core$IFn$_invoke$arity$1("\" target=\"_blank\">"),cljs.core.str.cljs$core$IFn$_invoke$arity$1(title),cljs.core.str.cljs$core$IFn$_invoke$arity$1("</a> ("),cljs.core.str.cljs$core$IFn$_invoke$arity$1(length),cljs.core.str.cljs$core$IFn$_invoke$arity$1(")</p><p>Start the video to access more options in the video frame. To display the video captions, click on the <strong>gray speech bubble</strong> with three dots in the center and choose the language you want the captions to be displayed in. To expand the video, use the <strong>Full Screen</strong> icon in the bottom right-hand corner or use the direct link above to open the video on the TED website. To navigate the video using the transcript, click <strong>Interactive Transcript</strong>.</p>\n")].join('');
+return [cljs.core.str.cljs$core$IFn$_invoke$arity$1("<p>Click the <strong>Play</strong> icon to begin.</p>\n<p><iframe width=\""),cljs.core.str.cljs$core$IFn$_invoke$arity$1(width),cljs.core.str.cljs$core$IFn$_invoke$arity$1("\" height=\""),cljs.core.str.cljs$core$IFn$_invoke$arity$1(height),cljs.core.str.cljs$core$IFn$_invoke$arity$1("\" src=\""),cljs.core.str.cljs$core$IFn$_invoke$arity$1(htmlms.tedtalks.ifriendly.call(null,skinny)),cljs.core.str.cljs$core$IFn$_invoke$arity$1("\" frameBorder=\"0\" scrolling=\"no\" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe></p>\n<p>If video doesn't appear, follow this direct link:\n<a href=\""),cljs.core.str.cljs$core$IFn$_invoke$arity$1(clojure.string.replace_first.call(null,skinny,"http:","https:")),cljs.core.str.cljs$core$IFn$_invoke$arity$1("\" title=\""),cljs.core.str.cljs$core$IFn$_invoke$arity$1(title),cljs.core.str.cljs$core$IFn$_invoke$arity$1("\" target=\"_blank\">"),cljs.core.str.cljs$core$IFn$_invoke$arity$1(title),cljs.core.str.cljs$core$IFn$_invoke$arity$1("</a> ("),cljs.core.str.cljs$core$IFn$_invoke$arity$1(length),cljs.core.str.cljs$core$IFn$_invoke$arity$1(")</p><p>Start the video to access more options in the video frame. To display the video captions, click on the <strong>gray speech bubble</strong> with three dots in the center and choose the language you want the captions to be displayed in. To expand the video, use the <strong>Full Screen</strong> icon in the bottom right-hand corner or use the direct link above to open the video on the TED website. To navigate the video using the transcript, click <strong>Interactive Transcript</strong>.</p>\n")].join('');
 });
 htmlms.tedtalks.get_data = (function htmlms$tedtalks$get_data(bmi_data,param,value,min,max){
 return sablono.interpreter.create_element.call(null,"input",({"type": "text", "min": min, "max": max, "style": ({"width": "100%"}), "value": value, "onChange": (function (e){
@@ -135,7 +153,7 @@ return null;
 })}));
 });
 htmlms.tedtalks.htmloutvisual = (function htmlms$tedtalks$htmloutvisual(bmi_data,param,value,width,height,min,max,length,title){
-return React.createElement("div",null,React.createElement("p",({"style": ({"fontSize": ".8em"})}),"Click the ",React.createElement("strong",null,"Play")," icon to begin."),React.createElement("iframe",({"width": width, "height": height, "src": htmlms.tedtalks.ifriendly.call(null,[cljs.core.str.cljs$core$IFn$_invoke$arity$1(value),cljs.core.str.cljs$core$IFn$_invoke$arity$1("?rel=0")].join('')), "frameborder": (0), "allowfullscreen": null, "onChange": (function (e){
+return React.createElement("div",null,React.createElement("p",({"style": ({"fontSize": ".8em"})}),"Click the ",React.createElement("strong",null,"Play")," icon to begin."),React.createElement("iframe",({"width": width, "height": height, "src": htmlms.tedtalks.ifriendly.call(null,[cljs.core.str.cljs$core$IFn$_invoke$arity$1(value)].join('')), "frameBorder": (0), "allowFullScreen": null, "onChange": (function (e){
 cljs.core.swap_BANG_.call(null,bmi_data,cljs.core.assoc,param,e.target.value);
 
 if(cljs.core.not_EQ_.call(null,param,new cljs.core.Keyword(null,"bmi","bmi",1421979636))){
@@ -166,9 +184,9 @@ var vec__26204 = ((((bmi > .562)) && ((bmi < .563)))?new cljs.core.PersistentVec
 ));
 var color = cljs.core.nth.call(null,vec__26204,(0),null);
 var diagnose = cljs.core.nth.call(null,vec__26204,(1),null);
-return React.createElement("div",null,React.createElement("h3",null,"Parameters"),React.createElement("div",null,(function (){var attrs26210 = [cljs.core.str.cljs$core$IFn$_invoke$arity$1("url: "),cljs.core.str.cljs$core$IFn$_invoke$arity$1(yurl)].join('');
+return React.createElement("div",null,React.createElement("h3",null,"Parameters"),React.createElement("div",null,(function (){var attrs26210 = [cljs.core.str.cljs$core$IFn$_invoke$arity$1("url: "),cljs.core.str.cljs$core$IFn$_invoke$arity$1(clojure.string.replace_first.call(null,yurl,"http:","https:"))].join('');
 return cljs.core.apply.call(null,React.createElement,"span",((cljs.core.map_QMARK_.call(null,attrs26210))?sablono.interpreter.attributes.call(null,attrs26210):null),((cljs.core.map_QMARK_.call(null,attrs26210))?null:new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [sablono.interpreter.interpret.call(null,attrs26210)], null)));
-})(),sablono.interpreter.interpret.call(null,htmlms.tedtalks.slider.call(null,bmi_data,new cljs.core.Keyword(null,"yurl","yurl",182188908),yurl,(0),(100)))),React.createElement("div",null,(function (){var attrs26211 = [cljs.core.str.cljs$core$IFn$_invoke$arity$1("width: "),cljs.core.str.cljs$core$IFn$_invoke$arity$1((width | (0))),cljs.core.str.cljs$core$IFn$_invoke$arity$1("px")].join('');
+})(),sablono.interpreter.interpret.call(null,htmlms.tedtalks.slider.call(null,bmi_data,new cljs.core.Keyword(null,"yurl","yurl",182188908),clojure.string.replace_first.call(null,yurl,"http:","https:"),(0),(100)))),React.createElement("div",null,(function (){var attrs26211 = [cljs.core.str.cljs$core$IFn$_invoke$arity$1("width: "),cljs.core.str.cljs$core$IFn$_invoke$arity$1((width | (0))),cljs.core.str.cljs$core$IFn$_invoke$arity$1("px")].join('');
 return cljs.core.apply.call(null,React.createElement,"span",((cljs.core.map_QMARK_.call(null,attrs26211))?sablono.interpreter.attributes.call(null,attrs26211):null),((cljs.core.map_QMARK_.call(null,attrs26211))?null:new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [sablono.interpreter.interpret.call(null,attrs26211)], null)));
 })(),sablono.interpreter.interpret.call(null,htmlms.tedtalks.slider.call(null,bmi_data,new cljs.core.Keyword(null,"width","width",-384071477),width,(30),(150)))),React.createElement("div",null,(function (){var attrs26212 = [cljs.core.str.cljs$core$IFn$_invoke$arity$1("height: "),cljs.core.str.cljs$core$IFn$_invoke$arity$1((height | (0))),cljs.core.str.cljs$core$IFn$_invoke$arity$1("px")].join('');
 return cljs.core.apply.call(null,React.createElement,"span",((cljs.core.map_QMARK_.call(null,attrs26212))?sablono.interpreter.attributes.call(null,attrs26212):null),((cljs.core.map_QMARK_.call(null,attrs26212))?null:new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [sablono.interpreter.interpret.call(null,attrs26212)], null)));
